@@ -73,3 +73,26 @@ footer {
   color: #666;
   border-top: 1px solid #ddd;
 }
+.testimonial-summary {
+  margin-bottom: 2em;
+  padding: 1em;
+  border-left: 4px solid #006699;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.testimonial-summary h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.testimonial-summary a {
+  color: #2a2a9e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.testimonial-summary a:hover {
+  text-decoration: underline;
+}
