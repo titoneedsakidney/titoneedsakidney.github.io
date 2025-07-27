@@ -1,0 +1,56 @@
+/* === Base styles === */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+header, footer {
+  background: #333;
+  color: white;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 0.75rem;
+  }
+
+  header, footer {
+    text-align: center;
+  }
+}
