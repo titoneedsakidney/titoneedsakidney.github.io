@@ -232,18 +232,24 @@ ul, ol {
 }
 
 .sub-nav {
+  background-color: #f0f8ff;
+  padding: 0.5rem;
+  border-radius: 5px;
   text-align: center;
   margin-bottom: 1rem;
 }
+
 .sub-nav a {
-  color: var(--color-secondary);
   margin: 0 0.5rem;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
+  color: var(--color-primary);
 }
+
 .sub-nav a:hover {
   color: var(--color-accent);
-  text-decoration: underline;
+}
+
 }
 /* === Disclaimer === */
 .disclaimer {
