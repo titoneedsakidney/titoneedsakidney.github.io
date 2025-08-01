@@ -1,19 +1,28 @@
 function includeHTML() {
   const elements = document.querySelectorAll('[data-include]');
+  const promises = [];
+
   elements.forEach(el => {
     const file = el.getAttribute('data-include');
-    fetch(file)
-      .then(res => {
-        if (res.ok) return res.text();
-        throw new Error(`Could not fetch ${file}`);
-      })
-      .then(data => {
-        el.innerHTML = data;
-      })
-      .catch(err => {
-        el.innerHTML = `<div style="color: red;">${err.message}</div>`;
-      });
+    if (file) {
+      promises.push(
+        fetch(file)
+          .then(response => response.text())
+          .then(data => {
+            el.innerHTML = data;
+            el.removeAttribute('data-include');
+          })
+      );
+    }
+  });
+
+  // After all includes are done, run again to catch nested includes
+  Promise.all(promises).then(() => {
+    if (document.querySelector('[data-include]')) {
+      includeHTML();
+    }
   });
 }
 
-window.addEventListener('DOMContentLoaded', includeHTML);
+document.addEventListener('DOMContentLoaded', includeHTML);
+
