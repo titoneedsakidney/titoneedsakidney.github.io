@@ -245,4 +245,15 @@ ul, ol {
   color: var(--color-accent);
   text-decoration: underline;
 }
+/* === Disclaimer === */
+.disclaimer {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 
