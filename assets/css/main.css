@@ -341,9 +341,16 @@ a:hover { text-decoration-thickness: .14em; }
 .button--primary { background: var(--cta); color: var(--cta-contrast); }
 .button--primary:hover { background: var(--cta-hover); }
 
-/* bump secondary button contrast a bit */
-.button--secondary { border-color: var(--color-secondary); color: var(--color-secondary); }
-.button--secondary:hover { background: color-mix(in srgb, var(--color-secondary) 16%, white); }
+/* filled secondary */
+.button--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+.button--secondary:hover {
+  filter: brightness(.92);
+}
+
 
 
 .button--ghost { background: transparent; color: var(--color-primary); }

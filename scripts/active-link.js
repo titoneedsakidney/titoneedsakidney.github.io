@@ -34,18 +34,20 @@
         }
       });
 
-      // Fallback: prefix match when no exact hit in this nav
-      if (!exactHit) {
-        nav.querySelectorAll('a[data-prefix]').forEach(a => {
-          const p = a.getAttribute('data-prefix');
-          if (!p) return;
-          const prefix = norm(new URL(p, location.origin).pathname);
-          if (here.startsWith(prefix)) {
-            a.classList.add('active');
-            a.setAttribute('aria-current', 'page');
-          }
-        });
-      }
+// 2) Fallback prefix match (pick the single longest match)
+if (!exactHit) {
+  var best = null, bestLen = -1;
+  nav.querySelectorAll('a[data-prefix]').forEach(function(a){
+    var prefix = (a.getAttribute('data-prefix') || '').replace(/index\.html$/, '');
+    if (prefix && here.startsWith(prefix) && prefix.length > bestLen) {
+      best = a; bestLen = prefix.length;
+    }
+  });
+  if (best) {
+    best.classList.add('active');
+    best.setAttribute('aria-current', 'page');
+  }
+}
     });
   };
 
