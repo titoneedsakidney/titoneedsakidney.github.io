@@ -397,3 +397,10 @@ body.no-cta .cta-sitewide { display: none; }
   background:#fff; padding:.5rem .75rem; border:2px solid #000; z-index:1000;
 }
 
+
+/* Mobile: tidy sub-nav pills */
+@media (max-width: 520px){
+  .sub-nav .pipe { display: none; }
+  .sub-nav a { margin: .2rem .25rem; }
+  .sub-nav { padding: .5rem .6rem; }
+}
