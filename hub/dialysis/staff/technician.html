@@ -8,10 +8,10 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-JHT0DBJBHH');
+      gtag('config', 'G-JHT0DBJBHH', { transport_type: 'beacon' });
     </script>
 
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dialysis Technician / Patient Care Technician (PCT)</title>
 
@@ -21,13 +21,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Site CSS (root-absolute, same as other pages) -->
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <!-- Include loader (one level deeper than side-effects.html) -->
-    <script src="/scripts/include.js" defer></script>
   <script src="/scripts/include.js" defer></script>
   <script src="/scripts/active-link.js" defer></script>
-  </head>
+  <script src="/scripts/include.js" defer></script>
+  <script src="/scripts/active-link.js" defer></script>
+</head>
   <body>
     <!-- Header include (one level deeper) -->
     <div data-include="/includes/header.html"></div>
@@ -85,6 +86,6 @@
     <!-- Footer include (one level deeper) -->
     <div data-include="/includes/footer.html"></div>
   <script src="/scripts/analytics.js" defer></script>
-  </body>
+</body>
 </html>
 

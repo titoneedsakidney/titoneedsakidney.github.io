@@ -9,18 +9,22 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-JHT0DBJBHH');
+  gtag('config', 'G-JHT0DBJBHH', { transport_type: 'beacon' });
 </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tito Needs a Kidney</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <script src="/scripts/include.js" defer></script>
+  <script src="/scripts/active-link.js" defer></script>
+  <script src="/scripts/include.js" defer></script>
+  <script src="/scripts/active-link.js" defer></script>
 </head>
 <body>
-  <div data-include="includes/header.html"></div>
+  <div data-include="/includes/header.html"></div>
   
   
 
@@ -51,7 +55,7 @@
     <p>Everything here is organized so you don’t have to feel overwhelmed. Take what helps. Leave what doesn’t. Ask for more if something’s missing.</p>
   </main>
 
-  <div data-include="includes/footer.html"></div>
+  <div data-include="/includes/footer.html"></div>
   <script src="scripts/include.js"></script>
   <script src="/scripts/analytics.js" defer></script>
 </body>
