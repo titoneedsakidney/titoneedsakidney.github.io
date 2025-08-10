@@ -231,25 +231,6 @@ ul, ol {
   }
 }
 
-.sub-nav {
-  background-color: #f0f8ff;
-  padding: 0.5rem;
-  border-radius: 5px;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.sub-nav a {
-  margin: 0 0.5rem;
-  text-decoration: none;
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-.sub-nav a:hover {
-  color: var(--color-accent);
-}
-
 }
 /* === Disclaimer === */
 .disclaimer {
@@ -263,5 +244,83 @@ ul, ol {
   line-height: 1.4;
 }
 
-.sub-nav a.active { font-weight: 700; text-decoration: underline; }
+/* Sub-nav container */
+.sub-nav {
+  --accent: #0f6fff;            /* tweak to match your brand */
+  --ink: #123;                  /* link/base text */
+  --muted: #8aa3bd;            /* separators */
+  background: #eef7ff;
+  border: 1px solid #cfe3f7;
+  border-radius: 10px;
+  padding: .5rem .75rem;
+  margin: 1rem 0;
+}
+
+/* Links */
+.sub-nav a {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .35rem .6rem;
+  border-radius: 9999px;        /* pill shape */
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+/* Hover/focus */
+.sub-nav a:hover,
+.sub-nav a:focus-visible {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  outline: none;
+}
+
+/* Current page — works with .active OR aria-current OR .is-active */
+.sub-nav a.active,
+.sub-nav a.is-active,
+.sub-nav a[aria-current="page"] {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 0 2px #fff, 0 1px 3px rgba(0,0,0,.12);
+}
+
+/* De-emphasize pipes if you keep them in markup */
+.sub-nav .pipe { color: var(--muted); opacity: .85; padding: 0 .35rem; }
+
+/* Accessibility nicety */
+@media (prefers-contrast: more) {
+  .sub-nav a[aria-current="page"] { box-shadow: 0 0 0 3px #fff; }
+}
+
+/* === Layout upgrades (paste near END of file) === */
+
+/* Make the header nav behave nicely on one or multiple lines */
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  header nav { justify-content: flex-start; }
+}
+
+/* Site-wide link readability (won’t affect header links, since those are no-underline) */
+a { text-underline-offset: .15em; }
+a:hover { text-decoration-thickness: .14em; }
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Make sub-nav stick on scroll */
+.sub-nav {
+  position: sticky;
+  top: 0;              /* if you ever make the header sticky, set this to the header height */
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  /* Optional: let the blur show through by using a translucent bg instead of solid */
+  /* background: rgba(238, 247, 255, 0.85); */
+}
 

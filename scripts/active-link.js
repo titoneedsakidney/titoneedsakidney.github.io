@@ -1,32 +1,58 @@
 // /scripts/active-link.js
 (function highlightActiveLinks() {
-  var here = location.pathname.replace(/index\.html$/, '');
-  var navs = document.querySelectorAll('nav.js-active-nav');
-  if (!navs.length) { return setTimeout(highlightActiveLinks, 50); } // wait for includes
+  // Normalize a path: strip index.html, trailing slash (except root)
+  function norm(pathname) {
+    return pathname
+      .replace(/index\.html$/i, '')
+      .replace(/\/+$/, pathname === '/' ? '/' : '');
+  }
 
-  navs.forEach(function(nav){
-    var exactHit = false;
+  const here = norm(location.pathname);
 
-    // 1) Exact match pass
-    nav.querySelectorAll('a').forEach(function(a){
-      var href = (a.getAttribute('href') || '').replace(/index\.html$/, '');
-      if (href && href === here) {
-        a.classList.add('active');
-        a.setAttribute('aria-current', 'page');
-        exactHit = true;
-      }
-    });
+  // Wait for includes to land without spin-waiting forever
+  const run = () => {
+    const navs = document.querySelectorAll('nav.js-active-nav');
+    if (!navs.length || !document.querySelector('nav.js-active-nav a')) {
+      return setTimeout(run, 60);
+    }
 
-    // 2) Fallback prefix match (only if no exact match in this nav)
-    if (!exactHit) {
-      nav.querySelectorAll('a[data-prefix]').forEach(function(a){
-        var prefix = a.getAttribute('data-prefix');
-        if (prefix && here.startsWith(prefix)) {
+    navs.forEach(nav => {
+      let exactHit = false;
+
+      nav.querySelectorAll('a[href]').forEach(a => {
+        // Ignore off-origin links
+        const u = new URL(a.getAttribute('href'), location.origin);
+        if (u.origin !== location.origin) return;
+
+        const hrefPath = norm(u.pathname);
+
+        // Exact match first
+        if (hrefPath === here) {
           a.classList.add('active');
           a.setAttribute('aria-current', 'page');
+          exactHit = true;
         }
       });
-    }
-  });
+
+      // Fallback: prefix match when no exact hit in this nav
+      if (!exactHit) {
+        nav.querySelectorAll('a[data-prefix]').forEach(a => {
+          const p = a.getAttribute('data-prefix');
+          if (!p) return;
+          const prefix = norm(new URL(p, location.origin).pathname);
+          if (here.startsWith(prefix)) {
+            a.classList.add('active');
+            a.setAttribute('aria-current', 'page');
+          }
+        });
+      }
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
 })();
 
