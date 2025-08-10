@@ -1,0 +1,30 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#b24c63" />
+
+<!-- Per-page <title> and <meta name="description"> can still be set above this include -->
+<meta property="og:site_name" content="Tito Needs a Kidney" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/assets/images/og-default.png" />
+<meta property="og:image:alt" content="Cover of 'Tito Needs a Kidney' with the tagline: clear kidney care guides." />
+
+<script>
+(function () {
+  const path = location.pathname.replace(/index\.html$/,'');
+  const canon = document.querySelector('link[rel="canonical"]') || document.head.appendChild(document.createElement('link'));
+  canon.rel = 'canonical'; canon.href = location.origin + path;
+
+  const title = document.title || 'Tito Needs a Kidney';
+  const descTag = document.querySelector('meta[name="description"]');
+  const desc = descTag ? descTag.content : 'Clear, no-fluff guides on dialysis, transplant, and living donation.';
+
+  const set = (p, v) => {
+    let m = document.querySelector(`meta[property="${p}"]`) || document.head.appendChild(document.createElement('meta'));
+    m.setAttribute('property', p); m.setAttribute('content', v);
+  };
+  set('og:title', title);
+  set('og:description', desc);
+  set('og:url', canon.href);
+})();
+</script>
+
