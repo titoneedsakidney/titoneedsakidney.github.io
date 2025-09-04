@@ -1,0 +1,24 @@
+* [33m108efbc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m testimonial subnav
+*   [33m967913a[m Merge branch 'feature/es-site'
+[32m|[m[33m\[m  
+[32m|[m [33m|[m * [33mf7eae93[m[33m ([m[1;31morigin/main[m[33m)[m Merge pull request #1 from titoneedsakidney/feature/es-site
+[32m|[m [33m|[m[32m/[m[33m|[m 
+[32m|[m[32m/[m[33m|[m[33m/[m  
+[32m|[m * [33m0b42f76[m[33m ([m[1;31morigin/feature/es-site[m[33m, [m[1;32mfeature/es-site[m[33m)[m translated transplant hub minus staff
+[32m|[m * [33m92079aa[m translated donation hub
+[32m|[m * [33m9f9c39b[m translated dialysis hub
+[32m|[m * [33md0aca7e[m  translated testimonials
+[32m|[m * [33m43d2877[m main pages translation
+[32m|[m * [33mfede6b5[m includes_es translations
+[32m|[m * [33m54dd228[m Remove mirrored CNAME/robots/sitemap from /es
+[32m|[m * [33m8ddc4ac[m es site
+[32m|[m[32m/[m  
+* [33m485eaf1[m remove start here
+* [33mc2cde84[m testimonial subnav, see also, transplant hub links
+* [33mbad5ef1[m FINAL PHASE 0
+* [33me684111[m phase 0 end
+* [33m4793fe2[m phase 0 is done
+* [33m49f69a7[m maybe phase 0 is done
+* [33m0dce2cd[m phase 0 content done
+* [33ma628861[m phase 0 content done
+* [33m4f308f0[m preop
