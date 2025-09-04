@@ -68,6 +68,53 @@
       </p>
       <a href="/book.html" class="button">📖 Read the Book</a>
     </section>
+    <section id="share-your-story" class="contact callout">
+  <h2>Share your story</h2>
+  <p>
+    Are you a donor, recipient, or caregiver? Your experience can help others.
+    Send me an email with a short summary and, if you’d like, a photo.
+  </p>
+
+  <div class="stack">
+    <a id="email-share-en" class="button button--primary">✉️ Email your story</a>
+    <details>
+      <summary>What to include (quick guide)</summary>
+      <ul>
+        <li>Name and how you want it shown (full name, initials, or anonymous)</li>
+        <li>Role: donor / recipient / caregiver</li>
+        <li>City &amp; country (optional)</li>
+        <li>Your story in 3–5 sentences</li>
+        <li>May we publish your name? Yes/No</li>
+        <li>Optional photo(s)</li>
+      </ul>
+      <p class="muted">
+        By sending your story, you confirm you have permission to share the content and consent to light editing for clarity and length.
+      </p>
+    </details>
+  </div>
+
+  <script>
+  (function(){
+    var email = 'tito' + '@' + 'discoverflx.wine';
+
+    var subj = encodeURIComponent("I'd like to share my story (donation/dialysis/transplant)");
+    var body = encodeURIComponent(
+      'Name (and how to display it):\n' +
+      'Role (donor/recipient/caregiver):\n' +
+      'City/Country (optional):\n' +
+      'Your story (3–5 sentences):\n' +
+      'May we publish your name? (Yes/No):\n'
+    );
+
+    var a = document.getElementById('email-share-en');
+    if (a) {
+      a.href = 'mailto:' + email + '?subject=' + subj + '&body=' + body;
+      a.setAttribute('aria-label', 'Email ' + email);
+    }
+  })();
+  </script>
+</section>
+
   </main>
   <div data-include="/includes/footer.html"></div>
   <script src="/scripts/analytics.js" defer></script>
