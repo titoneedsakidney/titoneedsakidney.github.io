@@ -294,16 +294,28 @@ ul, ol {
 
 /* === Layout upgrades (paste near END of file) === */
 
-/* Make the header nav behave nicely on one or multiple lines */
+/* Make the whole header a flex container */
+header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Keep nav working like before */
 header nav {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem 1rem;
   justify-content: center;
+  flex-grow: 1; /* let nav expand and push the lang switch over */
 }
-@media (max-width: 600px) {
-  header nav { justify-content: flex-start; }
+
+/* Push the language toggle to the right */
+.lang-switch {
+  margin-left: auto;
 }
+
 
 /* Site-wide link readability (won’t affect header links, since those are no-underline) */
 a { text-underline-offset: .15em; }
@@ -404,3 +416,4 @@ body.no-cta .cta-sitewide { display: none; }
   .sub-nav a { margin: .2rem .25rem; }
   .sub-nav { padding: .5rem .6rem; }
 }
+
