@@ -476,4 +476,37 @@ body.no-cta .cta-sitewide { display: none; }
   .lang-switch a { padding: .45rem .7rem; }
 }
 
+/* DEBUG: force-visible language pills */
+header .lang-switch {
+  display: flex !important;
+  align-items: center !important;
+  gap: .5rem !important;
+  margin-left: auto !important;
+}
+header .lang-switch a {
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  padding: .35rem .65rem !important;
+  border: 2px solid #fff !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transition: background .15s ease, color .15s ease !important;
+}
+header .lang-switch a:hover,
+header .lang-switch a:focus-visible {
+  background: rgba(255,255,255,.18) !important;
+  outline: none !important;
+}
+header .lang-switch a.active,
+header .lang-switch a[aria-current="true"] {
+  background: #fff !important;
+  color: var(--color-primary) !important;
+  border-color: #fff !important;
+}
+header .lang-switch span[aria-hidden="true"] {
+  color: rgba(255,255,255,.75) !important;
+}
 
