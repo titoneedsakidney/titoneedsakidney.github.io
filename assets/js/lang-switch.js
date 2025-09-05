@@ -1,47 +1,57 @@
 // /assets/js/lang-switch.js
 (function () {
-  function normalize(p) {
+  function norm(p) {
     p = p || "/";
     if (p === "/index.html") p = "/";
     if (p === "/es/index.html") p = "/es/";
-    p = p.replace(/\/{2,}/g, "/");
-    if (p !== "/" && p !== "/es/" && p.endsWith("/")) p = p.slice(0, -1);
-    return p;
+    return p.replace(/\/{2,}/g, "/");
+  }
+  function stripEs(p) { return p.replace(/^\/es(\/|$)/, "/"); }
+
+  function computeTargets() {
+    var p = norm(location.pathname);
+    var isES = p.startsWith("/es/");
+    var enHref = isES ? (stripEs(p) || "/") : (p || "/");
+    var esHref = isES ? p : (p === "/" ? "/es/" : "/es" + p);
+    return { p, isES, enHref, esHref };
   }
 
-  function targetFor(lang) {
-    const p = normalize(location.pathname);
-    const isES = p.startsWith("/es/");
-    if (lang === "es") {
-      if (isES) return p;
-      return p === "/" ? "/es/" : "/es" + p;
-    } else {
-      // English
-      if (isES) {
-        const newPath = p.replace(/^\/es(\/|$)/, "/") || "/";
-        return newPath === "" ? "/" : newPath;
-      }
-      return p || "/";
+  function applyTargets() {
+    var links = document.querySelectorAll(".lang-switch a[data-lang]");
+    if (!links.length) {
+      console.warn("[lang] .lang-switch links not found in DOM");
+      return false;
     }
+    var en = document.querySelector('.lang-switch [data-lang="en"]');
+    var es = document.querySelector('.lang-switch [data-lang="es"]');
+    if (!en || !es) {
+      console.warn("[lang] EN/ES link missing");
+      return false;
+    }
+
+    var { p, isES, enHref, esHref } = computeTargets();
+    en.href = enHref;
+    es.href = esHref;
+
+    // Clear then paint active (in case of turbolinks, partial reloads, etc.)
+    [en, es].forEach(a => { a.classList.remove("active"); a.removeAttribute("aria-current"); });
+    (isES ? es : en).classList.add("active");
+    (isES ? es : en).setAttribute("aria-current", "true");
+
+    console.log("[lang] OK",
+      { path: p, isES, EN: enHref, ES: esHref,
+        enInDom: !!en, esInDom: !!es,
+        langSwitchCount: document.querySelectorAll(".lang-switch").length });
+    return true;
   }
 
-  // Click to switch
-  document.addEventListener("click", function (e) {
-    const a = e.target.closest('a[data-lang]');
-    if (!a) return;
-    e.preventDefault();
-    location.assign(targetFor(a.getAttribute("data-lang")));
-  });
+  // Run after DOM is parsed (defensive even with defer)
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyTargets, { once: true });
+  } else {
+    applyTargets();
+  }
 
-  // Mark the active button on load
-  (function markActive() {
-    const isES = normalize(location.pathname).startsWith("/es/");
-    document.querySelectorAll(".lang-switch a").forEach((el) => {
-      const wantsES = el.getAttribute("data-lang") === "es";
-      const active = wantsES ? isES : !isES;
-      el.classList.toggle("active", active);
-      el.setAttribute("aria-current", active ? "true" : "false");
-    });
-  })();
+  // If someone hot-swaps content (PJAX/htmx), expose a manual kick:
+  window.__langSwitchRefresh = applyTargets;
 })();
-
