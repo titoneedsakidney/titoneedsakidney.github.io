@@ -9,6 +9,15 @@ function includeHTML() {
       })
       .then(data => {
         el.innerHTML = data;
+
+        // NEW: execute any <script> tags inside the included file
+        el.querySelectorAll("script").forEach(oldScript => {
+          const s = document.createElement("script");
+          // copy attributes (like src, type, defer, etc.)
+          [...oldScript.attributes].forEach(attr => s.setAttribute(attr.name, attr.value));
+          if (!s.src) s.textContent = oldScript.textContent;
+          oldScript.replaceWith(s); // executes
+        });
       })
       .catch(err => {
         el.innerHTML = `<div style="color: red;">${err.message}</div>`;
@@ -17,3 +26,4 @@ function includeHTML() {
 }
 
 window.addEventListener('DOMContentLoaded', includeHTML);
+

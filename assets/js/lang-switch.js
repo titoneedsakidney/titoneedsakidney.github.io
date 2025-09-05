@@ -8,35 +8,60 @@
   }
   function stripEs(p) { return p.replace(/^\/es(\/|$)/, "/"); }
 
-  function computeTargets() {
-    var p = norm(location.pathname);
-    var isES = p.startsWith("/es/");
-    var enHref = isES ? (stripEs(p) || "/") : (p || "/");
-    var esHref = isES ? p : (p === "/" ? "/es/" : "/es" + p);
-    return { p, isES, enHref, esHref };
-  }
-
   function applyTargets() {
-    var en = document.querySelector('.lang-switch [data-lang="en"]');
-    var es = document.querySelector('.lang-switch [data-lang="es"]');
+    const en = document.querySelector('.lang-switch [data-lang="en"]');
+    const es = document.querySelector('.lang-switch [data-lang="es"]');
     if (!en || !es) return false;
 
-    var s = computeTargets();
-    en.href = s.enHref;
-    es.href = s.esHref;
+    const p = norm(location.pathname);
+    const isES = p.startsWith("/es/");
+    const enHref = isES ? (stripEs(p) || "/") : (p || "/");
+    const esHref = isES ? p : (p === "/" ? "/es/" : "/es" + p);
 
-    // paint active
+    en.href = enHref;
+    es.href = esHref;
+
     [en, es].forEach(a => { a.classList.remove("active"); a.removeAttribute("aria-current"); });
-    (s.isES ? es : en).classList.add("active");
-    (s.isES ? es : en).setAttribute("aria-current", "true");
+    (isES ? es : en).classList.add("active");
+    (isES ? es : en).setAttribute("aria-current", "true");
     return true;
   }
 
-  // Run after DOM is parsed
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyTargets, { once: true });
-  } else {
-    applyTargets();
+  // Wait until .lang-switch exists (handles include loaders)
+  function whenLangSwitchReady(cb, timeoutMs = 4000) {
+    if (document.querySelector('.lang-switch a[data-lang]')) return void cb();
+
+    const obs = new MutationObserver(() => {
+      if (document.querySelector('.lang-switch a[data-lang]')) {
+        obs.disconnect();
+        cb();
+      }
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+
+    // safety timeout (don’t watch forever)
+    setTimeout(() => obs.disconnect(), timeoutMs);
   }
+
+  function init() {
+    // try immediately
+    if (applyTargets()) return;
+
+    // if not present yet, wait for includes to finish
+    whenLangSwitchReady(() => { applyTargets(); });
+  }
+
+  // Re-apply on back/forward navigations (SPA-ish navs, history pops)
+  window.addEventListener('popstate', init);
+
+  // Run as soon as parsing is done (even if defer is used)
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+
+  // expose manual refresh if needed
+  window.__langSwitchRefresh = init;
 })();
 
