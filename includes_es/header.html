@@ -9,52 +9,62 @@
     <a href="/es/donor-testimonials.html">Testimonios de donantes</a>
     <a href="/es/book.html">Libro</a>
   </nav>
-<!-- Language switch: self-contained, visible, and works even without external JS -->
+<!-- Language switch: preserves current path, positions right, paints active -->
 <div class="lang-switch" aria-label="Language">
-  <!-- Fallback hrefs go to home pages; JS below upgrades them to the current page equivalents -->
   <a data-lang="en" href="/" class="chip">EN</a>
   <span aria-hidden="true" class="divider">/</span>
   <a data-lang="es" href="/es/" class="chip">ES</a>
 </div>
 
-<style>
-/* Inline styles so you SEE it even if main.css isn't loading */
-.lang-switch{display:flex;align-items:center;gap:.5rem;margin-left:auto}
-.lang-switch .chip{
-  color:#fff;text-decoration:none;font-weight:700;line-height:1;
-  padding:.35rem .65rem;border:2px solid #fff;border-radius:9999px;
-  display:inline-flex;align-items:center;transition:.15s;
-}
-.lang-switch .chip:hover,.lang-switch .chip:focus-visible{background:rgba(255,255,255,.18);outline:none}
-.lang-switch .chip.active,.lang-switch .chip[aria-current="true"]{
-  background:#fff;color:var(--color-primary,#0b4aa2);border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.5)
-}
-.lang-switch .divider{color:rgba(255,255,255,.75)}
-</style>
+
 
 <script>
-/* Inline logic so it works even if /assets/js/lang-switch.js doesn't load */
+/* Preserve-current-path switcher with robust normalization + active painting */
 (function(){
-  function norm(p){p=p||"/";if(p==="/index.html")p="/";if(p==="/es/index.html")p="/es/";p=p.replace(/\/{2,}/g,"/");if(p!=="/"&&p!=="/es/"&&p.endsWith("/"))p=p.slice(0,-1);return p;}
-  var p=norm(location.pathname), isES=p.startsWith("/es/");
-  // Upgrade hrefs so they preserve the current page path
-  var en=document.querySelector('.lang-switch [data-lang="en"]');
-  var es=document.querySelector('.lang-switch [data-lang="es"]');
-  if(en&&es){
-    en.href = isES ? (p.replace(/^\/es(\/|$)/,"/") || "/") : (p || "/");
-    es.href = isES ? p : (p==="/" ? "/es/" : "/es"+p);
-    // Mark active state for the pills
-    (isES ? es : en).classList.add("active");
-    (isES ? es : en).setAttribute("aria-current","true");
+  function norm(p){
+    p = p || "/";
+    // Keep explicit file paths; only normalize well-known index forms
+    if (p === "/index.html") p = "/";
+    if (p === "/es/index.html") p = "/es/";
+    // collapse accidental doubles
+    p = p.replace(/\/{2,}/g,"/");
+    return p;
   }
-  // Optional: if you STILL want to force a full assign (not necessary since hrefs are real):
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest('.lang-switch a[data-lang]');
-    if(!a) return;
-    // No preventDefault: let the real href do the navigation (works even if JS breaks)
-  });
+  function stripEsPrefix(p){ return p.replace(/^\/es(\/|$)/,"/"); }
+
+  var path = norm(location.pathname);
+  var isES  = path.startsWith("/es/");
+  var en    = document.querySelector('.lang-switch [data-lang="en"]');
+  var es    = document.querySelector('.lang-switch [data-lang="es"]');
+
+  if (en && es) {
+    // Build hrefs that preserve the current page path
+    // EN target: if you’re on /es/foo/bar.html → /foo/bar.html; otherwise stay put
+    var enTarget = isES ? stripEsPrefix(path) : (path || "/");
+    if (enTarget === "") enTarget = "/";
+
+    // ES target: if you’re on /foo/bar.html → /es/foo/bar.html; if already ES, stay put
+    var esTarget = isES ? path : (path === "/" ? "/es/" : "/es" + path);
+
+    en.href = enTarget;
+    es.href = esTarget;
+
+    // Paint active pill
+    var active = isES ? es : en;
+    active.classList.add("active");
+    active.setAttribute("aria-current","true");
+  }
+
+  // Optional: if you prefer JS-driven navigation, uncomment below.
+  // document.addEventListener("click", function(e){
+  //   var a = e.target.closest('.lang-switch a[data-lang]');
+  //   if (!a) return;
+  //   e.preventDefault();
+  //   location.assign(a.getAttribute("href"));
+  // });
 })();
 </script>
+
 
 
 

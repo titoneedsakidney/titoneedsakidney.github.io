@@ -6,7 +6,6 @@ img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
 p, li, blockquote, figcaption { overflow-wrap: anywhere; }
 pre, code, kbd, samp { white-space: pre-wrap; word-break: break-word; }
 
-
 /* === Variables === */
 :root {
   --color-primary: #294d61;     /* Header */
@@ -15,16 +14,21 @@ pre, code, kbd, samp { white-space: pre-wrap; word-break: break-word; }
   --color-secondary: #307985;   /* Links, secondary accents */
   --color-bg: #ffffff;
   --color-text: #222222;
+
+  /* CTA palette */
+  --cta: var(--color-accent);
+  --cta-hover: var(--color-accent-hover);
+  --cta-contrast: #fff;
+  --cta-secondary: var(--color-secondary);
 }
 
 /* === Base === */
 body {
-  margin: 0;
   font-family: 'Open Sans', Arial, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  font-size: 1.1rem; /* Increased base size */
+  font-size: 1.1rem;
 }
 
 .content {
@@ -39,16 +43,11 @@ h1, h2, h3 {
   color: var(--color-primary);
   margin-top: 2rem;
 }
-
-h1 {
-  font-size: 2.2rem;
-}
-
+h1 { font-size: 2.2rem; }
 h2 {
   font-size: 1.8rem;
   position: relative;
 }
-
 h2::after {
   content: '';
   display: block;
@@ -57,387 +56,45 @@ h2::after {
   background-color: var(--color-accent);
   margin-top: 0.5rem;
 }
+h3 { font-size: 1.4rem; }
 
-h3 {
-  font-size: 1.4rem;
-}
-
-/* === Header === */
+/* === Header & Nav === */
 header {
   background-color: var(--color-primary);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-nav {
-  margin-top: 0.5rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 0.75rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--color-accent);
-}
-
-/* === Main Layout === */
-main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-/* === Buttons === */
-.button {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background-color: var(--color-accent);
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: var(--color-accent-hover);
-}
-
-/* === Footer === */
-footer {
-  text-align: center;
-  background-color: #f2f2f2;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  border-top: 1px solid #ddd;
-}
-
-/* === Testimonials === */
-.testimonial-summary {
-  margin-bottom: 2em;
-  padding: 1em;
-  border-left: 4px solid var(--color-accent);
-  background-color: #f9f9f9;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.testimonial-summary h2 {
-  margin: 0;
-  font-size: 1.2em;
-}
-
-.testimonial-summary a {
-  color: var(--color-secondary);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.testimonial-summary a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-
-.testimonial-header {
-  background-color: #f9f4f5;
-  border-left: 4px solid var(--color-accent);
-  padding: 1rem;
-  margin-bottom: 2rem;
-}
-
-.testimonial-header h1 {
-  margin: 0;
-  color: var(--color-primary);
-}
-
-.testimonial-header .intro {
-  font-style: italic;
-  color: #555;
-  margin-top: 0.5rem;
-}
-
-.testimonial-body {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  line-height: 1.8;
-}
-
-.testimonial-author {
-  text-align: right;
-  font-weight: bold;
-  margin-top: 2rem;
-}
-
-
-/* === Call-out Boxes === */
-.callout {
-  background-color: #f9f4f5;
-  border-left: 4px solid var(--color-accent);
-  padding: 1rem;
-  margin: 2rem 0;
-  font-style: italic;
-}
-
-/* === Lists === */
-ul, ol {
-  margin-left: 2rem;
-  line-height: 1.8;
-}
-
-/* === Responsive Mobile === */
-@media (max-width: 600px) {
-  body {
-    font-size: 1.1rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  header, footer {
-    text-align: center;
-    padding: 1rem 0.5rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  nav li {
-    padding: 0.5rem 0;
-  }
-
-/* --- Safe content container --- */
-.content, main, section, article {
-  max-width: 72rem;
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .button {
-    min-height: 44px;
-  }
-}
-
-}
-/* === Disclaimer === */
-.disclaimer {
-  background-color: #fff3cd;
-  color: #856404;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border: 1px solid #ffeeba;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* Sub-nav container */
-.sub-nav {
-  --accent: #0f6fff;            /* tweak to match your brand */
-  --ink: #123;                  /* link/base text */
-  --muted: #8aa3bd;            /* separators */
-  background: #eef7ff;
-  border: 1px solid #cfe3f7;
-  border-radius: 10px;
-  padding: .5rem .75rem;
-  margin: 1rem 0;
-}
-
-/* Links */
-.sub-nav a {
-  display: inline-block;
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 600;
-  padding: .35rem .6rem;
-  border-radius: 9999px;        /* pill shape */
-  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
-}
-
-/* Hover/focus */
-.sub-nav a:hover,
-.sub-nav a:focus-visible {
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  outline: none;
-}
-
-/* Current page — works with .active OR aria-current OR .is-active */
-.sub-nav a.active,
-.sub-nav a.is-active,
-.sub-nav a[aria-current="page"] {
-  background: var(--accent);
   color: #fff;
-  text-decoration: none;
-  box-shadow: 0 0 0 2px #fff, 0 1px 3px rgba(0,0,0,.12);
-}
-
-/* De-emphasize pipes if you keep them in markup */
-.sub-nav .pipe { color: var(--muted); opacity: .85; padding: 0 .35rem; }
-
-/* Accessibility nicety */
-@media (prefers-contrast: more) {
-  .sub-nav a[aria-current="page"] { box-shadow: 0 0 0 3px #fff; }
-
-
-/* === Layout upgrades (paste near END of file) === */
-
-/* Make the whole header a flex container */
-header {
-  display: flex;
+  padding: 1rem;
+  display: flex;               /* make header a flex row */
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
-
-/* Keep nav working like before */
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
 header nav {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem 1rem;
   justify-content: center;
-  flex-grow: 1; /* let nav expand and push the lang switch over */
+  flex-grow: 1;               /* let nav expand and push lang switch over */
 }
-
-/* Push the language toggle to the right */
-.lang-switch {
-  margin-left: auto;
-}
-
-
-/* Site-wide link readability (won’t affect header links, since those are no-underline) */
-a { text-underline-offset: .15em; }
-a:hover { text-decoration-thickness: .14em; }
-
-/* Respect users who prefer less motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
-
-/* Make sub-nav stick on scroll */
-.sub-nav {
-  position: sticky;
-  top: 0;              /* if you ever make the header sticky, set this to the header height */
-  z-index: 5;
-  backdrop-filter: blur(6px);
-  /* Optional: let the blur show through by using a translucent bg instead of solid */
-  /* background: rgba(238, 247, 255, 0.85); */
-}
-
-/* === CTA Buttons === */
-:root {
-  --cta: var(--color-accent);
-  --cta-hover: var(--color-accent-hover);
-  --cta-contrast: #fff;
-  --cta-secondary: var(--color-secondary);
-}
-
-.button { /* existing button becomes the base */
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-weight: 700; text-decoration: none; border-radius: 10px;
-  padding: .8rem 1.2rem; line-height: 1; border: 2px solid transparent;
-}
-
-.button--primary { background: var(--cta); color: var(--cta-contrast); }
-.button--primary:hover { background: var(--cta-hover); }
-
-/* filled secondary */
-.button--secondary {
-  background: var(--color-secondary);
+header nav a {
   color: #fff;
-  border-color: var(--color-secondary);
+  text-decoration: none;
+  margin: 0 0.75rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
-.button--secondary:hover {
-  filter: brightness(.92);
-}
+header nav a:hover { color: var(--color-accent); }
 
-
-
-.button--ghost { background: transparent; color: var(--color-primary); }
-.button--ghost:hover { background: #f3f6f9; }
-
-.button--lg { padding: 1rem 1.4rem; font-size: 1.05rem; border-radius: 12px; }
-
-/* === CTA strip === */
-.cta-strip {
-  display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center;
-  background: #fbf6f7; border: 1px solid #f0d8de; border-radius: 12px;
-  padding: .75rem; margin: 1rem 0 1.25rem;
-}
-.cta-strip .button { margin: .25rem; }
-
-/* Header nav wraps cleanly */
-header nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; justify-content: center; }
-@media (max-width: 600px) { header nav { justify-content: flex-start; } }
-
-/* Link readability */
-a { text-underline-offset: .15em; }
-a:hover { text-decoration-thickness: .14em; }
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
-
-/* Sticky sub-nav (already styled earlier) */
-.sub-nav { position: sticky; top: 0; z-index: 5; backdrop-filter: blur(6px); }
-
-/* let footer CTA breathe */
-.cta-sitewide { margin: 1rem 0 1.25rem; }
-
-/* Opt-out switch: add class="no-cta" on <body> for pages that shouldn't show it */
-body.no-cta .cta-sitewide { display: none; }
-
-/* put near end of main.css */
-.skip-link{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus-visible{
-  left:1rem; top:1rem; width:auto; height:auto;
-  background:#fff; padding:.5rem .75rem; border:2px solid #000; z-index:1000;
-}
-
-
-/* Mobile: tidy sub-nav pills */
-@media (max-width: 520px){
-  .sub-nav .pipe { display: none; }
-  .sub-nav a { margin: .2rem .25rem; }
-  .sub-nav { padding: .5rem .6rem; }
-}
-
-/* --- Language switch: high-contrast pills on header --- */
+/* === Language switch: high-contrast pills on header (right side) === */
 .lang-switch {
+  margin-left: auto;          /* push to the right edge */
   display: flex;
   align-items: center;
   gap: .5rem;
-  margin-left: auto;          /* keep it pushed to the right */
 }
-
 .lang-switch a {
   color: #fff;
   font-weight: 700;
@@ -450,13 +107,11 @@ body.no-cta .cta-sitewide { display: none; }
   align-items: center;
   transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
-
 .lang-switch a:hover,
 .lang-switch a:focus-visible {
   background: rgba(255,255,255,.18);
   outline: none;
 }
-
 /* Active language inverts for instant recognition */
 .lang-switch a.active,
 .lang-switch a[aria-current="true"] {
@@ -465,48 +120,186 @@ body.no-cta .cta-sitewide { display: none; }
   border-color: #fff;
   box-shadow: 0 0 0 2px rgba(255,255,255,.5);
 }
+.lang-switch span[aria-hidden="true"] { color: rgba(255,255,255,.75); }
 
-/* Subtle divider */
-.lang-switch span[aria-hidden="true"] {
-  color: rgba(255,255,255,.75);
+/* === Main Layout === */
+main { padding: 2rem; }
+section { margin-bottom: 2rem; }
+
+/* === Buttons === */
+.button {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin: 0.5rem;
+  padding: .8rem 1.2rem;
+  background-color: var(--cta);
+  color: var(--cta-contrast);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+}
+.button:hover { background-color: var(--cta-hover); }
+.button--primary { background: var(--cta); color: var(--cta-contrast); }
+.button--primary:hover { background: var(--cta-hover); }
+.button--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+.button--secondary:hover { filter: brightness(.92); }
+.button--ghost { background: transparent; color: var(--color-primary); }
+.button--ghost:hover { background: #f3f6f9; }
+.button--lg { padding: 1rem 1.4rem; font-size: 1.05rem; border-radius: 12px; }
+
+/* === CTA strip (inline group) === */
+.cta-strip {
+  display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center;
+  background: #fbf6f7; border: 1px solid #f0d8de; border-radius: 12px;
+  padding: .75rem; margin: 1rem 0 1.25rem;
+}
+.cta-strip .button { margin: .25rem; }
+
+/* Utility: center-fixed CTA wrapper at bottom of viewport */
+.is-fixed-bottom-center {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
 }
 
-/* Bigger tap target on phones */
+/* === Footer === */
+footer {
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+.cta-sitewide { margin: 1rem 0 1.25rem; }
+body.no-cta .cta-sitewide { display: none; }
+
+/* === Testimonials === */
+.testimonial-summary {
+  margin-bottom: 2em;
+  padding: 1em;
+  border-left: 4px solid var(--color-accent);
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.testimonial-summary h2 { margin: 0; font-size: 1.2em; }
+.testimonial-summary a { color: var(--color-secondary); font-weight: bold; text-decoration: none; }
+.testimonial-summary a:hover { color: var(--color-accent); text-decoration: underline; }
+.testimonial-header {
+  background-color: #f9f4f5;
+  border-left: 4px solid var(--color-accent);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.testimonial-header h1 { margin: 0; color: var(--color-primary); }
+.testimonial-header .intro { font-style: italic; color: #555; margin-top: 0.5rem; }
+.testimonial-body {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  line-height: 1.8;
+}
+.testimonial-author { text-align: right; font-weight: bold; margin-top: 2rem; }
+
+/* === Call-out Boxes === */
+.callout {
+  background-color: #f9f4f5;
+  border-left: 4px solid var(--color-accent);
+  padding: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* === Lists === */
+ul, ol { margin-left: 2rem; line-height: 1.8; }
+
+/* === Sub-nav (local page pills) === */
+.sub-nav {
+  --accent: #0f6fff;
+  --ink: #123;
+  --muted: #8aa3bd;
+  background: #eef7ff;
+  border: 1px solid #cfe3f7;
+  border-radius: 10px;
+  padding: .5rem .75rem;
+  margin: 1rem 0;
+  position: sticky;
+  top: 0;              /* adjust if header becomes sticky */
+  z-index: 5;
+  backdrop-filter: blur(6px);
+}
+.sub-nav a {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .35rem .6rem;
+  border-radius: 9999px;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.sub-nav a:hover, .sub-nav a:focus-visible {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  outline: none;
+}
+.sub-nav a.active,
+.sub-nav a.is-active,
+.sub-nav a[aria-current="page"] {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 0 2px #fff, 0 1px 3px rgba(0,0,0,.12);
+}
+.sub-nav .pipe { color: var(--muted); opacity: .85; padding: 0 .35rem; }
+
+/* Accessibility nicety */
+@media (prefers-contrast: more) {
+  .sub-nav a[aria-current="page"] { box-shadow: 0 0 0 3px #fff; }
+}
+
+/* === Links (site-wide) === */
+a { text-underline-offset: .15em; }
+a:hover { text-decoration-thickness: .14em; }
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* === Responsive Mobile === */
 @media (max-width: 600px) {
-  .lang-switch a { padding: .45rem .7rem; }
+  body { font-size: 1.1rem; margin: 0; padding: 0; }
+  header, footer { text-align: center; padding: 1rem 0.5rem; }
+
+  /* nav stack */
+  header nav { justify-content: flex-start; }
+  .content, main, section, article {
+    max-width: 72rem;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  .button { min-height: 44px; }
 }
 
-/* DEBUG: force-visible language pills */
-header .lang-switch {
-  display: flex !important;
-  align-items: center !important;
-  gap: .5rem !important;
-  margin-left: auto !important;
+/* Mobile: tidy sub-nav pills */
+@media (max-width: 520px){
+  .sub-nav .pipe { display: none; }
+  .sub-nav a { margin: .2rem .25rem; }
+  .sub-nav { padding: .5rem .6rem; }
 }
-header .lang-switch a {
-  color: #fff !important;
-  font-weight: 700 !important;
-  text-decoration: none !important;
-  line-height: 1 !important;
-  padding: .35rem .65rem !important;
-  border: 2px solid #fff !important;
-  border-radius: 9999px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  transition: background .15s ease, color .15s ease !important;
-}
-header .lang-switch a:hover,
-header .lang-switch a:focus-visible {
-  background: rgba(255,255,255,.18) !important;
-  outline: none !important;
-}
-header .lang-switch a.active,
-header .lang-switch a[aria-current="true"] {
-  background: #fff !important;
-  color: var(--color-primary) !important;
-  border-color: #fff !important;
-}
-header .lang-switch span[aria-hidden="true"] {
-  color: rgba(255,255,255,.75) !important;
-}
+
 
