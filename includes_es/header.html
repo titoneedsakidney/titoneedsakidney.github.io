@@ -9,6 +9,8 @@
     <a href="/es/donor-testimonials.html">Testimonios de donantes</a>
     <a href="/es/book.html">Libro</a>
   </nav>
+  
+  
 <!-- Language switch: preserves current path, positions right, paints active -->
 <div class="lang-switch" aria-label="Language">
   <a data-lang="en" href="/" class="chip">EN</a>
@@ -19,50 +21,63 @@
 
 
 <script>
-/* Preserve-current-path switcher with robust normalization + active painting */
-(function(){
-  function norm(p){
+// /assets/js/lang-switch.js
+(function () {
+  // Normalize path: collapse doubles, handle index forms, keep real page paths intact.
+  function norm(p) {
     p = p || "/";
-    // Keep explicit file paths; only normalize well-known index forms
     if (p === "/index.html") p = "/";
     if (p === "/es/index.html") p = "/es/";
-    // collapse accidental doubles
-    p = p.replace(/\/{2,}/g,"/");
+    p = p.replace(/\/{2,}/g, "/");
     return p;
   }
-  function stripEsPrefix(p){ return p.replace(/^\/es(\/|$)/,"/"); }
 
-  var path = norm(location.pathname);
-  var isES  = path.startsWith("/es/");
-  var en    = document.querySelector('.lang-switch [data-lang="en"]');
-  var es    = document.querySelector('.lang-switch [data-lang="es"]');
-
-  if (en && es) {
-    // Build hrefs that preserve the current page path
-    // EN target: if you’re on /es/foo/bar.html → /foo/bar.html; otherwise stay put
-    var enTarget = isES ? stripEsPrefix(path) : (path || "/");
-    if (enTarget === "") enTarget = "/";
-
-    // ES target: if you’re on /foo/bar.html → /es/foo/bar.html; if already ES, stay put
-    var esTarget = isES ? path : (path === "/" ? "/es/" : "/es" + path);
-
-    en.href = enTarget;
-    es.href = esTarget;
-
-    // Paint active pill
-    var active = isES ? es : en;
-    active.classList.add("active");
-    active.setAttribute("aria-current","true");
+  function stripEsPrefix(p) {
+    return p.replace(/^\/es(\/|$)/, "/");
   }
 
-  // Optional: if you prefer JS-driven navigation, uncomment below.
-  // document.addEventListener("click", function(e){
-  //   var a = e.target.closest('.lang-switch a[data-lang]');
+  function buildTargets(currentPath) {
+    const p = norm(currentPath);
+    const isES = p.startsWith("/es/");
+    // English target: /es/foo → /foo, else stay on /foo
+    let enHref = isES ? stripEsPrefix(p) : (p || "/");
+    if (enHref === "") enHref = "/";
+
+    // Spanish target: /foo → /es/foo, root → /es/
+    const esHref = isES ? p : (p === "/" ? "/es/" : "/es" + p);
+
+    return { isES, enHref, esHref };
+  }
+
+  function paintActive(isES) {
+    document.querySelectorAll(".lang-switch a").forEach((el) => {
+      const wantsES = el.getAttribute("data-lang") === "es";
+      const active = wantsES ? isES : !isES;
+      el.classList.toggle("active", active);
+      el.setAttribute("aria-current", active ? "true" : "false");
+    });
+  }
+
+  // On load: compute hrefs + paint the active pill
+  (function init() {
+    const path = location.pathname;
+    const { isES, enHref, esHref } = buildTargets(path);
+    const en = document.querySelector('.lang-switch [data-lang="en"]');
+    const es = document.querySelector('.lang-switch [data-lang="es"]');
+    if (en) en.setAttribute("href", enHref);
+    if (es) es.setAttribute("href", esHref);
+    paintActive(isES);
+  })();
+
+  // Optional: if a page lacks a translated twin, your server will 404. If you want to
+  // fail back to home instead, uncomment this handler.
+  // document.addEventListener("click", function (e) {
+  //   const a = e.target.closest('.lang-switch a[data-lang]');
   //   if (!a) return;
-  //   e.preventDefault();
-  //   location.assign(a.getAttribute("href"));
+  //   // let the real href navigate; no preventDefault → works even if JS dies
   // });
 })();
+
 </script>
 
 
