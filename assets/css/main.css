@@ -435,18 +435,16 @@ body.no-cta .cta-sitewide { display: none; }
   display: flex;
   align-items: center;
   gap: .5rem;
-  margin-left: auto;            /* already present, but safe to repeat */
+  margin-left: auto;          /* keep it pushed to the right */
 }
 
 .lang-switch a {
-  --chip-ink: #fff;
-  --chip-border: #fff;
-  color: var(--chip-ink);
-  text-decoration: none;
+  color: #fff;
   font-weight: 700;
+  text-decoration: none;
   line-height: 1;
   padding: .35rem .65rem;
-  border: 2px solid var(--chip-border);
+  border: 2px solid #fff;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
@@ -455,11 +453,11 @@ body.no-cta .cta-sitewide { display: none; }
 
 .lang-switch a:hover,
 .lang-switch a:focus-visible {
-  background: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.18);
   outline: none;
 }
 
-/* Active language pops: white pill with brand-colored text */
+/* Active language inverts for instant recognition */
 .lang-switch a.active,
 .lang-switch a[aria-current="true"] {
   background: #fff;
@@ -468,13 +466,14 @@ body.no-cta .cta-sitewide { display: none; }
   box-shadow: 0 0 0 2px rgba(255,255,255,.5);
 }
 
-/* Optional: slim slash separator styling */
+/* Subtle divider */
 .lang-switch span[aria-hidden="true"] {
   color: rgba(255,255,255,.75);
 }
 
-/* Mobile: give a bit more tap target */
+/* Bigger tap target on phones */
 @media (max-width: 600px) {
   .lang-switch a { padding: .45rem .7rem; }
 }
+
 
