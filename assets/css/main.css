@@ -1,3 +1,12 @@
+/* --- Global layout sanity --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body { margin: 0; overflow-x: hidden; }
+img, video, canvas, svg, iframe, table { max-width: 100%; height: auto; }
+p, li, blockquote, figcaption { overflow-wrap: anywhere; }
+pre, code, kbd, samp { white-space: pre-wrap; word-break: break-word; }
+
+
 /* === Variables === */
 :root {
   --color-primary: #294d61;     /* Header */
@@ -215,10 +224,14 @@ ul, ol {
     padding: 0.5rem 0;
   }
 
-  .content {
-    width: 100%;
-    padding: 0.75rem;
-  }
+/* --- Safe content container --- */
+.content, main, section, article {
+  max-width: 72rem;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
 
   img {
     max-width: 100%;
@@ -290,7 +303,7 @@ ul, ol {
 /* Accessibility nicety */
 @media (prefers-contrast: more) {
   .sub-nav a[aria-current="page"] { box-shadow: 0 0 0 3px #fff; }
-}
+
 
 /* === Layout upgrades (paste near END of file) === */
 
@@ -415,5 +428,53 @@ body.no-cta .cta-sitewide { display: none; }
   .sub-nav .pipe { display: none; }
   .sub-nav a { margin: .2rem .25rem; }
   .sub-nav { padding: .5rem .6rem; }
+}
+
+/* --- Language switch: high-contrast pills on header --- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: auto;            /* already present, but safe to repeat */
+}
+
+.lang-switch a {
+  --chip-ink: #fff;
+  --chip-border: #fff;
+  color: var(--chip-ink);
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+  padding: .35rem .65rem;
+  border: 2px solid var(--chip-border);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible {
+  background: rgba(255,255,255,.16);
+  outline: none;
+}
+
+/* Active language pops: white pill with brand-colored text */
+.lang-switch a.active,
+.lang-switch a[aria-current="true"] {
+  background: #fff;
+  color: var(--color-primary);
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.5);
+}
+
+/* Optional: slim slash separator styling */
+.lang-switch span[aria-hidden="true"] {
+  color: rgba(255,255,255,.75);
+}
+
+/* Mobile: give a bit more tap target */
+@media (max-width: 600px) {
+  .lang-switch a { padding: .45rem .7rem; }
 }
 
