@@ -1,51 +1,797 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url><loc>https://titoneedsakidney.com/hub/donation/testing.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/donation/risks.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/donation/recovery.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/donation/life-after.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/donation/</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/donation/who-can-donate.html</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/side-effects.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/expectations.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/access.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/schedule.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/nurse.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/technician.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/dialysis/staff/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/surgery/surgery.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/surgery/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/transplant/preop/risks.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/preop/matching.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/preop/evaluation.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/preop/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/transplant/postop/recovery.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/postop/life-after.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/postop/complications.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/transplant/postop/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/hub/transplant/</loc></url>
-  <url><loc>https://titoneedsakidney.com/hub/</loc></url>
-
-  <url><loc>https://titoneedsakidney.com/book.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/donor-info.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/donor-testimonials.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/about.html</loc></url>
-  <url><loc>https://titoneedsakidney.com/</loc></url>
-
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://titoneedsakidney.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/about.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/book.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/book.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/book.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/book.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/donor-info.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/donor-info.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/donor-info.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/donor-info.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/donor-testimonials.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/donor-testimonials.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/donor-testimonials.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/donor-testimonials.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/about.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/book.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/book.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/book.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/book.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/donor-info.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/donor-info.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/donor-info.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/donor-info.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/donor-testimonials.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/donor-testimonials.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/donor-testimonials.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/donor-testimonials.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/access.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/access.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/access.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/access.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/expectations.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/expectations.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/expectations.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/expectations.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/machine.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/machine.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/machine.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/machine.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/schedule.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/schedule.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/schedule.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/schedule.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/side-effects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/side-effects.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/side-effects.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/side-effects.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/clinic-administrator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/clinic-administrator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/dietitian.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/financial-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/floor-supervisor.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/floor-supervisor.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/receptionist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/receptionist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/dialysis/staff/technician.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/technician.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/technician.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/technician.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/life-after.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/life-after.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/recovery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/risks.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/risks.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/risks.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/risks.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/testing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/testing.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/testing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/testing.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/donation/who-can-donate.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/who-can-donate.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/who-can-donate.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/who-can-donate.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/testimonials/donor-amy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-amy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-amy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-amy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/testimonials/donor-john.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-john.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-john.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-john.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/testimonials/donor-luis.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-luis.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-luis.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-luis.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/testimonials/donor-nancy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-nancy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-nancy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-nancy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/complications.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/complications.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/complications.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/complications.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/life-after.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/life-after.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/recovery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/dietitian.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/dietitian.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/nurse-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nurse-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/nurse-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nurse-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/pharmacist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/pharmacist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/pharmacist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/pharmacist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/postop/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/evaluation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/evaluation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/evaluation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/evaluation.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/matching.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/matching.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/matching.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/matching.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/risks.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/risks.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/risks.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/risks.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/financial-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/financial-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/preop/staff/surgeon.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/surgeon.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/recovery-inpatient.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/recovery-inpatient.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/anesthesia.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/anesthesia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/anesthesia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/anesthesia.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/circulating-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/circulating-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/circulating-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/circulating-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-tech.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-tech.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-tech.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-tech.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/or-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/or-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/or-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/or-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/pacu-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/pacu-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/pacu-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/pacu-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/physical-therapist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/physical-therapist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/physical-therapist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/physical-therapist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/staff/surgeon.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/surgeon.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/hub/transplant/surgery/surgery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/surgery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/para-profesionales.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/for-professionals.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/para-profesionales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/for-professionals.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/for-professionals.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/for-professionals.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/para-profesionales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/for-professionals.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/access.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/access.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/access.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/access.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/expectations.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/expectations.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/expectations.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/expectations.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/machine.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/machine.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/machine.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/machine.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/schedule.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/schedule.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/schedule.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/schedule.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/side-effects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/side-effects.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/side-effects.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/side-effects.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/clinic-administrator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/clinic-administrator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/dietitian.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/financial-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/floor-supervisor.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/floor-supervisor.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/receptionist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/receptionist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/dialysis/staff/technician.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/dialysis/staff/technician.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/dialysis/staff/technician.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/dialysis/staff/technician.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/life-after.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/life-after.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/recovery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/risks.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/risks.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/risks.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/risks.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/testing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/testing.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/testing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/testing.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/donation/who-can-donate.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/donation/who-can-donate.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/donation/who-can-donate.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/donation/who-can-donate.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/testimonials/donor-amy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-amy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-amy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-amy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/testimonials/donor-john.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-john.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-john.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-john.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/testimonials/donor-luis.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-luis.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-luis.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-luis.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/testimonials/donor-nancy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/testimonials/donor-nancy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/testimonials/donor-nancy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/testimonials/donor-nancy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/complications.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/complications.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/complications.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/complications.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/life-after.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/life-after.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/life-after.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/recovery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/recovery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/recovery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/dietitian.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/dietitian.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/dietitian.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/nurse-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nurse-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/nurse-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/nurse-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/pharmacist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/pharmacist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/pharmacist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/pharmacist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/postop/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/postop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/postop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/postop/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/evaluation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/evaluation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/evaluation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/evaluation.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/matching.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/matching.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/matching.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/matching.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/risks.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/risks.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/risks.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/risks.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/financial-coordinator.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/financial-coordinator.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/financial-coordinator.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/nephrologist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/nephrologist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/nephrologist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/social-worker.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/social-worker.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/social-worker.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/preop/staff/surgeon.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/preop/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/preop/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/preop/staff/surgeon.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/recovery-inpatient.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/recovery-inpatient.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/anesthesia.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/anesthesia.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/anesthesia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/anesthesia.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/circulating-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/circulating-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/circulating-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/circulating-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-tech.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-tech.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/inpatient-tech.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/inpatient-tech.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/or-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/or-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/or-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/or-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/pacu-nurse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/pacu-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/pacu-nurse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/pacu-nurse.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/physical-therapist.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/physical-therapist.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/physical-therapist.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/physical-therapist.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/staff/surgeon.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/staff/surgeon.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/staff/surgeon.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/hub/transplant/surgery/surgery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/surgery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
+  </url>
 </urlset>
