@@ -68,7 +68,7 @@ header {
   flex-wrap: wrap;
   gap: 1rem;
 }
-header h1 {
+.site-title  {
   margin: 0;
   font-size: 2rem;
 }
