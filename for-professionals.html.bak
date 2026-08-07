@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Professional & Library Information | Tito Needs a Kidney</title>
+  <meta name="description" content="Bibliographic, audience, ordering, review, and resource-use information for libraries, clinics, reviewers, educators, and kidney organizations evaluating Tito Needs a Kidney.">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Google tag (gtag.js) should follow the same implementation used elsewhere on the site. -->
+</head>
+
+<body>
+
+  <div data-include="/includes/header.html"></div>
+
+  <main class="content" id="main">
+
+    <h1>Professional and Library Information</h1>
+
+    <p>
+      <strong><em>Tito Needs a Kidney: A Journey of Resilience, Community, and Hope</em></strong>
+      is a firsthand memoir about kidney failure, dialysis, kidney transplantation,
+      transplant loss, recovery, living donation, and the experience of rebuilding life
+      around serious illness.
+    </p>
+
+    <p>
+      This page is intended for librarians, dialysis and transplant programs, educators,
+      reviewers, journalists, kidney organizations, patient-resource programs, and others
+      evaluating the book for a collection, resource list, review, course, or patient program.
+    </p>
+
+    <section id="appropriate-use">
+      <h2>Where the Book May Be Useful</h2>
+
+      <ul>
+        <li>Public libraries</li>
+        <li>Hospital and patient-family libraries</li>
+        <li>Health-sciences, nursing, and medical libraries</li>
+        <li>Dialysis and kidney transplant patient-resource programs</li>
+        <li>Kidney, transplant, living-donor, and caregiver organizations</li>
+        <li>Narrative medicine and health-humanities reading lists or courses</li>
+        <li>Reviewers and journalists covering health memoirs or patient experience</li>
+      </ul>
+
+      <p>
+        The book complements clinical education by showing one patient's lived experience.
+        It is not a clinical handbook and should not be represented as medical guidance.
+      </p>
+    </section>
+
+    <section id="book-information">
+      <h2>Book Information</h2>
+
+      <dl class="book-metadata">
+        <div>
+          <dt>Title</dt>
+          <dd><em>Tito Needs a Kidney</em></dd>
+        </div>
+
+        <div>
+          <dt>Subtitle</dt>
+          <dd>A Journey of Resilience, Community, and Hope</dd>
+        </div>
+
+        <div>
+          <dt>Author</dt>
+          <dd>Tito</dd>
+        </div>
+
+        <div>
+          <dt>Language</dt>
+          <dd>English</dd>
+        </div>
+
+        <div>
+          <dt>Formats</dt>
+          <dd>Paperback and Kindle ebook</dd>
+        </div>
+
+        <div>
+          <dt>Paperback ISBN</dt>
+          <dd>9798306593159</dd>
+        </div>
+
+        <div>
+          <dt>Edition</dt>
+          <dd>First edition</dd>
+        </div>
+
+        <div>
+          <dt>Spanish edition</dt>
+          <dd>
+            <a href="/es/book.html" hreflang="es" lang="es">
+              <em>Tito Necesita un Riñón</em>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="about-the-book">
+      <h2>About the Book</h2>
+
+      <p>
+        The memoir follows Tito's experience from an IgA nephropathy diagnosis through
+        kidney failure, dialysis, transplant evaluation, living donation, a first kidney
+        transplant, serious complications, transplant loss, a return to dialysis, and a
+        second kidney transplant.
+      </p>
+
+      <p>
+        The book also explores independence, accepting help, navigating medical systems,
+        donor and family relationships, fear, setbacks, resilience, and learning to live
+        with uncertainty.
+      </p>
+    </section>
+
+    <section id="audiences">
+      <h2>Intended Audiences</h2>
+
+      <ul>
+        <li>People approaching or living with dialysis</li>
+        <li>Kidney transplant candidates and recipients</li>
+        <li>Living donors and people considering kidney donation</li>
+        <li>Families, caregivers, friends, and coworkers</li>
+        <li>Healthcare staff seeking a firsthand patient perspective</li>
+        <li>Librarians and patient-resource professionals</li>
+        <li>Educators working in health, nursing, social work, or narrative medicine</li>
+      </ul>
+    </section>
+
+    <section id="medical-boundary">
+      <h2>Lived Experience, Not Medical Advice</h2>
+
+      <p>
+        Tito writes as a patient and author, not as a physician, clinician, transplant
+        professional, or medical authority.
+      </p>
+
+      <p>
+        The book and this website share personal experience. They do not diagnose conditions,
+        recommend treatment, or replace guidance from a patient's own healthcare team.
+      </p>
+    </section>
+
+    <section id="ordering">
+      <h2>Current Ordering Information</h2>
+
+      <p>
+        The current English edition is available through Amazon in paperback and Kindle formats.
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://www.amazon.com/dp/B0DSXVL84P">
+            English paperback on Amazon
+          </a>
+        </li>
+        <li>
+          <a href="https://www.amazon.com/dp/B0DT1N3FFG">
+            English Kindle edition on Amazon
+          </a>
+        </li>
+        <li>
+          <a href="/es/book.html" hreflang="es">
+            Spanish edition information
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        Library, wholesale, and additional distribution information will be added here
+        when those channels are verified as active.
+      </p>
+    </section>
+
+    <section id="reviewers">
+      <h2>For Reviewers and Resource Programs</h2>
+
+      <p>
+        Reviewers, libraries, clinics, educational programs, and kidney organizations can
+        use this page as the stable reference for current book information.
+      </p>
+
+      <p>
+        Additional review materials, downloadable cover assets, a one-sheet, and approved
+        excerpts can be added here as they become available.
+      </p>
+
+      <p>
+        <a href="/book.html">View the English book page</a>
+      </p>
+    </section>
+
+    <section id="author">
+      <h2>About the Author</h2>
+
+      <p>
+        Tito is the author of <em>Tito Needs a Kidney</em> and writes from firsthand
+        experience with kidney disease, dialysis, kidney transplantation, transplant loss,
+        and recovery.
+      </p>
+
+      <p>
+        <a href="/about.html">Read more about Tito</a>
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <p>
+        For review, library, educational, resource-list, or organizational inquiries,
+        please use the site's existing verified contact pathway.
+      </p>
+
+      <!-- Add the site's verified public contact link or email here when confirmed. -->
+    </section>
+
+  </main>
+
+  <div data-include="/includes/footer.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/lang-switch.js" defer></script>
+
+</body>
+</html>
