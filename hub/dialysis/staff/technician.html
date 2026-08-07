@@ -43,17 +43,44 @@
     <link rel="stylesheet" href="/assets/css/main.css" />
 
     <!-- Include loader (one level deeper than side-effects.html) -->
-  <script src="/scripts/include.js" defer></script>
   <script src="/scripts/active-link.js" defer></script>
 </head>
   <body>
     <!-- Header include (one level deeper) -->
-    <div data-include="/includes/header.html"></div>
+    <!-- STATIC INCLUDE: /includes/header.html BEGIN -->
+<header>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+  <p class="site-title">
+    <a href="/">Tito Needs a Kidney</a>
+  </p>
+
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/hub/index.html">Kidney Hub</a>
+    <a href="/donor-info.html">Donor Info</a>
+    <a href="/donor-testimonials.html">Donor Testimonials</a>
+    <a href="/book.html">Book</a>
+  </nav>
+
+  <div class="lang-switch" aria-label="Language">
+    <a data-lang="en" href="/">EN</a>
+    <span aria-hidden="true">/</span>
+    <a data-lang="es" href="/es/">ES</a>
+  </div>
+
+</header>
+<!-- STATIC INCLUDE: /includes/header.html END -->
 
     <main class="content" id="main">
       <!-- Dialysis subnav include -->
-      <div data-include="/includes/dialysis-subnav.html"></div>
-  <div data-include="/includes/dialysis-staff-subnav.html"></div>
+      <!-- STATIC INCLUDE: /includes/dialysis-subnav.html BEGIN -->
+<nav class="sub-nav js-active-nav" aria-label="Dialysis navigation"> <a href="/hub/dialysis/index.html">Overview</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/index.html" data-prefix="/hub/dialysis/staff/">Staff &amp; Roles</a> <span class="pipe">|</span> <a href="/hub/dialysis/access.html">Access Options</a> <span class="pipe">|</span> <a href="/hub/dialysis/machine.html">The Machine</a> <span class="pipe">|</span> <a href="/hub/dialysis/schedule.html">Schedule</a> <span class="pipe">|</span> <a href="/hub/dialysis/expectations.html">What to Expect</a> <span class="pipe">|</span> <a href="/hub/dialysis/side-effects.html">Side Effects</a> </nav>
+<!-- STATIC INCLUDE: /includes/dialysis-subnav.html END -->
+  <!-- STATIC INCLUDE: /includes/dialysis-staff-subnav.html BEGIN -->
+I'm going one by one <nav class="sub-nav js-active-nav" aria-label="Dialysis staff sub-navigation"> <a href="/hub/dialysis/staff/index.html" data-prefix="/hub/dialysis/staff/">All Staff</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/nurse.html">Dialysis Nurse (RN)</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/technician.html">Dialysis Tech / PCT</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/floor-supervisor.html">Floor Supervisor</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/nephrologist.html">Nephrologist</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/dietitian.html">Dietitian</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/social-worker.html">Social Worker</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/financial-coordinator.html">Financial Coordinator</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/receptionist.html">Patient Services Coordinator</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/clinic-administrator.html">Clinic Administrator</a> </nav>
+<!-- STATIC INCLUDE: /includes/dialysis-staff-subnav.html END -->
 
       <h1>Dialysis Technician / Patient Care Technician (PCT)</h1>
 
@@ -101,7 +128,37 @@
     </main>
 
     <!-- Footer include (one level deeper) -->
-    <div data-include="/includes/footer.html"></div>
+    <!-- STATIC INCLUDE: /includes/footer.html BEGIN -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> The information on this site is based on personal
+  experience and research. It is for general educational purposes only and is
+  not a substitute for professional medical advice. Always consult your
+  healthcare provider for medical guidance.
+</div>
+
+<div class="cta-strip">
+  <a class="button button--primary button--lg" href="/book.html">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Buy the Book
+  </a>
+  <a class="button button--secondary button--lg" href="https://ko-fi.com/titoneedsakidney">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Support on Ko-fi
+  </a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Tito. All rights reserved.</p>
+</footer>
+<!-- STATIC INCLUDE: /includes/footer.html END -->
   <script src="/scripts/analytics.js" defer></script>
     <script src="/assets/js/lang-switch.js" defer></script>
 </body>

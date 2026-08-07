@@ -42,15 +42,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <script src="/scripts/include.js" defer></script>
   <script src="/scripts/active-link.js" defer></script>
 </head>
 
   <body>
-    <div data-include="/includes/header.html"></div>
+    <!-- STATIC INCLUDE: /includes/header.html BEGIN -->
+<header>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+  <p class="site-title">
+    <a href="/">Tito Needs a Kidney</a>
+  </p>
+
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/hub/index.html">Kidney Hub</a>
+    <a href="/donor-info.html">Donor Info</a>
+    <a href="/donor-testimonials.html">Donor Testimonials</a>
+    <a href="/book.html">Book</a>
+  </nav>
+
+  <div class="lang-switch" aria-label="Language">
+    <a data-lang="en" href="/">EN</a>
+    <span aria-hidden="true">/</span>
+    <a data-lang="es" href="/es/">ES</a>
+  </div>
+
+</header>
+<!-- STATIC INCLUDE: /includes/header.html END -->
     <main class="content" id="main">
-      <div data-include="/includes/dialysis-subnav.html"></div>
-      <div data-include="/includes/dialysis-staff-subnav.html"></div>
+      <!-- STATIC INCLUDE: /includes/dialysis-subnav.html BEGIN -->
+<nav class="sub-nav js-active-nav" aria-label="Dialysis navigation"> <a href="/hub/dialysis/index.html">Overview</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/index.html" data-prefix="/hub/dialysis/staff/">Staff &amp; Roles</a> <span class="pipe">|</span> <a href="/hub/dialysis/access.html">Access Options</a> <span class="pipe">|</span> <a href="/hub/dialysis/machine.html">The Machine</a> <span class="pipe">|</span> <a href="/hub/dialysis/schedule.html">Schedule</a> <span class="pipe">|</span> <a href="/hub/dialysis/expectations.html">What to Expect</a> <span class="pipe">|</span> <a href="/hub/dialysis/side-effects.html">Side Effects</a> </nav>
+<!-- STATIC INCLUDE: /includes/dialysis-subnav.html END -->
+      <!-- STATIC INCLUDE: /includes/dialysis-staff-subnav.html BEGIN -->
+I'm going one by one <nav class="sub-nav js-active-nav" aria-label="Dialysis staff sub-navigation"> <a href="/hub/dialysis/staff/index.html" data-prefix="/hub/dialysis/staff/">All Staff</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/nurse.html">Dialysis Nurse (RN)</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/technician.html">Dialysis Tech / PCT</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/floor-supervisor.html">Floor Supervisor</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/nephrologist.html">Nephrologist</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/dietitian.html">Dietitian</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/social-worker.html">Social Worker</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/financial-coordinator.html">Financial Coordinator</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/receptionist.html">Patient Services Coordinator</a> <span class="pipe">|</span> <a href="/hub/dialysis/staff/clinic-administrator.html">Clinic Administrator</a> </nav>
+<!-- STATIC INCLUDE: /includes/dialysis-staff-subnav.html END -->
 
       <h1>Clinic Staff Roles</h1>
       <p>
@@ -87,7 +114,7 @@
 <section class="testimonial-summary">
   <h2><a href="dietitian.html">Dietitian</a></h2>
   <p>
-    Guides your nutrition, fluid limits, and lab goals to keep your treatments effective 
+    Guides your nutrition, fluid limits, and lab goals to keep your treatments effective
     and support your overall health.
   </p>
 </section>
@@ -95,7 +122,7 @@
 <section class="testimonial-summary">
   <h2><a href="nephrologist.html">Nephrologist</a></h2>
   <p>
-    Your kidney specialist—sets your dialysis prescription, monitors long-term kidney 
+    Your kidney specialist—sets your dialysis prescription, monitors long-term kidney
     health, and coordinates your overall care plan.
   </p>
 </section>
@@ -104,7 +131,7 @@
 <section class="testimonial-summary">
   <h2><a href="floor-supervisor.html">Floor Supervisor / Charge Nurse</a></h2>
   <p>
-    Oversees the dialysis shift, coordinates staff assignments, and manages urgent care 
+    Oversees the dialysis shift, coordinates staff assignments, and manages urgent care
     needs on the treatment floor to keep operations running smoothly.
   </p>
 </section>
@@ -113,7 +140,7 @@
 <section class="testimonial-summary">
   <h2><a href="financial-coordinator.html">Financial Coordinator</a></h2>
   <p>
-    Explains insurance and Medicare, answers billing questions, and helps patients apply 
+    Explains insurance and Medicare, answers billing questions, and helps patients apply
     for assistance programs to reduce treatment costs.
   </p>
 </section>
@@ -122,7 +149,7 @@
 <section class="testimonial-summary">
   <h2><a href="receptionist.html">Patient Services Coordinator</a></h2>
   <p>
-    Manages check-ins, schedules treatments, and coordinates transfers to other units 
+    Manages check-ins, schedules treatments, and coordinates transfers to other units
     when you travel or relocate.
   </p>
 </section>
@@ -131,13 +158,43 @@
 <section class="testimonial-summary">
   <h2><a href="clinic-administrator.html">Unit Manager / Clinic Administrator</a></h2>
   <p>
-    Leads the clinic, ensures quality standards are met, and resolves ongoing 
+    Leads the clinic, ensures quality standards are met, and resolves ongoing
     facility or operational concerns that affect patient care.
   </p>
 </section>
     </main>
 
-    <div data-include="/includes/footer.html"></div>
+    <!-- STATIC INCLUDE: /includes/footer.html BEGIN -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> The information on this site is based on personal
+  experience and research. It is for general educational purposes only and is
+  not a substitute for professional medical advice. Always consult your
+  healthcare provider for medical guidance.
+</div>
+
+<div class="cta-strip">
+  <a class="button button--primary button--lg" href="/book.html">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Buy the Book
+  </a>
+  <a class="button button--secondary button--lg" href="https://ko-fi.com/titoneedsakidney">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Support on Ko-fi
+  </a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Tito. All rights reserved.</p>
+</footer>
+<!-- STATIC INCLUDE: /includes/footer.html END -->
   <script src="/scripts/analytics.js" defer></script>
     <script src="/assets/js/lang-switch.js" defer></script>
 </body>

@@ -37,13 +37,53 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <script src="/scripts/include.js" defer></script>
   <script src="/scripts/active-link.js" defer></script>
 </head>
 <body>
-  <div data-include="/includes_es/header.html"></div>
+  <!-- STATIC INCLUDE: /includes_es/header.html BEGIN -->
+<header>
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+    <p class="site-title">
+    <a href="/es/">Tito necesita un riñón</a>
+  </p>
+  <nav>
+    <a href="/es/index.html">Inicio</a>
+    <a href="/es/about.html">Sobre mí</a>
+    <a href="/es/hub/index.html">Centro renal</a>
+    <a href="/es/donor-info.html">Información para donantes</a>
+    <a href="/es/donor-testimonials.html">Testimonios de donantes</a>
+    <a href="/es/book.html">Libro</a>
+  </nav>
+
+
+
+<div class="lang-switch" aria-label="Language">
+  <a data-lang="en" href="/">EN</a>
+  <span aria-hidden="true">/</span>
+  <a data-lang="es" href="/es/">ES</a>
+</div>
+
+
+</header>
+<!-- STATIC INCLUDE: /includes_es/header.html END -->
   <main class="content" id="main">
-    <div data-include="/includes_es/dialysis-subnav.html"></div>
+    <!-- STATIC INCLUDE: /includes_es/dialysis-subnav.html BEGIN -->
+<nav class="sub-nav js-active-nav" aria-label="Navegación de diálisis">
+  <a href="/es/hub/dialysis/index.html">Descripción general</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/staff/index.html" data-prefix="/es/hub/dialysis/staff/">Personal y funciones</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/access.html">Opciones de acceso</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/machine.html">La máquina</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/schedule.html">Horario</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/expectations.html">Qué esperar</a>
+  <span class="pipe">|</span>
+  <a href="/es/hub/dialysis/side-effects.html">Efectos secundarios</a>
+</nav>
+<!-- STATIC INCLUDE: /includes_es/dialysis-subnav.html END -->
 
     <h1>Horarios y planificación de la diálisis</h1>
     <p>
@@ -129,7 +169,37 @@
 
     <p class="disclaimer">Contenido educativo. Tu equipo de diálisis adaptará la programación y las metas a tu situación.</p>
   </main>
-  <div data-include="/includes_es/footer.html"></div>
+  <!-- STATIC INCLUDE: /includes_es/footer.html BEGIN -->
+<div class="disclaimer">
+  <strong>Descargo de responsabilidad:</strong> La información de este sitio se basa en
+  experiencia personal e investigación. Tiene fines educativos generales y no
+  sustituye el consejo médico profesional. Consulte siempre a su proveedor de
+  atención médica para recibir orientación médica.
+</div>
+
+<div class="cta-strip">
+  <a class="button button--primary button--lg" href="/es/book.html">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Comprar el libro
+  </a>
+  <a class="button button--secondary button--lg" href="https://ko-fi.com/titoneedsakidney">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Apoyar en Ko-fi
+  </a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Tito. Todos los derechos reservados.</p>
+</footer>
+<!-- STATIC INCLUDE: /includes_es/footer.html END -->
   <script src="/scripts/analytics.js" defer></script>
     <script src="/assets/js/lang-switch.js" defer></script>
 </body>

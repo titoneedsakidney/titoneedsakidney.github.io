@@ -38,21 +38,56 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <script src="/scripts/include.js" defer></script>
   <script src="/scripts/active-link.js" defer></script>
 </head>
 <body>
- <div data-include="/includes/header.html"></div>
+ <!-- STATIC INCLUDE: /includes/header.html BEGIN -->
+<header>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+  <p class="site-title">
+    <a href="/">Tito Needs a Kidney</a>
+  </p>
+
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/hub/index.html">Kidney Hub</a>
+    <a href="/donor-info.html">Donor Info</a>
+    <a href="/donor-testimonials.html">Donor Testimonials</a>
+    <a href="/book.html">Book</a>
+  </nav>
+
+  <div class="lang-switch" aria-label="Language">
+    <a data-lang="en" href="/">EN</a>
+    <span aria-hidden="true">/</span>
+    <a data-lang="es" href="/es/">ES</a>
+  </div>
+
+</header>
+<!-- STATIC INCLUDE: /includes/header.html END -->
   <main class="content" id="main">
-  <div data-include="/includes/testimonial-subnav.html"></div>
+  <!-- STATIC INCLUDE: /includes/testimonial-subnav.html BEGIN -->
+<nav class="sub-nav js-active-nav" aria-label="Testimonials">
+  <a href="/donor-testimonials.html" data-prefix="/hub/testimonials/">Overview</a>
+  <span class="pipe">|</span>
+  <a href="/hub/testimonials/donor-luis.html">Luis</a>
+  <span class="pipe">|</span>
+  <a href="/hub/testimonials/donor-amy.html">Amy</a>
+  <span class="pipe">|</span>
+  <a href="/hub/testimonials/donor-john.html">John</a>
+  <span class="pipe">|</span>
+  <a href="/hub/testimonials/donor-nancy.html">Nancy</a>
+</nav>
+<!-- STATIC INCLUDE: /includes/testimonial-subnav.html END -->
    <div class="testimonial-header">
   <h1>Luis B.</h1>
   <p class="intro">
-    A firsthand account of choosing to become a living kidney donor—the challenges, 
+    A firsthand account of choosing to become a living kidney donor—the challenges,
     the recovery, and why Luis would do it again in a heartbeat.
   </p>
 </div>
-    
+
 
     <section class="testimonial-body">
       <p>Early in the morning of January 25th of this year (2023), I checked into the hospital at the University of Colorado to have elective surgery. I had never had a surgery before, so I was understandably anxious and fearful about what I was about to do. However, my overriding feeling at the time was determination…I was determined to go through this surgery because of the possibility of what the surgery could do. In a little over an hour, they would roll me into an operating room, remove my left kidney, put the kidney onto a plane to Rochester, NY, and then put that kidney into my nephew, Tito. Our hope was that this kidney would provide a life-saving treatment for Tito so that he could get off of dialysis and get some semblance of a normal life. Unfortunately (as evidenced by you reading this post on this website), through no fault of his own, Tito’s new kidney failed and he is in need of another kidney. I wanted to share my story in the hopes that my experience could help someone along their path of choosing to be a kidney donor.</p>
@@ -91,7 +126,37 @@
   </div>
   </main>
 
-<div data-include="/includes/footer.html"></div>
+<!-- STATIC INCLUDE: /includes/footer.html BEGIN -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> The information on this site is based on personal
+  experience and research. It is for general educational purposes only and is
+  not a substitute for professional medical advice. Always consult your
+  healthcare provider for medical guidance.
+</div>
+
+<div class="cta-strip">
+  <a class="button button--primary button--lg" href="/book.html">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Buy the Book
+  </a>
+  <a class="button button--secondary button--lg" href="https://ko-fi.com/titoneedsakidney">
+    <svg class="button__icon" viewBox="0 0 24 24" width="18" height="18"
+     aria-hidden="true" focusable="false">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Support on Ko-fi
+  </a>
+</div>
+
+<footer>
+  <p>&copy; 2026 Tito. All rights reserved.</p>
+</footer>
+<!-- STATIC INCLUDE: /includes/footer.html END -->
   <script src="/scripts/analytics.js" defer></script>
     <script src="/assets/js/lang-switch.js" defer></script>
 </body>
