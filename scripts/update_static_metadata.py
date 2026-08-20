@@ -64,6 +64,12 @@ SKIP_FILES = {
 BEGIN = "<!-- STATIC SEO METADATA: BEGIN -->"
 END = "<!-- STATIC SEO METADATA: END -->"
 
+# Managed social metadata is editorial copy. Keep it on ordinary regeneration;
+# pages in this small allowlist have corrected visible content that must refresh it.
+REFRESH_GENERATED_METADATA = {
+    Path("es/hub/transplant/preop/staff/social-worker.html"),
+}
+
 
 # ============================================================
 # HTML READING
@@ -405,6 +411,15 @@ def remove_old_static_seo(text: str) -> str:
     return text
 
 
+def managed_metadata_parser(text: str) -> PageParser:
+    """Read the current generated block without treating page content as metadata."""
+    parser = PageParser()
+    match = MANAGED_RE.search(text)
+    if match:
+        parser.feed(match.group(0))
+    return parser
+
+
 def insert_after_title(text: str, metadata: str) -> str:
     title_match = re.search(
         r"</title\s*>",
@@ -480,12 +495,12 @@ def process_page(
 ):
     path = root / rel
     original = path.read_text(encoding="utf-8")
+    managed_match = MANAGED_RE.search(original)
     cleaned = remove_old_static_seo(original)
 
     parser = PageParser()
-    # Generated metadata must not become its own source of truth.  Parsing the
-    # cleaned page lets corrected visible content refresh generated descriptions.
     parser.feed(cleaned)
+    managed = managed_metadata_parser(original)
 
     title = clean_text(parser.title)
 
@@ -498,11 +513,22 @@ def process_page(
 
     lang = page_language(rel, parser)
 
-    description, desc_source = choose_description(parser, title)
+    generated_description, desc_source = choose_description(parser, title)
+    refresh_managed = rel in REFRESH_GENERATED_METADATA
 
-    og_title = parser.og_title or title
-    og_description = parser.og_description or description
-    og_type = choose_og_type(rel, parser.og_type)
+    if refresh_managed:
+        # The Spanish social-worker page was corrected from unrelated
+        # nephrologist content, so its generated social description must follow
+        # the repaired page rather than preserve the defective prior value.
+        description = generated_description
+        og_title = title
+        og_description = generated_description
+    else:
+        description = managed.description or generated_description
+        og_title = managed.og_title or title
+        og_description = managed.og_description or description
+
+    og_type = managed.og_type or choose_og_type(rel, parser.og_type)
 
     counterpart = counterpart_for(rel, all_pages)
 
@@ -518,10 +544,17 @@ def process_page(
         existing_description=bool(parser.description),
     )
 
-    updated = insert_after_title(cleaned, metadata)
-
-    # Normalize excessive blank lines created where old tags were removed.
-    updated = re.sub(r"\n{4,}", "\n\n\n", updated)
+    if managed_match:
+        # Keep each page's surrounding whitespace and hand-authored head
+        # formatting intact; only the managed block itself is regenerated.
+        updated = (
+            original[:managed_match.start()]
+            + metadata
+            + original[managed_match.end():]
+        )
+    else:
+        updated = insert_after_title(cleaned, metadata)
+        updated = re.sub(r"\n{4,}", "\n\n\n", updated)
 
     changed = updated != original
 
