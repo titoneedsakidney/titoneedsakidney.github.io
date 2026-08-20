@@ -67,34 +67,9 @@
     return true;
   }
 
-  // Wait until .lang-switch exists because the header is runtime-included.
-  function whenLangSwitchReady(cb, timeoutMs = 4000) {
-    if (document.querySelector('.lang-switch a[data-lang]')) {
-      cb();
-      return;
-    }
-
-    const obs = new MutationObserver(() => {
-      if (document.querySelector('.lang-switch a[data-lang]')) {
-        obs.disconnect();
-        cb();
-      }
-    });
-
-    obs.observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
-
-    setTimeout(() => obs.disconnect(), timeoutMs);
-  }
-
   function init() {
-    if (applyTargets()) return;
-
-    whenLangSwitchReady(() => {
-      applyTargets();
-    });
+    // Shared headers are expanded before deployment, so no observer is needed.
+    applyTargets();
   }
 
   window.addEventListener("popstate", init);

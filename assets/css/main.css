@@ -150,6 +150,14 @@ header nav a:hover {
   color: var(--color-accent);
 }
 
+header nav a.active,
+header nav a[aria-current="page"] {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+
 
 /* === Language switch === */
 .lang-switch {
@@ -388,7 +396,7 @@ ol {
 
 /* === Sub-nav === */
 .sub-nav {
-  --accent: #0f6fff;
+  --accent: #0b57d0;
   --ink: #123;
   --muted: #8aa3bd;
   background: #eef7ff;
@@ -419,6 +427,10 @@ ol {
 .sub-nav a:focus-visible {
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   outline: none;
+}
+
+.sub-nav a:focus-visible {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #0b57d0;
 }
 
 .sub-nav a.active,

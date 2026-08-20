@@ -55,10 +55,10 @@
     <a href="/">Tito Needs a Kidney</a>
   </p>
 
-  <nav>
+  <nav class="js-active-nav" aria-label="Primary">
     <a href="/index.html">Home</a>
     <a href="/about.html">About Me</a>
-    <a href="/hub/index.html">Kidney Hub</a>
+    <a href="/hub/index.html" data-prefix="/hub/">Kidney Hub</a>
     <a href="/donor-info.html">Donor Info</a>
     <a href="/donor-testimonials.html">Donor Testimonials</a>
     <a href="/book.html">Book</a>
@@ -272,10 +272,34 @@
 
       <p>
         For review, library, educational, resource-list, or organizational inquiries,
-        please use the site's existing verified contact pathway.
+        email Tito using the dedicated inquiry link below.
       </p>
 
-      <!-- Add the site's verified public contact link or email here when confirmed. -->
+      <p>
+        <a id="email-professional-inquiry" class="button button--primary"
+          aria-label="Email Tito about a professional or library inquiry">
+          Email Tito about a professional or library inquiry
+        </a>
+      </p>
+
+      <script>
+      (function () {
+        var email = 'tito' + '@' + 'discoverflx.wine';
+        var subject = encodeURIComponent(
+          'Professional or library inquiry about Tito Needs a Kidney'
+        );
+        var body = encodeURIComponent(
+          'Organization, library, or program:\n' +
+          'Your role:\n' +
+          'How can Tito help?\n'
+        );
+        var link = document.getElementById('email-professional-inquiry');
+
+        if (link) {
+          link.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+        }
+      })();
+      </script>
     </section>
 
   </main>
