@@ -480,9 +480,12 @@ def process_page(
 ):
     path = root / rel
     original = path.read_text(encoding="utf-8")
+    cleaned = remove_old_static_seo(original)
 
     parser = PageParser()
-    parser.feed(original)
+    # Generated metadata must not become its own source of truth.  Parsing the
+    # cleaned page lets corrected visible content refresh generated descriptions.
+    parser.feed(cleaned)
 
     title = clean_text(parser.title)
 
@@ -515,7 +518,6 @@ def process_page(
         existing_description=bool(parser.description),
     )
 
-    cleaned = remove_old_static_seo(original)
     updated = insert_after_title(cleaned, metadata)
 
     # Normalize excessive blank lines created where old tags were removed.

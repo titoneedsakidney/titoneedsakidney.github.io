@@ -83,7 +83,7 @@ def esc(value):
     return html.escape(value, quote=True)
 
 
-def main():
+def build_sitemap():
     pages = discover_pages()
     seen = set()
 
@@ -116,11 +116,35 @@ def main():
 
     lines.append("</urlset>")
 
+    return "\n".join(lines) + "\n", len(pages)
+
+
+def main():
+    check = "--check" in sys.argv
+
+    if any(arg not in {"--check"} for arg in sys.argv[1:]):
+        print("Usage: generate_sitemap.py [--check]", file=sys.stderr)
+        return 1
+
+    content, page_count = build_sitemap()
     output = ROOT / "sitemap.xml"
-    output.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    if check:
+        if not output.exists():
+            print(f"FAIL: missing {output}")
+            return 1
+
+        if output.read_text(encoding="utf-8") != content:
+            print(f"FAIL: {output} is not current; run scripts/generate_sitemap.py")
+            return 1
+
+        print(f"PASS: sitemap.xml matches {page_count} canonical pages.")
+        return 0
+
+    output.write_text(content, encoding="utf-8")
 
     print(f"Wrote {output}")
-    print(f"URLs: {len(pages)}")
+    print(f"URLs: {page_count}")
 
 
 if __name__ == "__main__":
