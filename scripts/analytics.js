@@ -4,8 +4,8 @@ document.addEventListener('click', (e) => {
   gtag('event', 'cta_click', {
     cta_id: a.getAttribute('data-evt'),              // e.g., "kofi"
     cta_text: (a.textContent || '').trim(),
-    cta_loc: a.closest('.cta-strip')?.getAttribute('data-loc') || 'unknown',
+    cta_loc: a.getAttribute('data-evt-loc') ||
+      a.closest('[data-loc]')?.getAttribute('data-loc') || 'unknown',
     link_url: a.href
   });
 });
-
