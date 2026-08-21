@@ -76,6 +76,35 @@ class IntegrityCheckTests(unittest.TestCase):
             self.assertIn("hreflang alternates do not match the bilingual counterpart", errors)
             self.assertIn("role named by title/metadata conflicts with H1 content", errors)
 
+    def test_detects_english_hub_navigation_on_spanish_pages_but_allows_language_switch(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            page = self.write(
+                root, Path("es/page.html"),
+                '<h1>Uno</h1><nav><a href="/hub/dialysis/">English hub</a></nav>',
+                lang="es",
+            )
+            errors = integrity.check_spanish_navigation_links(
+                Path("es/page.html"), integrity.parse_page(page)
+            )
+            self.assertEqual(
+                ["Spanish navigation links to English /hub/ routes: /hub/dialysis/"],
+                errors,
+            )
+
+            page = self.write(
+                root, Path("es/page.html"),
+                '<h1>Uno</h1><nav><div class="lang-switch">'
+                '<a href="/hub/dialysis/">EN</a></div></nav>',
+                lang="es",
+            )
+            self.assertEqual(
+                [],
+                integrity.check_spanish_navigation_links(
+                    Path("es/page.html"), integrity.parse_page(page)
+                ),
+            )
+
     def test_detects_sitemap_membership_mismatch(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
