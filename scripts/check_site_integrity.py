@@ -49,6 +49,7 @@ class PageParser(HTMLParser):
         self.canonicals = []
         self.alternates = []
         self.links = []
+        self.navigation_links = []
         self.title_parts = []
         self.h1_parts = []
         self.og_title = ""
@@ -60,11 +61,22 @@ class PageParser(HTMLParser):
         self._head_depth = 0
         self._json_parts = None
         self._json_in_head = False
+        self._element_stack = []
+        self._navigation_depth = 0
+        self._language_switch_depth = 0
         self.visible_main_parts = []
 
     def handle_starttag(self, tag, attrs):
         tag = tag.lower()
         attrs = dict(attrs)
+        classes = set(attrs.get("class", "").split())
+        is_navigation = tag == "nav"
+        is_language_switch = "lang-switch" in classes
+        self._element_stack.append((tag, is_navigation, is_language_switch))
+        if is_navigation:
+            self._navigation_depth += 1
+        if is_language_switch:
+            self._language_switch_depth += 1
         if tag == "html":
             self.lang = attrs.get("lang")
         if "id" in attrs:
@@ -83,6 +95,8 @@ class PageParser(HTMLParser):
             self._in_title = True
         if tag == "a" and attrs.get("href"):
             self.links.append(attrs["href"])
+            if self._navigation_depth and not self._language_switch_depth:
+                self.navigation_links.append(attrs["href"])
             if "skip-link" in attrs.get("class", "").split():
                 self.skip_targets.append(attrs["href"])
         if tag == "link":
@@ -99,6 +113,16 @@ class PageParser(HTMLParser):
 
     def handle_endtag(self, tag):
         tag = tag.lower()
+        for index in range(len(self._element_stack) - 1, -1, -1):
+            open_tag, is_navigation, is_language_switch = self._element_stack[index]
+            if open_tag != tag:
+                continue
+            del self._element_stack[index:]
+            if is_navigation:
+                self._navigation_depth -= 1
+            if is_language_switch:
+                self._language_switch_depth -= 1
+            break
         if tag == "title":
             self._in_title = False
         if tag == "h1":
@@ -238,12 +262,33 @@ def check_page(root: Path, rel: Path, pages: set[Path]) -> list[str]:
         errors.append("hreflang alternates do not match the bilingual counterpart")
     if DATA_INCLUDE_RE.search(text):
         errors.append("runtime data-include placeholder remains")
+    errors.extend(check_spanish_navigation_links(rel, parser))
     title_roles = role_in(parser.title) | role_in(parser.og_title)
     h1_roles = role_in(parser.h1)
     if title_roles and h1_roles and title_roles.isdisjoint(h1_roles):
         errors.append("role named by title/metadata conflicts with H1 content")
     errors.extend(check_json_ld(rel, parser))
     return errors
+
+
+def check_spanish_navigation_links(rel: Path, parser: PageParser) -> list[str]:
+    """Reject accidental English hub navigation on Spanish pages.
+
+    Language-switch controls are intentionally excluded while parsing, because
+    they are the one place a Spanish page may deliberately link to English.
+    """
+    if not rel.parts or rel.parts[0] != "es":
+        return []
+    english_hub_links = [
+        href for href in parser.navigation_links
+        if urlsplit(href).path.startswith("/hub/")
+    ]
+    if not english_hub_links:
+        return []
+    return [
+        "Spanish navigation links to English /hub/ routes: "
+        + ", ".join(english_hub_links)
+    ]
 
 
 def resolve_internal_target(root: Path, rel: Path, href: str) -> tuple[Path | None, str | None]:
