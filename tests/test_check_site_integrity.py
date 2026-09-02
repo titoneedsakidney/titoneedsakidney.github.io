@@ -46,6 +46,27 @@ class IntegrityCheckTests(unittest.TestCase):
             errors = integrity.check_links(root, [Path("page.html")])
             self.assertEqual(2, len(errors))
 
+    def test_detects_duplicate_index_links_but_allows_external_links(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            page = self.write(
+                root,
+                Path("page.html"),
+                '<h1>One</h1>',
+                links=(
+                    '<a href="/hub/index.html">Duplicate</a>'
+                    '<a href="https://titoneedsakidney.com/es/index.html">Duplicate absolute</a>'
+                    '<a href="https://example.com/index.html">External</a>'
+                ),
+            )
+            self.assertEqual(
+                [
+                    "internal links use duplicate index.html URLs: "
+                    "/hub/index.html, https://titoneedsakidney.com/es/index.html"
+                ],
+                integrity.check_duplicate_url_links(integrity.parse_page(page)),
+            )
+
     def test_detects_duplicate_visible_bodies(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
