@@ -62,13 +62,13 @@ class ConversionAnalyticsTests(unittest.TestCase):
     def test_homepage_help_and_book_entries_emit_purpose_events(self):
         cases = [
             ("index.html", "/book.html", "book_en_hero", "homepage_hero"),
-            ("index.html", "/hub/dialysis/index.html", "help_en_dialysis", "homepage_resources"),
-            ("index.html", "/hub/transplant/index.html", "help_en_transplant", "homepage_resources"),
-            ("index.html", "/hub/donation/index.html", "help_en_donation", "homepage_resources"),
+            ("index.html", "/hub/dialysis/", "help_en_dialysis", "homepage_resources"),
+            ("index.html", "/hub/transplant/", "help_en_transplant", "homepage_resources"),
+            ("index.html", "/hub/donation/", "help_en_donation", "homepage_resources"),
             ("es/index.html", "/es/book.html", "book_es_hero", "homepage_hero"),
-            ("es/index.html", "/es/hub/dialysis/index.html", "help_es_dialysis", "homepage_resources"),
-            ("es/index.html", "/es/hub/transplant/index.html", "help_es_transplant", "homepage_resources"),
-            ("es/index.html", "/es/hub/donation/index.html", "help_es_donation", "homepage_resources"),
+            ("es/index.html", "/es/hub/dialysis/", "help_es_dialysis", "homepage_resources"),
+            ("es/index.html", "/es/hub/transplant/", "help_es_transplant", "homepage_resources"),
+            ("es/index.html", "/es/hub/donation/", "help_es_donation", "homepage_resources"),
         ]
         for rel, href, cta_id, location in cases:
             with self.subTest(rel=rel, href=href):
