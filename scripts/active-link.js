@@ -8,8 +8,25 @@
 
   const here = norm(location.pathname);
 
+  function syncLanguageSwitch() {
+    document.querySelectorAll('.lang-switch a[data-lang]').forEach(link => {
+      const language = link.getAttribute('data-lang');
+      const alternate = document.querySelector(
+        `link[rel~="alternate"][hreflang="${language}"]`
+      );
+
+      // Metadata declares an alternate only when the translated counterpart
+      // exists. Keep the include's homepage fallback for pages without one.
+      if (alternate) {
+        const destination = new URL(alternate.getAttribute('href'), location.origin);
+        link.setAttribute('href', destination.pathname + destination.hash);
+      }
+    });
+  }
+
   // Includes are expanded at build time, so one pass after DOM readiness is enough.
   const run = () => {
+    syncLanguageSwitch();
     const navs = document.querySelectorAll('nav.js-active-nav');
 
     navs.forEach(nav => {
@@ -55,4 +72,3 @@
     run();
   }
 })();
-
