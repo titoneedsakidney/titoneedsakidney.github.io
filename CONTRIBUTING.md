@@ -9,6 +9,10 @@ python3 scripts/update_static_metadata.py --apply
 python3 scripts/update_structured_data.py --apply
 python3 scripts/generate_sitemap.py
 python3 scripts/check_site_integrity.py
+node tests/test_analytics_loader.js
+node tests/test_analytics.js
+node --check scripts/analytics-loader.js
+node --check scripts/analytics.js
 git diff --check
 ```
 
@@ -16,6 +20,8 @@ git diff --check
 sitemap freshness checks. It checks deployable standalone pages for document landmarks,
 skip links, language/canonical/hreflang pairing, internal links and fragments, JSON-LD,
 runtime include placeholders, and accidental duplicate visible main content.
+It also rejects direct third-party GA loaders that bypass the production-host and
+audit-session guard.
 
 If two intentionally different pages must retain identical visible main content, add their
 two repository-relative paths to `duplicate_visible_bodies` in

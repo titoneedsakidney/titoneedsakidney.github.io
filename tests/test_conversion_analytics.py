@@ -99,12 +99,13 @@ class ConversionAnalyticsTests(unittest.TestCase):
         self.assertNotIn("data-email", script)
         self.assertNotIn("FormData", script)
 
-    def test_ga_loader_appears_once_on_each_conversion_page(self):
+    def test_production_gated_ga_loader_appears_once_on_each_conversion_page(self):
         for rel in ("index.html", "es/index.html", "book.html", "es/book.html",
                     "for-professionals.html", "es/para-profesionales.html"):
             with self.subTest(rel=rel):
                 text = (ROOT / rel).read_text(encoding="utf-8")
-                self.assertEqual(1, text.count("googletagmanager.com/gtag/js"))
+                self.assertEqual(1, text.count('src="/scripts/analytics-loader.js"'))
+                self.assertNotIn('src="https://www.googletagmanager.com/gtag/js', text)
 
 
 if __name__ == "__main__":
