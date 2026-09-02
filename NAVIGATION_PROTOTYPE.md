@@ -40,3 +40,23 @@ Try the same tasks in English, Spanish, and a narrow phone-sized window:
 Record where you hesitated as well as the click count. The branch changes the
 top-level navigation and help-directory concept; it does not yet redesign every
 deep clinical submenu.
+
++## Journey results
+
+| Task | Clicks | What remains visible |
+|---|---:|---|
+| Home → pre-op transplant nephrologist | 3 | The transplant landing offers before-, during-, and after-surgery team routes |
+| Nephrologist → another role in the same phase | 1 | The full phase-specific staff subnavigation stays visible |
+| Transplant nephrologist → dialysis information | 1 | A contextual related link avoids backtracking |
+| Dialysis social worker → online support groups | 1 to listing; 2 to a resource | Support groups, practical help, and all staff roles are suggested together |
+| Starting dialysis → expectations and staff | 1 to expectations; 2 to staff | Dialysis subnavigation remains available |
+| Caregiver → support and kidney education | 1 to support; 2 to education | Related dialysis and transplant guides are offered |
+| No pathway fits → browse all topics | 1 | The primary learning destination remains visible |
+| Spanish equivalents | Same | All tested internal routes remain under `/es/` |
+
+The same cards and contextual links appear in all three options so the header
+architecture—not a different set of content—drives the comparison.
+
+From any deep page, Resources is one primary-navigation click away; Find Help
+is a second click inside Resources. The four-item header is the calmest, but the
+Resources label asks visitors to choose between learning and assistance after arrival.
