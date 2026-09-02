@@ -58,3 +58,5 @@ Follow the repository's data/privacy rules and use its approved release interfac
 ## Website boundary
 
 Routine content, UX, analytics, SEO, and accessibility improvements may publish after repository checks and AI review. Preserve bilingual parity and run the documented static-site integrity checks. Do not publish new medical, legal, fundraising, or partner claims without source material or an explicit issue decision.
+
+Campaign-attribution or outreach-landing work must also follow `docs/CAMPAIGN_ATTRIBUTION.md`. Accept controlled cohort UTMs, preserve clean canonical/hreflang/internal URLs, and never add recipient-, organization-, contact-, CRM-, or Gmail-level identifiers to public analytics or links.
