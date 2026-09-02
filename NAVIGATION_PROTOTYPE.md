@@ -23,11 +23,12 @@ are clearly marked examples; they are not approved directory content.
 ```bash
 git fetch origin
 git switch --track origin/prototype/nav-c-resources-v2
-python3 -m http.server 8000
+python3 -m http.server 0 --bind 127.0.0.1
 ```
 
-Open `http://localhost:8000/`. Stop the server with Ctrl+C and return with
-`git switch main`.
+Open the `http://127.0.0.1:PORT/` address printed by Python. The operating
+system selects an unused port, so this does not collide with an existing service.
+Stop the server with Ctrl+C and return with `git switch main`.
 
 Try the same tasks in English, Spanish, and a narrow phone-sized window:
 
