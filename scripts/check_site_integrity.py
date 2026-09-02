@@ -37,6 +37,11 @@ REQUIRED_SCHEMAS = {
     Path("about.html"): "Person",
     Path("es/about.html"): "Person",
 }
+ANALYTICS_LOADER_TAG = '<script src="/scripts/analytics-loader.js"></script>'
+DIRECT_GOOGLE_TAG_RE = re.compile(
+    r'<script\b[^>]*\bsrc=["\']https://www\.googletagmanager\.com/gtag/js',
+    re.I,
+)
 
 
 class PageParser(HTMLParser):
@@ -263,6 +268,17 @@ def check_page(root: Path, rel: Path, pages: set[Path]) -> list[str]:
         errors.append("hreflang alternates do not match the bilingual counterpart")
     if DATA_INCLUDE_RE.search(text):
         errors.append("runtime data-include placeholder remains")
+    analytics_loaders = text.count(ANALYTICS_LOADER_TAG)
+    if analytics_loaders != 1:
+        errors.append(
+            f"expected exactly one synchronous production-gated analytics loader, found {analytics_loaders}"
+        )
+    else:
+        first_gtag_call = re.search(r"\bgtag\s*\(", text)
+        if first_gtag_call and text.index(ANALYTICS_LOADER_TAG) > first_gtag_call.start():
+            errors.append("analytics loader must run before the first gtag call")
+    if DIRECT_GOOGLE_TAG_RE.search(text):
+        errors.append("direct Google tag loader bypasses measurement-hygiene gate")
     errors.extend(check_forbidden_draft_text(text))
     errors.extend(check_duplicate_url_links(parser))
     errors.extend(check_spanish_navigation_links(rel, parser))

@@ -39,6 +39,50 @@ class IntegrityCheckTests(unittest.TestCase):
             self.assertTrue(any("skip-link target" in error for error in errors))
             self.assertIn("runtime data-include placeholder remains", errors)
 
+    def test_requires_the_production_gated_analytics_loader(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            page = self.write(root, Path("page.html"), '<h1>One</h1>')
+            errors = integrity.check_page(root, Path("page.html"), {Path("page.html")})
+            self.assertIn(
+                "expected exactly one synchronous production-gated analytics loader, found 0",
+                errors,
+            )
+
+            text = page.read_text(encoding="utf-8").replace(
+                "<head>",
+                '<head><script src="/scripts/analytics-loader.js"></script>',
+            )
+            page.write_text(text, encoding="utf-8")
+            errors = integrity.check_page(root, Path("page.html"), {Path("page.html")})
+            self.assertFalse(any("analytics loader" in error for error in errors))
+
+            text = page.read_text(encoding="utf-8").replace(
+                '<script src="/scripts/analytics-loader.js"></script>',
+                '<script>gtag("config", "G-TEST")</script>'
+                '<script src="/scripts/analytics-loader.js"></script>',
+            )
+            page.write_text(text, encoding="utf-8")
+            errors = integrity.check_page(root, Path("page.html"), {Path("page.html")})
+            self.assertIn("analytics loader must run before the first gtag call", errors)
+
+            text = page.read_text(encoding="utf-8").replace(
+                '<script>gtag("config", "G-TEST")</script>',
+                "",
+            )
+            page.write_text(text, encoding="utf-8")
+
+            text = page.read_text(encoding="utf-8").replace(
+                '<script src="/scripts/analytics-loader.js"></script>',
+                '<script src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script>',
+            )
+            page.write_text(text, encoding="utf-8")
+            errors = integrity.check_page(root, Path("page.html"), {Path("page.html")})
+            self.assertIn(
+                "direct Google tag loader bypasses measurement-hygiene gate",
+                errors,
+            )
+
     def test_detects_forbidden_draft_text(self):
         self.assertEqual(
             ["forbidden draft text remains: \"I'm going one by one\""],
