@@ -15,7 +15,7 @@ global.gtag = (...args) => events.push(args);
 
 require('../scripts/analytics.js');
 
-function clickLink(id, location = 'book_page') {
+function clickLink(id, location) {
   const trackedLink = {
     getAttribute(name) {
       return {
@@ -27,6 +27,7 @@ function clickLink(id, location = 'book_page') {
       return null;
     }
   };
+
   clickHandler({
     target: {
       closest(selector) {
@@ -36,24 +37,53 @@ function clickLink(id, location = 'book_page') {
   });
 }
 
-clickLink('book_en_paperback');
-assert.deepEqual(events, [
-  [
-    'event',
-    'cta_click',
-    { cta_id: 'book_en_paperback', cta_loc: 'book_page' }
-  ],
-  [
-    'event',
-    'outbound_purchase',
-    {
-      action_id: 'book_en_paperback',
-      action_location: 'book_page',
-      content_language: 'en',
-      item_format: 'paperback'
-    }
-  ]
-]);
+const cases = [
+  {
+    id: 'book_en_paperback',
+    location: 'book_page',
+    eventName: 'outbound_purchase',
+    attributes: { content_language: 'en', item_format: 'paperback' }
+  },
+  {
+    id: 'book_es_info',
+    location: 'site_footer',
+    eventName: 'view_book',
+    attributes: { content_language: 'es', item_format: 'information' }
+  },
+  {
+    id: 'help_en_dialysis',
+    location: 'homepage_resources',
+    eventName: 'start_help_flow',
+    attributes: { content_language: 'en', help_topic: 'dialysis' }
+  },
+  {
+    id: 'organization_es_donor_shield',
+    location: 'donor_story',
+    eventName: 'browse_organizations',
+    attributes: { content_language: 'es', organization: 'donor_shield' }
+  }
+];
+
+for (const item of cases) {
+  events.length = 0;
+  clickLink(item.id, item.location);
+  assert.deepEqual(events, [
+    [
+      'event',
+      'cta_click',
+      { cta_id: item.id, cta_loc: item.location }
+    ],
+    [
+      'event',
+      item.eventName,
+      {
+        action_id: item.id,
+        action_location: item.location,
+        ...item.attributes
+      }
+    ]
+  ]);
+}
 
 events.length = 0;
 clickLink('professional_en', 'homepage');
@@ -62,10 +92,5 @@ assert.deepEqual(events, [[
   'cta_click',
   { cta_id: 'professional_en', cta_loc: 'homepage' }
 ]]);
-
-events.length = 0;
-clickLink('book_es_info', 'site_footer');
-assert.equal(events[1][1], 'view_book');
-assert.equal(events[1][2].content_language, 'es');
 
 console.log('analytics event contract: pass');

@@ -26,9 +26,9 @@ class ConversionAnalyticsTests(unittest.TestCase):
     def assert_link(self, rel, href, cta_id, location):
         matches = [
             anchor for anchor in anchors_for(rel)
-            if anchor.get("href") == href
+            if anchor.get("href") == href and anchor.get("data-evt") == cta_id
         ]
-        self.assertEqual(1, len(matches), f"expected one {href} link in {rel}")
+        self.assertEqual(1, len(matches), f"expected one {cta_id} link to {href} in {rel}")
         self.assertEqual(cta_id, matches[0].get("data-evt"))
         self.assertEqual(location, matches[0].get("data-evt-loc"))
 
@@ -58,6 +58,32 @@ class ConversionAnalyticsTests(unittest.TestCase):
         self.assert_link("includes_es/footer.html", "/es/book.html", "book_es_info", None)
         for rel in ("includes/footer.html", "includes_es/footer.html"):
             self.assertIn('data-loc="site_footer"', (ROOT / rel).read_text(encoding="utf-8"))
+
+    def test_homepage_help_and_book_entries_emit_purpose_events(self):
+        cases = [
+            ("index.html", "/book.html", "book_en_hero", "homepage_hero"),
+            ("index.html", "/hub/dialysis/index.html", "help_en_dialysis", "homepage_resources"),
+            ("index.html", "/hub/transplant/index.html", "help_en_transplant", "homepage_resources"),
+            ("index.html", "/hub/donation/index.html", "help_en_donation", "homepage_resources"),
+            ("es/index.html", "/es/book.html", "book_es_hero", "homepage_hero"),
+            ("es/index.html", "/es/hub/dialysis/index.html", "help_es_dialysis", "homepage_resources"),
+            ("es/index.html", "/es/hub/transplant/index.html", "help_es_transplant", "homepage_resources"),
+            ("es/index.html", "/es/hub/donation/index.html", "help_es_donation", "homepage_resources"),
+        ]
+        for rel, href, cta_id, location in cases:
+            with self.subTest(rel=rel, href=href):
+                self.assert_link(rel, href, cta_id, location)
+
+    def test_verified_organization_resource_links_are_measurable(self):
+        cases = [
+            ("hub/testimonials/donor-luis.html", "https://www.kidney.org/transplantation/livingdonors/incompatiblebloodtype", "organization_en_nkf_paired_donation"),
+            ("hub/testimonials/donor-luis.html", "https://www.donor-shield.org/", "organization_en_donor_shield"),
+            ("es/hub/testimonials/donor-luis.html", "https://www.kidney.org/transplantation/livingdonors/incompatiblebloodtype", "organization_es_nkf_paired_donation"),
+            ("es/hub/testimonials/donor-luis.html", "https://www.donor-shield.org/", "organization_es_donor_shield"),
+        ]
+        for rel, href, cta_id in cases:
+            with self.subTest(rel=rel, href=href):
+                self.assert_link(rel, href, cta_id, "donor_story")
 
     def test_analytics_listener_is_single_and_uses_only_link_metadata(self):
         script = (ROOT / "scripts/analytics.js").read_text(encoding="utf-8")
