@@ -63,6 +63,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/donor-testimonials.html" />
   </url>
   <url>
+    <loc>https://titoneedsakidney.com/es/find-help.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/find-help.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/find-help.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/find-help.html" />
+  </url>
+  <url>
     <loc>https://titoneedsakidney.com/es/hub/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/" />
@@ -427,6 +433,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/for-professionals.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/para-profesionales.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/for-professionals.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/find-help.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/find-help.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/find-help.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/find-help.html" />
   </url>
   <url>
     <loc>https://titoneedsakidney.com/for-professionals.html</loc>
