@@ -626,6 +626,51 @@ a:hover {
 
 
 /* === Navigation option prototypes === */
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.pathway-card {
+  padding: 1.1rem;
+  border: 1px solid #cfe3f7;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fff 0%, #f5f9fc 100%);
+  box-shadow: 0 3px 12px rgb(35 61 84 / 8%);
+}
+
+.pathway-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.pathway-card p {
+  margin: 0;
+}
+
+.related-links {
+  margin: 2rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid var(--color-accent);
+  border-radius: 8px;
+  background: #f5f9fc;
+}
+
+.related-links h2,
+.related-links h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.quick-links {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: #f5f9fc;
+}
+
 header nav a {
   display: inline-flex;
   min-height: 44px;
@@ -695,6 +740,7 @@ header nav a.nav-book:focus-visible {
     width: 100%;
   }
 
+  header nav.nav--seven,
   header nav.nav--five,
   header nav.nav--four {
     display: grid;
@@ -703,6 +749,7 @@ header nav a.nav-book:focus-visible {
     gap: 0.5rem;
   }
 
+  header nav.nav--seven .nav-book,
   header nav.nav--five .nav-book {
     grid-column: 1 / -1;
   }
@@ -720,6 +767,7 @@ header nav a.nav-book:focus-visible {
     margin-inline: auto;
   }
 
+  .pathway-grid,
   .help-grid,
   .resource-choice-grid {
     grid-template-columns: 1fr;
