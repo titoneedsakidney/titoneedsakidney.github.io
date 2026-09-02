@@ -4,7 +4,6 @@ let clickHandler;
 const events = [];
 
 global.document = {
-  documentElement: { lang: 'en' },
   addEventListener(type, handler) {
     assert.equal(type, 'click');
     assert.equal(clickHandler, undefined, 'only one delegated click listener is registered');
@@ -16,15 +15,12 @@ global.gtag = (...args) => events.push(args);
 
 require('../scripts/analytics.js');
 
-function clickTrackedLink({ id, eventName, text, href, location }) {
+function clickLink(id, location) {
   const trackedLink = {
-    textContent: text,
-    href,
     getAttribute(name) {
       return {
         'data-evt': id,
-        'data-evt-loc': location,
-        'data-analytics-event': eventName
+        'data-evt-loc': location
       }[name] || null;
     },
     closest() {
@@ -43,61 +39,58 @@ function clickTrackedLink({ id, eventName, text, href, location }) {
 
 const cases = [
   {
-    id: 'help_en_dialysis',
-    eventName: 'start_help_flow',
-    text: 'Dialysis Hub',
-    href: 'https://titoneedsakidney.com/hub/dialysis/',
-    location: 'homepage_resources'
-  },
-  {
-    id: 'organization_donor_shield',
-    eventName: 'browse_organizations',
-    text: 'Donor Shield',
-    href: 'https://www.donor-shield.org/',
-    location: 'donor_story'
-  },
-  {
-    id: 'book_en_info',
-    eventName: null,
-    expectedEventName: 'view_book',
-    text: 'Buy the Book',
-    href: 'https://titoneedsakidney.com/book.html',
-    location: 'site_footer'
-  },
-  {
     id: 'book_en_paperback',
+    location: 'book_page',
     eventName: 'outbound_purchase',
-    text: 'Buy the Paperback',
-    href: 'https://www.amazon.com/dp/B0DSXVL84P',
-    location: 'book_page'
+    attributes: { content_language: 'en', item_format: 'paperback' }
+  },
+  {
+    id: 'book_es_info',
+    location: 'site_footer',
+    eventName: 'view_book',
+    attributes: { content_language: 'es', item_format: 'information' }
+  },
+  {
+    id: 'help_en_dialysis',
+    location: 'homepage_resources',
+    eventName: 'start_help_flow',
+    attributes: { content_language: 'en', help_topic: 'dialysis' }
+  },
+  {
+    id: 'organization_es_donor_shield',
+    location: 'donor_story',
+    eventName: 'browse_organizations',
+    attributes: { content_language: 'es', organization: 'donor_shield' }
   }
 ];
 
-for (const item of cases) clickTrackedLink(item);
+for (const item of cases) {
+  events.length = 0;
+  clickLink(item.id, item.location);
+  assert.deepEqual(events, [
+    [
+      'event',
+      'cta_click',
+      { cta_id: item.id, cta_loc: item.location }
+    ],
+    [
+      'event',
+      item.eventName,
+      {
+        action_id: item.id,
+        action_location: item.location,
+        ...item.attributes
+      }
+    ]
+  ]);
+}
 
-const expectedEvents = cases.flatMap((item) => {
-  const params = {
-    cta_id: item.id,
-    cta_text: item.text,
-    cta_loc: item.location,
-    content_language: 'en',
-    link_url: item.href
-  };
-  return [
-    ['event', 'cta_click', params],
-    ['event', item.expectedEventName || item.eventName, params]
-  ];
-});
-
-assert.deepEqual(events, expectedEvents);
-
-clickTrackedLink({
-  id: 'ordinary_link',
-  eventName: 'unapproved_event',
-  text: 'Ordinary link',
-  href: 'https://titoneedsakidney.com/about.html',
-  location: 'content'
-});
-assert.equal(events.at(-1)[1], 'cta_click', 'unapproved purpose events are not emitted');
+events.length = 0;
+clickLink('professional_en', 'homepage');
+assert.deepEqual(events, [[
+  'event',
+  'cta_click',
+  { cta_id: 'professional_en', cta_loc: 'homepage' }
+]]);
 
 console.log('analytics event contract: pass');

@@ -1,36 +1,116 @@
-const PURPOSE_EVENTS = new Set([
-  'start_help_flow',
-  'browse_organizations',
-  'view_book',
-  'outbound_purchase'
-]);
-
-// The existing sitewide book links already have durable IDs on every page.
-// Map those IDs here so the generated static footer does not need a markup migration.
-const PURPOSE_EVENT_BY_CTA_ID = {
-  book_en_info: 'view_book',
-  book_es_info: 'view_book'
+const SEMANTIC_EVENTS = {
+  book_en_paperback: {
+    name: 'outbound_purchase',
+    content_language: 'en',
+    item_format: 'paperback'
+  },
+  book_en_kindle: {
+    name: 'outbound_purchase',
+    content_language: 'en',
+    item_format: 'kindle'
+  },
+  book_es_paperback: {
+    name: 'outbound_purchase',
+    content_language: 'es',
+    item_format: 'paperback'
+  },
+  book_es_kindle: {
+    name: 'outbound_purchase',
+    content_language: 'es',
+    item_format: 'kindle'
+  },
+  book_en_info: {
+    name: 'view_book',
+    content_language: 'en',
+    item_format: 'information'
+  },
+  book_es_info: {
+    name: 'view_book',
+    content_language: 'es',
+    item_format: 'information'
+  },
+  book_en_hero: {
+    name: 'view_book',
+    content_language: 'en',
+    item_format: 'information'
+  },
+  book_es_hero: {
+    name: 'view_book',
+    content_language: 'es',
+    item_format: 'information'
+  },
+  help_en_dialysis: {
+    name: 'start_help_flow',
+    content_language: 'en',
+    help_topic: 'dialysis'
+  },
+  help_en_transplant: {
+    name: 'start_help_flow',
+    content_language: 'en',
+    help_topic: 'transplant'
+  },
+  help_en_donation: {
+    name: 'start_help_flow',
+    content_language: 'en',
+    help_topic: 'living_donation'
+  },
+  help_es_dialysis: {
+    name: 'start_help_flow',
+    content_language: 'es',
+    help_topic: 'dialysis'
+  },
+  help_es_transplant: {
+    name: 'start_help_flow',
+    content_language: 'es',
+    help_topic: 'transplant'
+  },
+  help_es_donation: {
+    name: 'start_help_flow',
+    content_language: 'es',
+    help_topic: 'living_donation'
+  },
+  organization_en_nkf_paired_donation: {
+    name: 'browse_organizations',
+    content_language: 'en',
+    organization: 'national_kidney_foundation'
+  },
+  organization_en_donor_shield: {
+    name: 'browse_organizations',
+    content_language: 'en',
+    organization: 'donor_shield'
+  },
+  organization_es_nkf_paired_donation: {
+    name: 'browse_organizations',
+    content_language: 'es',
+    organization: 'national_kidney_foundation'
+  },
+  organization_es_donor_shield: {
+    name: 'browse_organizations',
+    content_language: 'es',
+    organization: 'donor_shield'
+  }
 };
 
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a[data-evt]');
   if (!a || !window.gtag) return;
 
-  const params = {
-    cta_id: a.getAttribute('data-evt'),
-    cta_text: (a.textContent || '').trim(),
-    cta_loc: a.getAttribute('data-evt-loc') ||
-      a.closest('[data-loc]')?.getAttribute('data-loc') || 'unknown',
-    content_language: document.documentElement.lang || 'und',
-    link_url: a.href
-  };
+  const ctaId = a.getAttribute('data-evt');
+  const ctaLoc = a.getAttribute('data-evt-loc') ||
+    a.closest('[data-loc]')?.getAttribute('data-loc') || 'unknown';
 
-  // Keep the original event for historical continuity.
-  gtag('event', 'cta_click', params);
+  gtag('event', 'cta_click', {
+    cta_id: ctaId,
+    cta_loc: ctaLoc
+  });
 
-  const purposeEvent = a.getAttribute('data-analytics-event') ||
-    PURPOSE_EVENT_BY_CTA_ID[params.cta_id];
-  if (PURPOSE_EVENTS.has(purposeEvent)) {
-    gtag('event', purposeEvent, params);
-  }
+  const semantic = SEMANTIC_EVENTS[ctaId];
+  if (!semantic) return;
+
+  const { name, ...attributes } = semantic;
+  gtag('event', name, {
+    action_id: ctaId,
+    action_location: ctaLoc,
+    ...attributes
+  });
 });
