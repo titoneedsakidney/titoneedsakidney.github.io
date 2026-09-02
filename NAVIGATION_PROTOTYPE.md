@@ -24,14 +24,21 @@ on the Find Help pages are clearly marked examples; they are not approved direct
 ## Test locally
 
 ```bash
-git fetch origin
-git switch --track origin/prototype/nav-b-familiar-v2
+if [ -d /home/rferblug/tnk-nav-evaluation/.git ]; then
+  cd /home/rferblug/tnk-nav-evaluation
+  git fetch origin
+else
+  git clone https://github.com/titoneedsakidney/titoneedsakidney.github.io.git /home/rferblug/tnk-nav-evaluation
+  cd /home/rferblug/tnk-nav-evaluation
+fi
+
+git switch --detach origin/prototype/nav-b-familiar-v2
 python3 -m http.server 0 --bind 127.0.0.1
 ```
 
 Open the `http://127.0.0.1:PORT/` address printed by Python. The operating
 system selects an unused port, so this does not collide with an existing service.
-Stop the server with Ctrl+C and return with `git switch main`.
+Stop the server with Ctrl+C and return to the production branch with `git switch main`.
 
 Try the same tasks in English, Spanish, and a narrow phone-sized window:
 
@@ -45,7 +52,7 @@ Record where you hesitated as well as the click count. The branch changes the
 top-level navigation and help-directory concept; it does not yet redesign every
 deep clinical submenu.
 
-+## Journey results
+## Journey results
 
 | Task | Clicks | What remains visible |
 |---|---:|---|
