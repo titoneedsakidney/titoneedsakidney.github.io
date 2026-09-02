@@ -623,3 +623,105 @@ a:hover {
   outline: 3px solid #0b57d0;
   outline-offset: 3px;
 }
+
+
+/* === Navigation option prototypes === */
+header nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+}
+
+header nav a.nav-book {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+header nav a.nav-book:hover,
+header nav a.nav-book:focus-visible {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.prototype-note {
+  padding: 0.85rem 1rem;
+  border: 2px solid #8aa3bd;
+  border-radius: 10px;
+  background: #f5f9fc;
+}
+
+.help-grid,
+.resource-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.help-card,
+.resource-choice {
+  padding: 1rem;
+  border: 1px solid #cfe3f7;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.help-card h2,
+.resource-choice h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.help-card h2::after,
+.resource-choice h2::after {
+  display: none;
+}
+
+.help-card a,
+.resource-choice a {
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  header {
+    align-items: stretch;
+  }
+
+  .site-title {
+    width: 100%;
+  }
+
+  header nav.nav--five,
+  header nav.nav--four {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  header nav.nav--five .nav-book {
+    grid-column: 1 / -1;
+  }
+
+  header nav a {
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 0.65rem 0.5rem;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .lang-switch {
+    margin-inline: auto;
+  }
+
+  .help-grid,
+  .resource-choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
