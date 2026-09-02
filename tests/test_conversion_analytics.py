@@ -63,7 +63,13 @@ class ConversionAnalyticsTests(unittest.TestCase):
         script = (ROOT / "scripts/analytics.js").read_text(encoding="utf-8")
         self.assertEqual(1, script.count("document.addEventListener('click'"))
         self.assertIn("cta_click", script)
+        self.assertIn("outbound_purchase", script)
+        self.assertIn("view_book", script)
+        self.assertIn("start_help_flow", script)
+        self.assertIn("browse_organizations", script)
         self.assertIn("data-evt-loc", script)
+        self.assertNotIn("cta_text", script)
+        self.assertNotIn("link_url", script)
         self.assertNotIn("data-email", script)
         self.assertNotIn("FormData", script)
 
