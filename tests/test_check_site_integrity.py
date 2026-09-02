@@ -39,6 +39,12 @@ class IntegrityCheckTests(unittest.TestCase):
             self.assertTrue(any("skip-link target" in error for error in errors))
             self.assertIn("runtime data-include placeholder remains", errors)
 
+    def test_detects_forbidden_draft_text(self):
+        self.assertEqual(
+            ["forbidden draft text remains: \"I'm going one by one\""],
+            integrity.check_forbidden_draft_text("I'm going one by one <nav>"),
+        )
+
     def test_detects_broken_links_and_fragments(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

@@ -20,6 +20,7 @@ import update_static_metadata as metadata
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_INCLUDE_RE = re.compile(r"\bdata-include\s*=", re.I)
+FORBIDDEN_DRAFT_TEXT = ("I'm going one by one",)
 ROLE_TERMS = {
     "social worker": "social worker",
     "trabajador/a social": "social worker",
@@ -262,6 +263,7 @@ def check_page(root: Path, rel: Path, pages: set[Path]) -> list[str]:
         errors.append("hreflang alternates do not match the bilingual counterpart")
     if DATA_INCLUDE_RE.search(text):
         errors.append("runtime data-include placeholder remains")
+    errors.extend(check_forbidden_draft_text(text))
     errors.extend(check_duplicate_url_links(parser))
     errors.extend(check_spanish_navigation_links(rel, parser))
     title_roles = role_in(parser.title) | role_in(parser.og_title)
@@ -270,6 +272,14 @@ def check_page(root: Path, rel: Path, pages: set[Path]) -> list[str]:
         errors.append("role named by title/metadata conflicts with H1 content")
     errors.extend(check_json_ld(rel, parser))
     return errors
+
+
+def check_forbidden_draft_text(text: str) -> list[str]:
+    return [
+        f"forbidden draft text remains: {phrase!r}"
+        for phrase in FORBIDDEN_DRAFT_TEXT
+        if phrase in text
+    ]
 
 
 def check_duplicate_url_links(parser: PageParser) -> list[str]:
