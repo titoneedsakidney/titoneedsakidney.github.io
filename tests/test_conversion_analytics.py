@@ -53,6 +53,10 @@ class ConversionAnalyticsTests(unittest.TestCase):
         self.assert_link("es/index.html", "/es/para-profesionales.html", "professional_es", "homepage")
         self.assert_link("es/book.html", "/es/para-profesionales.html", "professional_es", "book_page")
 
+    def test_book_availability_entries_are_tracked_in_both_languages(self):
+        self.assert_link("book.html", "#availability", "book_en_availability", "book_page_hero")
+        self.assert_link("es/book.html", "#availability", "book_es_availability", "book_page_hero")
+
     def test_shared_footer_book_ctas_are_trackable_and_language_specific(self):
         self.assert_link("includes/footer.html", "/book.html", "book_en_info", None)
         self.assert_link("includes_es/footer.html", "/es/book.html", "book_es_info", None)

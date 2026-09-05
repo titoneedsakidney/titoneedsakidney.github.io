@@ -14,6 +14,10 @@ repository.
 | `scripts/analytics.js` | Emits `cta_click` and approved purpose events from stable link metadata | No visible link text, destination URL, visitor identifier, or form value |
 | Private Research workflow | Reads aggregate GA4 and Search Console reports weekly | No write access to Analytics and no visitor-level export |
 
+Book availability entry links emit `browse_book_availability` with the language and the
+controlled value `all_verified`. Individual channel values are reserved for future direct
+edition links that have been independently verified.
+
 Calling `gtag('config', ...)` sends a `page_view` by default once the Google tag
 loads. Google documents both that default and the `ga-disable-MEASUREMENT_ID`
 switch used by the loader:
