@@ -51,6 +51,12 @@ const cases = [
     attributes: { content_language: 'es', item_format: 'information' }
   },
   {
+    id: 'book_en_availability',
+    location: 'book_page_hero',
+    eventName: 'browse_book_availability',
+    attributes: { content_language: 'en', availability_channel: 'all_verified' }
+  },
+  {
     id: 'help_en_dialysis',
     location: 'homepage_resources',
     eventName: 'start_help_flow',

@@ -39,6 +39,16 @@ const SEMANTIC_EVENTS = {
     content_language: 'es',
     item_format: 'information'
   },
+  book_en_availability: {
+    name: 'browse_book_availability',
+    content_language: 'en',
+    availability_channel: 'all_verified'
+  },
+  book_es_availability: {
+    name: 'browse_book_availability',
+    content_language: 'es',
+    availability_channel: 'all_verified'
+  },
   help_en_dialysis: {
     name: 'start_help_flow',
     content_language: 'en',
