@@ -8,32 +8,44 @@
   <link rel="stylesheet" href="prototype.css">
 </head>
 <body>
-<header><div><h1>Issue #19: navigation prototype review</h1><p>Non-production, static, bilingual previews. These are desk-test artifacts, not a live redesign or human-study result.</p></div></header>
+<header class="prototype-header"><div>
+  <p class="eyebrow">Non-production design review</p>
+  <h1>Which navigation helps people find a useful next step?</h1>
+  <p>These are realistic, bilingual click-through previews—not a live redesign and not a human-study result.</p>
+</div></header>
 <main>
-  <p class="notice"><strong>First-screen rule:</strong> every model puts clear situation-based pathways and unrestricted browsing above the first long content block. Visitors can ignore the cards and use ordinary navigation.</p>
-  <section class="cards" aria-label="Prototype previews">
-    <article class="card"><a href="a2.html">Prototype A2 — recommended</a><p>Five-item navigation, featured pathways, contextual suggestions, and full browse.</p></article>
-    <article class="card"><a href="b.html">Prototype B — conservative</a><p>Familiar, fuller primary navigation with the same pathway content.</p></article>
-    <article class="card"><a href="c.html">Prototype C — Resources umbrella</a><p>Four-item navigation; learning and outside help are separated within Resources.</p></article>
+  <p class="notice"><strong>What changed in this pass:</strong> each option now shows the book and a clear path to help immediately, has its own English and Spanish preview, and uses the same verified resource sample. The structure—not different content—is the thing to compare.</p>
+
+  <section class="comparison-grid" aria-label="Prototype previews">
+    <article class="model-summary"><h2>Prototype A2</h2><p>Five choices: Kidney Guide and Help &amp; Support are plainly separate.</p><p><a href="a2.html">Open English preview</a><br><a href="a2-es.html" lang="es">Abrir vista previa en español</a></p></article>
+    <article class="model-summary"><h2>Prototype B</h2><p>Familiar, fuller menu. The same help cards must compete with more navigation choices.</p><p><a href="b.html">Open English preview</a><br><a href="b-es.html" lang="es">Abrir vista previa en español</a></p></article>
+    <article class="model-summary"><h2>Prototype C</h2><p>Four choices, with a Resources umbrella that separates learning from help one level later.</p><p><a href="c.html">Open English preview</a><br><a href="c-es.html" lang="es">Abrir vista previa en español</a></p></article>
   </section>
+
   <h2>Side-by-side desk-test scorecard</h2>
   <table>
     <thead><tr><th>Criterion</th><th>A2</th><th>B</th><th>C</th></tr></thead>
     <tbody>
-      <tr><td>First-screen clarity</td><td>Strong: pathways + plain navigation</td><td>Moderate: more choices compete</td><td>Moderate: “Resources” needs explanation</td></tr>
-      <tr><td>Homepage → transplant nephrologist</td><td>2 obvious clicks</td><td>2–3 choices; more menu scanning</td><td>2 clicks after choosing Resources</td></tr>
-      <tr><td>Dialysis social worker → support</td><td>1 contextual link</td><td>1 contextual link</td><td>1 contextual link</td></tr>
-      <tr><td>Transplant → dialysis recovery</td><td>1 related link</td><td>1 related link</td><td>1 related link</td></tr>
-      <tr><td>Unrestricted browse</td><td>Visible “Browse all topics” and Help &amp; Support</td><td>Visible but menu-heavy</td><td>Visible inside Resources</td></tr>
-      <tr><td>Spanish continuity</td><td>Dedicated Spanish section and same routes</td><td>Dedicated Spanish section and same routes</td><td>Dedicated Spanish section and same routes</td></tr>
-      <tr><td>Desk-test recommendation</td><td><strong>Advance to human/task review</strong></td><td>Keep as comparison</td><td>Keep as comparison</td></tr>
+      <tr><td>First-screen promise</td><td>Book identity plus six optional pathways</td><td>Same promise, but a fuller menu competes for attention</td><td>Book plus two broad Resource lanes and pathways</td></tr>
+      <tr><td>Homepage → transplant nephrologist</td><td>2 obvious clicks</td><td>2–3 choices; more scanning</td><td>2 clicks after choosing Resources</td></tr>
+      <tr><td>Transplant → dialysis</td><td>1 contextual link</td><td>1 contextual link</td><td>1 contextual link</td></tr>
+      <tr><td>Dialysis social worker → online groups</td><td>1 contextual link</td><td>1 contextual link</td><td>1 contextual link</td></tr>
+      <tr><td>Open browsing</td><td>Guide, Help &amp; Support, and A–Z are visible</td><td>Visible, but the header is denser</td><td>Available inside Resources</td></tr>
+      <tr><td>Current desk-test recommendation</td><td><strong>Advance first</strong></td><td>Useful comparison</td><td>Useful comparison</td></tr>
     </tbody>
   </table>
+
   <h2>Eight journey checks</h2>
   <ol>
-    <li>Homepage → transplant nephrologist.</li><li>Transplant nephrologist → other transplant roles.</li><li>Transplant information → dialysis information.</li><li>Dialysis social worker → online support groups.</li><li>Starting dialysis → staff roles and what to expect.</li><li>Caregiver → education and caregiver support.</li><li>No featured-path recognition → browse all topics without a dead end.</li><li>Spanish visitor completes the same routes without an English jump.</li>
+    <li>Homepage → transplant nephrologist.</li>
+    <li>Transplant nephrologist → another transplant-team role.</li>
+    <li>Transplant information → dialysis information.</li>
+    <li>Dialysis social worker → online dialysis support groups.</li>
+    <li>Starting dialysis → staff roles and what to expect.</li>
+    <li>Caregiver → education and caregiver support.</li>
+    <li>No featured path feels right → browse all topics without a dead end.</li>
+    <li>Spanish visitor completes the same routes without an English jump.</li>
   </ol>
-  <p>All named external resources are the verified #18 sample. Each preview uses the same small sample so navigation—not a different resource list—is what varies.</p>
 </main>
 </body>
 </html>
