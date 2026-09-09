@@ -1,9 +1,12 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "updated_date": "2026-09-09",
-  "canonical_publishing_catalog": {
-    "spreadsheet_id": "1reG4qhdKLMVZ5_zj6UN5SJk2mA53NQIDwegJ8CsCWoQ",
-    "checked_date": "2026-09-09"
+  "canonical_publishing_source": {
+    "name": "TNK Publishing Asset Catalog",
+    "authority": "Private A12 publishing asset and distribution infrastructure",
+    "consumer_contract": "TitoNeedsAKidney.Research/research/publishing-assets/ASSET_STANDARD.md",
+    "checked_date": "2026-09-09",
+    "privacy_rule": "Public website data stores logical PUB-* IDs and approved public facts, not private provider IDs or URLs."
   },
   "bindings": [
     {
@@ -34,7 +37,7 @@
       "consumers": [
         "/book.html"
       ],
-      "notes": "Canonical source is Publishing Asset Catalog row PUB-EN-COVER-FRONT-001. The site file /assets/images/og-default.png was verified byte-identical to the canonical Drive PNG by calculating the Git blob SHA from the raw canonical file; both resolve to 08d4845fc07833a8f3e7f9c6cf681a77a93d76c1. Local WebP files are delivery derivatives, not separate publishing identities."
+      "notes": "Canonical source is logical publishing asset PUB-EN-COVER-FRONT-001. The site file /assets/images/og-default.png was verified byte-identical to the canonical source by calculating the Git blob SHA from the controlled raw file; both resolve to 08d4845fc07833a8f3e7f9c6cf681a77a93d76c1. Local WebP files are delivery derivatives, not separate publishing identities."
     },
     {
       "binding_id": "TNK-WEB-BIND-COVER-ES-FRONT",
@@ -68,7 +71,7 @@
         "/es/book.html",
         "/es/index.html"
       ],
-      "notes": "Git history establishes /assets/images/og-spanish.png as the full-resolution Spanish book image used immediately before the responsive Spanish WebPs were introduced and substituted in the same page locations. This is sufficient to record the site-local source chain, but not to mint a canonical PUB-* asset or claim byte-level derivation. The controlled Publishing Asset Catalog and Covers & Images Drive folder still have no Spanish front-cover-image master row/file."
+      "notes": "Git history establishes /assets/images/og-spanish.png as the full-resolution Spanish book image used immediately before the responsive Spanish WebPs were introduced and substituted in the same page locations. This is sufficient to record the site-local source chain, but not to mint a canonical PUB-* asset or claim byte-level derivation. The private canonical asset system still has no Spanish front-cover-image master."
     },
     {
       "binding_id": "TNK-WEB-BIND-OG-EN-DEFAULT",
@@ -76,11 +79,10 @@
       "status": "mapped_byte_identical_alias",
       "verification": {
         "verified_date": "2026-09-09",
-        "canonical_drive_file_id": "1SNZAlgvRPxyfxxHWYX4VkFUAfyvwQ5Q3",
         "canonical_file_size_bytes": 2090739,
         "site_file_size_bytes": 2090739,
         "git_blob_sha": "08d4845fc07833a8f3e7f9c6cf681a77a93d76c1",
-        "method": "Raw canonical Drive bytes were hashed using the Git blob object algorithm and matched the repository blob SHA for /assets/images/og-default.png."
+        "method": "Controlled canonical bytes were hashed using the Git blob object algorithm and matched the repository blob SHA for /assets/images/og-default.png."
       },
       "derivatives": [
         {
@@ -92,7 +94,7 @@
         "multiple English pages",
         "/includes/meta.html"
       ],
-      "notes": "This is not merely a similar image: the repository file is byte-identical to canonical publishing asset PUB-EN-COVER-FRONT-001 as verified on 2026-09-09."
+      "notes": "This repository file is byte-identical to canonical publishing asset PUB-EN-COVER-FRONT-001 as verified on 2026-09-09."
     },
     {
       "binding_id": "TNK-WEB-BIND-OG-ES-DEFAULT",
@@ -118,7 +120,7 @@
         "multiple Spanish pages",
         "/includes_es/meta.html"
       ],
-      "notes": "Git history establishes this file as the pre-responsive Spanish book-cover image. Its relationship to the responsive WebPs is high-confidence historical provenance, but a canonical Drive/catalog master remains absent and byte-level derivative verification has not been performed."
+      "notes": "Git history establishes this file as the pre-responsive Spanish book-cover image. Its relationship to the responsive WebPs is high-confidence historical provenance, but a canonical publishing master remains absent and byte-level derivative verification has not been performed."
     }
   ],
   "page_candidates": [
