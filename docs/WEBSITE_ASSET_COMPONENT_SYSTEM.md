@@ -1,7 +1,7 @@
 # Website Asset and Component System
 
 **Status:** Foundation  
-**Goal:** Make `titoneedsakidney.com` increasingly buildable from durable reusable parts without sacrificing page-specific SEO, bilingual parity, accessibility, or static-site simplicity.
+**Goal:** Make `titoneedsakidney.com` increasingly buildable from durable reusable parts without sacrificing page-specific SEO, bilingual parity, accessibility, privacy, or static-site simplicity.
 
 The website is a sales/distribution surface for *Tito Needs a Kidney*. This document defines reusable website construction assets ("Legos") and how they relate to the existing controlled publishing assets.
 
@@ -15,9 +15,9 @@ Internal stable names are implementation details. They must not force repetitive
 
 The website must not create its own competing publishing registry.
 
-Shared publishing asset identity is owned by the **TNK Publishing Asset Catalog** (Google Sheet ID `1reG4qhdKLMVZ5_zj6UN5SJk2mA53NQIDwegJ8CsCWoQ`). The publishing-footprint governance in `TitoNeedsAKidney.Research` treats this catalog and its `Distribution Availability` tab as the canonical A12 metadata/distribution infrastructure source.
+Shared publishing asset identity is owned by the private **TNK Publishing Asset Catalog** and the A12 metadata/distribution infrastructure governance in `TitoNeedsAKidney.Research`. The public website repository should consume only stable logical asset IDs and approved public facts; it must not publish private provider locators merely so a worker can find the authoritative source.
 
-Examples of existing canonical IDs observed 2026-09-09 include:
+Examples of existing canonical logical IDs observed 2026-09-09 include:
 
 - `PUB-EN-INTERIOR-001`
 - `PUB-EN-COVER-FRONT-001`
@@ -26,6 +26,18 @@ Examples of existing canonical IDs observed 2026-09-09 include:
 - `PUB-ES-REVIEW-001`
 
 Website bindings should reference those existing IDs when a canonical mapping exists. If no mapping exists, record the local asset as unmapped; do not invent a substitute publishing ID.
+
+### Public-repository privacy boundary
+
+Do not place private-system identifiers or locators in this public repository unless they are intentionally public content. In particular, website manifests and documentation should not contain private:
+
+- Google Sheet IDs;
+- Google Drive file IDs or private Drive URLs;
+- CRM row/contact identifiers;
+- Gmail/message identifiers;
+- recipient or organization tracking identifiers.
+
+The private Research integration layer may retain provider locators where needed for controlled resolution. The website should normally need only the logical `PUB-*` identity and public-facing values/assets.
 
 ## Three layers
 
@@ -37,7 +49,7 @@ Canonical facts and media used by both website and outreach belong to the existi
 - canonical file locations and source relationships;
 - sharing and approval rules;
 - edition/format metadata when registered;
-- retailer/distributor availability evidence through `Distribution Availability`;
+- retailer/distributor availability evidence;
 - other A12 publishing infrastructure.
 
 The website may keep optimized derivatives locally (for example responsive WebP cover sizes), but they should resolve to one canonical source asset when that relationship is known.
@@ -121,11 +133,12 @@ The current live pages should remain unchanged during the foundation phase. The 
 
 Website-specific bindings map local optimized files to canonical publishing assets without turning delivery variants into new publishing identities.
 
-Known mapping:
+Known English mapping:
 
 ```json
 {
   "publishing_asset_id": "PUB-EN-COVER-FRONT-001",
+  "full_resolution_site_alias": "/assets/images/og-default.png",
   "derivatives": [
     "/assets/images/book-cover-en-320.webp",
     "/assets/images/book-cover-en-520.webp",
@@ -134,11 +147,9 @@ Known mapping:
 }
 ```
 
-The canonical English source is `PUB-EN-COVER-FRONT-001`, currently recorded in the Publishing Asset Catalog as `Tito Needs a Kidney - English Front Cover.png`.
+`/assets/images/og-default.png` was verified on 2026-09-09 to be byte-identical to canonical `PUB-EN-COVER-FRONT-001`. The responsive English WebPs remain delivery derivatives of that logical asset.
 
-The live site also contains Spanish responsive cover files, but the canonical catalog does not currently expose a Spanish front-cover-image row. Those local files must remain explicitly unmapped until the catalog is reconciled.
-
-The site also contains `og-default.png` and `og-spanish.png`. Their source relationship is not yet proven, so they are site-local media observations rather than assumed derivatives of a cover master.
+For Spanish, Git history establishes `/assets/images/og-spanish.png` as the full-resolution book image used before the responsive `/assets/images/book-cover-es-{320,520,800}.webp` variants replaced it on the Spanish book/home pages. That establishes a high-confidence site-local source chain, but the private canonical catalog still has no Spanish front-cover-image master equivalent to `PUB-EN-COVER-FRONT-001`. Therefore the Spanish website binding remains canonically unmapped; do not mint a `PUB-*` identity from website history alone.
 
 ## SEO boundaries
 
@@ -167,7 +178,7 @@ English and Spanish pages may share patterns/components but must preserve langua
 - CTAs;
 - structured data.
 
-Do not infer Spanish edition availability from English evidence or vice versa. Distribution claims must come from the canonical `Distribution Availability` table or stronger direct evidence.
+Do not infer Spanish edition availability from English evidence or vice versa. Distribution claims must come from the canonical distribution source or stronger direct evidence.
 
 ## Build direction
 
@@ -190,4 +201,4 @@ Do not introduce a framework merely to gain component reuse. A minimal build ste
 
 ## Success condition
 
-A worker should be able to create or revise a page by selecting approved canonical publishing assets, a known page pattern, and reusable components while still writing the unique SEO/content layer for that page. A change to a canonical cover or verified edition field should have one controlled source and predictable downstream consumers.
+A worker should be able to create or revise a page by selecting approved canonical publishing assets, a known page pattern, and reusable components while still writing the unique SEO/content layer for that page. A change to a canonical cover or verified edition field should have one controlled source and predictable downstream consumers, without leaking private-system locators into the public site repository.
