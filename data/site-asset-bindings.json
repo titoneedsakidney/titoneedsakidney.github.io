@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-09-08",
+  "bindings": [
+    {
+      "binding_id": "TNK-WEB-BIND-COVER-EN-FRONT",
+      "publishing_asset_id": "TNK-MEDIA-COVER-EN-FRONT",
+      "status": "candidate",
+      "derivatives": [
+        {
+          "path": "/assets/images/book-cover-en-320.webp",
+          "role": "responsive_raster",
+          "width": 320
+        },
+        {
+          "path": "/assets/images/book-cover-en-520.webp",
+          "role": "responsive_raster",
+          "width": 520
+        },
+        {
+          "path": "/assets/images/book-cover-en-800.webp",
+          "role": "responsive_raster",
+          "width": 800
+        }
+      ],
+      "consumers": [
+        "/book.html"
+      ],
+      "notes": "These are website delivery derivatives of one logical English front-cover asset. The canonical master source still needs reconciliation in the shared publishing registry."
+    }
+  ],
+  "page_candidates": [
+    {
+      "page_id": "TNK-WEB-PAGE-BOOK-EN",
+      "path": "/book.html",
+      "language": "EN",
+      "pattern_id": "TNK-WEB-PAT-BOOK",
+      "status": "inventory_only",
+      "candidate_components": [
+        "TNK-WEB-CMP-HEADER",
+        "TNK-WEB-CMP-LANGUAGE-SWITCHER",
+        "TNK-WEB-CMP-BOOK-HERO",
+        "TNK-WEB-CMP-RETAILER-LINKS"
+      ],
+      "publishing_asset_refs": [
+        "TNK-MEDIA-COVER-EN-FRONT",
+        "TNK-META-EDITION-EN-PB"
+      ],
+      "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
+    }
+  ]
+}
