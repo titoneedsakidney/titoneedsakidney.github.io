@@ -1,11 +1,16 @@
 {
-  "schema_version": 1,
-  "updated_date": "2026-09-08",
+  "schema_version": 2,
+  "updated_date": "2026-09-09",
+  "canonical_publishing_catalog": {
+    "spreadsheet_id": "1reG4qhdKLMVZ5_zj6UN5SJk2mA53NQIDwegJ8CsCWoQ",
+    "checked_date": "2026-09-09"
+  },
   "bindings": [
     {
       "binding_id": "TNK-WEB-BIND-COVER-EN-FRONT",
-      "publishing_asset_id": "TNK-MEDIA-COVER-EN-FRONT",
-      "status": "candidate",
+      "publishing_asset_id": "PUB-EN-COVER-FRONT-001",
+      "status": "mapped",
+      "source_last_verified": "2026-08-29",
       "derivatives": [
         {
           "path": "/assets/images/book-cover-en-320.webp",
@@ -26,7 +31,65 @@
       "consumers": [
         "/book.html"
       ],
-      "notes": "These are website delivery derivatives of one logical English front-cover asset. The canonical master source still needs reconciliation in the shared publishing registry."
+      "notes": "Canonical source is the Publishing Asset Catalog row PUB-EN-COVER-FRONT-001. Local WebP files are delivery derivatives, not separate publishing identities."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-COVER-ES-FRONT",
+      "publishing_asset_id": null,
+      "status": "unmapped_canonical_source",
+      "derivatives": [
+        {
+          "path": "/assets/images/book-cover-es-320.webp",
+          "role": "responsive_raster",
+          "width": 320
+        },
+        {
+          "path": "/assets/images/book-cover-es-520.webp",
+          "role": "responsive_raster",
+          "width": 520
+        },
+        {
+          "path": "/assets/images/book-cover-es-800.webp",
+          "role": "responsive_raster",
+          "width": 800
+        }
+      ],
+      "consumers": [
+        "/es/book.html"
+      ],
+      "notes": "Spanish responsive cover files are present on the live site, but no canonical Spanish front-cover-image row was found in the Publishing Asset Catalog on 2026-09-09. Do not infer a master source from the Spanish KDP cover PDF."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-OG-EN-DEFAULT",
+      "publishing_asset_id": null,
+      "status": "source_relationship_unknown",
+      "derivatives": [
+        {
+          "path": "/assets/images/og-default.png",
+          "role": "open_graph_default"
+        }
+      ],
+      "consumers": [
+        "multiple English pages",
+        "/includes/meta.html"
+      ],
+      "notes": "Observed as shared English Open Graph media. Do not assume it is derived from PUB-EN-COVER-FRONT-001 until source evidence exists."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-OG-ES-DEFAULT",
+      "publishing_asset_id": null,
+      "status": "source_relationship_unknown",
+      "derivatives": [
+        {
+          "path": "/assets/images/og-spanish.png",
+          "role": "open_graph_default"
+        }
+      ],
+      "consumers": [
+        "multiple Spanish pages",
+        "/includes_es/meta.html"
+      ],
+      "notes": "Observed as shared Spanish Open Graph media. Do not assume it is derived from a Spanish cover master until source evidence exists."
     }
   ],
   "page_candidates": [
@@ -43,8 +106,35 @@
         "TNK-WEB-CMP-RETAILER-LINKS"
       ],
       "publishing_asset_refs": [
-        "TNK-MEDIA-COVER-EN-FRONT",
-        "TNK-META-EDITION-EN-PB"
+        "PUB-EN-COVER-FRONT-001"
+      ],
+      "observed_metadata_needing_canonical_reconciliation": [
+        "ISBN 9798306593159",
+        "Amazon paperback ASIN B0DSXVL84P",
+        "Amazon Kindle ASIN B0DT1N3FFG"
+      ],
+      "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
+    },
+    {
+      "page_id": "TNK-WEB-PAGE-BOOK-ES",
+      "path": "/es/book.html",
+      "language": "ES",
+      "pattern_id": "TNK-WEB-PAT-BOOK",
+      "status": "inventory_only",
+      "candidate_components": [
+        "TNK-WEB-CMP-HEADER",
+        "TNK-WEB-CMP-LANGUAGE-SWITCHER",
+        "TNK-WEB-CMP-BOOK-HERO",
+        "TNK-WEB-CMP-RETAILER-LINKS"
+      ],
+      "publishing_asset_refs": [],
+      "unmapped_media_binding_refs": [
+        "TNK-WEB-BIND-COVER-ES-FRONT"
+      ],
+      "observed_metadata_needing_canonical_reconciliation": [
+        "ISBN 9798241478832",
+        "Amazon paperback ASIN B0GCVN3YJW",
+        "Amazon Kindle ASIN B0GCTHKNBR"
       ],
       "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
     }
