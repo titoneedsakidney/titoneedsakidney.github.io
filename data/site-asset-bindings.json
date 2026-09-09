@@ -1,0 +1,173 @@
+{
+  "schema_version": 4,
+  "updated_date": "2026-09-09",
+  "canonical_publishing_source": {
+    "name": "TNK Publishing Asset Catalog",
+    "authority": "Private A12 publishing asset and distribution infrastructure",
+    "consumer_contract": "TitoNeedsAKidney.Research/research/publishing-assets/ASSET_STANDARD.md",
+    "checked_date": "2026-09-09",
+    "privacy_rule": "Public website data stores logical PUB-* IDs and approved public facts, not private provider IDs or URLs."
+  },
+  "bindings": [
+    {
+      "binding_id": "TNK-WEB-BIND-COVER-EN-FRONT",
+      "publishing_asset_id": "PUB-EN-COVER-FRONT-001",
+      "status": "mapped",
+      "source_last_verified": "2026-08-29",
+      "full_resolution_site_alias": "/assets/images/og-default.png",
+      "alias_identity_status": "byte_identical_to_canonical_asset",
+      "alias_identity_verified_date": "2026-09-09",
+      "derivatives": [
+        {
+          "path": "/assets/images/book-cover-en-320.webp",
+          "role": "responsive_raster",
+          "width": 320
+        },
+        {
+          "path": "/assets/images/book-cover-en-520.webp",
+          "role": "responsive_raster",
+          "width": 520
+        },
+        {
+          "path": "/assets/images/book-cover-en-800.webp",
+          "role": "responsive_raster",
+          "width": 800
+        }
+      ],
+      "consumers": [
+        "/book.html"
+      ],
+      "notes": "Canonical source is logical publishing asset PUB-EN-COVER-FRONT-001. The site file /assets/images/og-default.png was verified byte-identical to the canonical source by calculating the Git blob SHA from the controlled raw file; both resolve to 08d4845fc07833a8f3e7f9c6cf681a77a93d76c1. Local WebP files are delivery derivatives, not separate publishing identities."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-COVER-ES-FRONT",
+      "publishing_asset_id": null,
+      "status": "canonical_mapping_missing_site_source_chain_known",
+      "site_source_candidate_binding_id": "TNK-WEB-BIND-OG-ES-DEFAULT",
+      "site_source_relation": "historical_predecessor_replaced_by_responsive_variants",
+      "source_relation_confidence": "high_not_byte_verified",
+      "provenance": {
+        "full_resolution_source_introduced_commit": "5a29e01eb2dda56d0d1cb99a3ec4fe23afd126c0",
+        "responsive_variants_introduced_commit": "44ab3233f0e85cdbd2527b3fc9f34fb44845243d"
+      },
+      "derivatives": [
+        {
+          "path": "/assets/images/book-cover-es-320.webp",
+          "role": "responsive_raster",
+          "width": 320
+        },
+        {
+          "path": "/assets/images/book-cover-es-520.webp",
+          "role": "responsive_raster",
+          "width": 520
+        },
+        {
+          "path": "/assets/images/book-cover-es-800.webp",
+          "role": "responsive_raster",
+          "width": 800
+        }
+      ],
+      "consumers": [
+        "/es/book.html",
+        "/es/index.html"
+      ],
+      "notes": "Git history establishes /assets/images/og-spanish.png as the full-resolution Spanish book image used immediately before the responsive Spanish WebPs were introduced and substituted in the same page locations. This is sufficient to record the site-local source chain, but not to mint a canonical PUB-* asset or claim byte-level derivation. The private canonical asset system still has no Spanish front-cover-image master."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-OG-EN-DEFAULT",
+      "publishing_asset_id": "PUB-EN-COVER-FRONT-001",
+      "status": "mapped_byte_identical_alias",
+      "verification": {
+        "verified_date": "2026-09-09",
+        "canonical_file_size_bytes": 2090739,
+        "site_file_size_bytes": 2090739,
+        "git_blob_sha": "08d4845fc07833a8f3e7f9c6cf681a77a93d76c1",
+        "method": "Controlled canonical bytes were hashed using the Git blob object algorithm and matched the repository blob SHA for /assets/images/og-default.png."
+      },
+      "derivatives": [
+        {
+          "path": "/assets/images/og-default.png",
+          "role": "open_graph_default_and_full_resolution_site_alias"
+        }
+      ],
+      "consumers": [
+        "multiple English pages",
+        "/includes/meta.html"
+      ],
+      "notes": "This repository file is byte-identical to canonical publishing asset PUB-EN-COVER-FRONT-001 as verified on 2026-09-09."
+    },
+    {
+      "binding_id": "TNK-WEB-BIND-OG-ES-DEFAULT",
+      "publishing_asset_id": null,
+      "status": "site_local_front_cover_source_candidate",
+      "provenance": {
+        "introduced_commit": "5a29e01eb2dda56d0d1cb99a3ec4fe23afd126c0",
+        "introduced_date": "2026-08-07",
+        "introduced_usage": [
+          "Spanish book hero",
+          "Spanish Book JSON-LD image"
+        ],
+        "responsive_replacement_commit": "44ab3233f0e85cdbd2527b3fc9f34fb44845243d",
+        "responsive_replacement_date": "2026-08-07"
+      },
+      "derivatives": [
+        {
+          "path": "/assets/images/og-spanish.png",
+          "role": "open_graph_default_and_historical_full_resolution_book_image"
+        }
+      ],
+      "consumers": [
+        "multiple Spanish pages",
+        "/includes_es/meta.html"
+      ],
+      "notes": "Git history establishes this file as the pre-responsive Spanish book-cover image. Its relationship to the responsive WebPs is high-confidence historical provenance, but a canonical publishing master remains absent and byte-level derivative verification has not been performed."
+    }
+  ],
+  "page_candidates": [
+    {
+      "page_id": "TNK-WEB-PAGE-BOOK-EN",
+      "path": "/book.html",
+      "language": "EN",
+      "pattern_id": "TNK-WEB-PAT-BOOK",
+      "status": "inventory_only",
+      "candidate_components": [
+        "TNK-WEB-CMP-HEADER",
+        "TNK-WEB-CMP-LANGUAGE-SWITCHER",
+        "TNK-WEB-CMP-BOOK-HERO",
+        "TNK-WEB-CMP-RETAILER-LINKS"
+      ],
+      "publishing_asset_refs": [
+        "PUB-EN-COVER-FRONT-001"
+      ],
+      "observed_metadata_needing_canonical_reconciliation": [
+        "ISBN 9798306593159",
+        "Amazon paperback ASIN B0DSXVL84P",
+        "Amazon Kindle ASIN B0DT1N3FFG"
+      ],
+      "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
+    },
+    {
+      "page_id": "TNK-WEB-PAGE-BOOK-ES",
+      "path": "/es/book.html",
+      "language": "ES",
+      "pattern_id": "TNK-WEB-PAT-BOOK",
+      "status": "inventory_only",
+      "candidate_components": [
+        "TNK-WEB-CMP-HEADER",
+        "TNK-WEB-CMP-LANGUAGE-SWITCHER",
+        "TNK-WEB-CMP-BOOK-HERO",
+        "TNK-WEB-CMP-RETAILER-LINKS"
+      ],
+      "publishing_asset_refs": [],
+      "unmapped_media_binding_refs": [
+        "TNK-WEB-BIND-COVER-ES-FRONT"
+      ],
+      "observed_metadata_needing_canonical_reconciliation": [
+        "ISBN 9798241478832",
+        "Amazon paperback ASIN B0GCVN3YJW",
+        "Amazon Kindle ASIN B0GCTHKNBR"
+      ],
+      "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
+    }
+  ]
+}
