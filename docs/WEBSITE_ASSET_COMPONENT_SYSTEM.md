@@ -27,6 +27,22 @@ Examples of existing canonical logical IDs observed 2026-09-09 include:
 
 Website bindings should reference those existing IDs when a canonical mapping exists. If no mapping exists, record the local asset as unmapped; do not invent a substitute publishing ID.
 
+### Edition metadata consumer contract
+
+The private Publishing Asset Catalog now also owns controlled edition/format metadata records such as `EDMETA-EN-PB-001` and `EDMETA-ES-KINDLE-001`. The public repository may reference those logical record IDs, but it must not copy private evidence locators into site manifests.
+
+Verification is field-level. A record can contain, for example, a verified paperback ASIN while its ISBN or Kindle identifier remains pending. Website workers must resolve the current value and status from the private canonical source before changing public ISBN/ASIN/schema/retailer fields.
+
+A future build/export step should publish only the approved public value needed by the static site. It must not expose the private source spreadsheet ID, Gmail evidence ID, Drive locator, or similar provenance detail.
+
+Current integration inventory intentionally distinguishes:
+
+- `verified_for_public_identifier_consumption` — canonical source supports the public identifier field;
+- `title_live_verified_asin_pending_authoritative_verification` — first-party evidence confirms the edition/format is live, but the observed ASIN is not yet authoritative;
+- mixed field-level states such as a verified paperback ASIN with an externally corroborated ISBN still pending stronger evidence.
+
+These are consumer-state summaries, not a replacement for the private canonical metadata status.
+
 ### Public-repository privacy boundary
 
 Do not place private-system identifiers or locators in this public repository unless they are intentionally public content. In particular, website manifests and documentation should not contain private:
@@ -37,7 +53,7 @@ Do not place private-system identifiers or locators in this public repository un
 - Gmail/message identifiers;
 - recipient or organization tracking identifiers.
 
-The private Research integration layer may retain provider locators where needed for controlled resolution. The website should normally need only the logical `PUB-*` identity and public-facing values/assets.
+The private Research integration layer may retain provider locators where needed for controlled resolution. The website should normally need only the logical `PUB-*` / `EDMETA-*` identity and public-facing values/assets.
 
 ## Three layers
 
@@ -48,7 +64,7 @@ Canonical facts and media used by both website and outreach belong to the existi
 - controlled manuscript/interior/cover/review-copy assets;
 - canonical file locations and source relationships;
 - sharing and approval rules;
-- edition/format metadata when registered;
+- edition/format metadata and verification state;
 - retailer/distributor availability evidence;
 - other A12 publishing infrastructure.
 
@@ -96,6 +112,7 @@ A future manifest should support at least:
 - `pattern_id`
 - `components`
 - `publishing_asset_refs`
+- `edition_metadata_refs`
 - `seo.title`
 - `seo.description`
 - `seo.canonical`
@@ -178,7 +195,7 @@ English and Spanish pages may share patterns/components but must preserve langua
 - CTAs;
 - structured data.
 
-Do not infer Spanish edition availability from English evidence or vice versa. Distribution claims must come from the canonical distribution source or stronger direct evidence.
+Do not infer Spanish edition availability from English evidence or vice versa. Distribution claims must come from the canonical distribution source or stronger direct evidence. Edition identifiers must likewise resolve through the matching language/format metadata record and its current field-level verification state.
 
 ## Build direction
 
@@ -191,14 +208,15 @@ Do not introduce a framework merely to gain component reuse. A minimal build ste
 ## Migration sequence
 
 1. Bind current website assets to existing canonical `PUB-*` assets where mappings are proven.
-2. Inventory repeated website structures and unmapped local media.
-3. Add website binding/manifests without changing rendered pages.
-4. Reconcile unmapped high-value media back into the canonical catalog before treating them as shared publishing assets.
-5. Extract one low-risk component or page pattern and prove semantic parity.
-6. Add regression checks for SEO metadata, hreflang, analytics hooks, accessibility, and required content.
-7. Migrate touched pages opportunistically rather than rewriting the entire site at once.
-8. Only after repeated patterns are proven should the build step become the normal authoring path.
+2. Bind current public edition fields to logical `EDMETA-*` records without exposing private provenance.
+3. Inventory repeated website structures and unmapped local media.
+4. Add website binding/manifests without changing rendered pages.
+5. Reconcile unmapped high-value media back into the canonical catalog before treating them as shared publishing assets.
+6. Extract one low-risk component or page pattern and prove semantic parity.
+7. Add regression checks for SEO metadata, hreflang, analytics hooks, accessibility, and required content.
+8. Migrate touched pages opportunistically rather than rewriting the entire site at once.
+9. Only after repeated patterns are proven should the build step become the normal authoring path.
 
 ## Success condition
 
-A worker should be able to create or revise a page by selecting approved canonical publishing assets, a known page pattern, and reusable components while still writing the unique SEO/content layer for that page. A change to a canonical cover or verified edition field should have one controlled source and predictable downstream consumers, without leaking private-system locators into the public site repository.
+A worker should be able to create or revise a page by selecting approved canonical publishing assets, verified edition metadata, a known page pattern, and reusable components while still writing the unique SEO/content layer for that page. A change to a canonical cover or verified edition field should have one controlled source and predictable downstream consumers, without leaking private-system locators into the public site repository.
