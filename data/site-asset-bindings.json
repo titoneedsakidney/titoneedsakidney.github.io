@@ -1,12 +1,13 @@
 {
-  "schema_version": 4,
-  "updated_date": "2026-09-09",
+  "schema_version": 5,
+  "updated_date": "2026-09-10",
   "canonical_publishing_source": {
     "name": "TNK Publishing Asset Catalog",
-    "authority": "Private A12 publishing asset and distribution infrastructure",
+    "authority": "Private A12 publishing asset, edition metadata, and distribution infrastructure",
     "consumer_contract": "TitoNeedsAKidney.Research/research/publishing-assets/ASSET_STANDARD.md",
-    "checked_date": "2026-09-09",
-    "privacy_rule": "Public website data stores logical PUB-* IDs and approved public facts, not private provider IDs or URLs."
+    "checked_date": "2026-09-10",
+    "privacy_rule": "Public website data stores logical PUB-*/EDMETA-* IDs and approved public facts, not private provider IDs, evidence locators, or URLs.",
+    "edition_metadata_rule": "Resolve identifier values and field-level verification from the private canonical Edition Metadata table. A verified field does not promote adjacent pending fields."
   },
   "bindings": [
     {
@@ -139,11 +140,17 @@
       "publishing_asset_refs": [
         "PUB-EN-COVER-FRONT-001"
       ],
-      "observed_metadata_needing_canonical_reconciliation": [
-        "ISBN 9798306593159",
-        "Amazon paperback ASIN B0DSXVL84P",
-        "Amazon Kindle ASIN B0DT1N3FFG"
+      "edition_metadata_refs": [
+        {
+          "metadata_id": "EDMETA-EN-PB-001",
+          "consumer_state": "verified_for_public_identifier_consumption"
+        },
+        {
+          "metadata_id": "EDMETA-EN-KINDLE-001",
+          "consumer_state": "title_live_verified_asin_pending_authoritative_verification"
+        }
       ],
+      "metadata_notes": "The English paperback ISBN and paperback ASIN now resolve through canonical field-level metadata. The Kindle title is first-party confirmed live, but the site's current Kindle ASIN remains an observation pending authoritative identifier evidence.",
       "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
     },
     {
@@ -162,11 +169,17 @@
       "unmapped_media_binding_refs": [
         "TNK-WEB-BIND-COVER-ES-FRONT"
       ],
-      "observed_metadata_needing_canonical_reconciliation": [
-        "ISBN 9798241478832",
-        "Amazon paperback ASIN B0GCVN3YJW",
-        "Amazon Kindle ASIN B0GCTHKNBR"
+      "edition_metadata_refs": [
+        {
+          "metadata_id": "EDMETA-ES-PB-001",
+          "consumer_state": "paperback_asin_verified_isbn_corroborated_pending_first_party"
+        },
+        {
+          "metadata_id": "EDMETA-ES-KINDLE-001",
+          "consumer_state": "title_live_verified_asin_pending_authoritative_verification"
+        }
       ],
+      "metadata_notes": "The Spanish paperback ASIN is first-party verified. The displayed paperback ISBN is independently corroborated but remains pending captured first-party evidence; the Kindle title is confirmed live but its current site ASIN remains pending authoritative identifier evidence.",
       "migration_rule": "Do not change live rendering until parity checks exist for canonical/hreflang, JSON-LD, analytics hooks, accessibility semantics, and visible content."
     }
   ]
