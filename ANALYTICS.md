@@ -90,3 +90,9 @@ Active mode. Keep it in Testing until its labels have been checked in Explore:
    form** with rows `Test data filter name` and `Event name`, value `Event count`,
    and confirm the internal filter label appears on `page_view`. Leave the filter
    in Testing and report only `internal traffic visible in testing`.
+
+## Deterministic next-page reporting
+
+The recurring aggregate report has a bounded next-page gap: page views and semantic events show what people viewed or selected, but do not by themselves summarize which same-site page was observed next. `scripts/summarize_ga4_transitions.py` reduces an aggregate `hostName` + `pageReferrer` + `pagePath` + `screenPageViews` export into a deterministic transition summary without visitor identifiers or additional site tracking.
+
+See `docs/GA4_PAGE_TRANSITION_REPORT.md` for the private-input contract, commands, thresholds, and interpretation limits. The helper is report-side only; it does not add events, change GA4 settings, or justify person-level journey claims.
