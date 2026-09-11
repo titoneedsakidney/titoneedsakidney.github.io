@@ -62,7 +62,7 @@ The shortest-path calculation uses breadth-first search. Repeated links and self
 Focused unit tests:
 
 ```bash
-python -m unittest tests.test_audit_navigation_paths -v
+python -m unittest discover -s tests -p 'test_audit_navigation_paths.py' -v
 ```
 
 A source-level smoke test against current site HTML is:
