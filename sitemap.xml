@@ -423,6 +423,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
   </url>
   <url>
+    <loc>https://titoneedsakidney.com/es/igan-horizons-2026.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/igan-horizons-2026.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
+  </url>
+  <url>
     <loc>https://titoneedsakidney.com/es/para-profesionales.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/for-professionals.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/para-profesionales.html" />
@@ -793,5 +799,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/hub/transplant/surgery/surgery.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/hub/transplant/surgery/surgery.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/igan-horizons-2026.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/igan-horizons-2026.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
   </url>
 </urlset>
