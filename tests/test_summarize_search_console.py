@@ -50,6 +50,7 @@ class SearchConsoleOpportunityTest(unittest.TestCase):
         self.assertEqual(report["candidate_count"], 1)
         candidate = report["candidates"][0]
         self.assertNotIn("query", candidate)
+        self.assertEqual(candidate["query_ref"], "q0001")
         self.assertEqual(candidate["page"], "/donor-info.html")
         self.assertEqual(candidate["impressions"], 80)
         self.assertEqual(candidate["clicks"], 0)
