@@ -13,7 +13,6 @@ import argparse
 import csv
 from dataclasses import dataclass
 from datetime import date
-from hashlib import sha256
 import json
 from pathlib import Path
 import re
@@ -210,10 +209,6 @@ def _aggregate(rows: Iterable[Row]) -> list[dict[str, object]]:
     return result
 
 
-def _fingerprint(query: str) -> str:
-    return sha256(query.encode("utf-8")).hexdigest()[:16]
-
-
 def build_report(
     rows: Iterable[Row],
     *,
@@ -255,24 +250,23 @@ def build_report(
             or float(item["position"]) > max_position
         ):
             continue
-        candidate = {
-            "query_fingerprint": _fingerprint(str(item["query"])),
-            "page": item["page"] if has_page else None,
-            "clicks": item["clicks"],
-            "impressions": item["impressions"],
-            "ctr": item["ctr"],
-            "position": item["position"],
-        }
-        if include_query_text:
-            candidate["query"] = item["query"]
-        candidates.append(candidate)
+        candidates.append(
+            {
+                "query": item["query"],
+                "page": item["page"] if has_page else None,
+                "clicks": item["clicks"],
+                "impressions": item["impressions"],
+                "ctr": item["ctr"],
+                "position": item["position"],
+            }
+        )
 
     candidates.sort(
         key=lambda item: (
             -int(item["impressions"]),
             float(item["ctr"]),
             float(item["position"]),
-            str(item["query_fingerprint"]),
+            str(item["query"]),
             str(item.get("page") or ""),
         )
     )
@@ -281,7 +275,7 @@ def build_report(
     if has_page:
         by_page: dict[str, dict[str, int]] = {}
         candidate_keys = {
-            (str(item["query_fingerprint"]), str(item["page"]))
+            (str(item["query"]), str(item["page"]))
             for item in candidates
         }
         for item in aggregated:
@@ -289,7 +283,7 @@ def build_report(
             entry = by_page.setdefault(
                 page, {"candidate_count": 0, "candidate_impressions": 0}
             )
-            key = (_fingerprint(str(item["query"])), page)
+            key = (str(item["query"]), page)
             if key in candidate_keys:
                 entry["candidate_count"] += 1
                 entry["candidate_impressions"] += int(item["impressions"])
@@ -305,6 +299,20 @@ def build_report(
                 str(item["page"]),
             )
         )
+
+    output_candidates: list[dict[str, object]] = []
+    for index, item in enumerate(candidates, start=1):
+        output_item = {
+            "query_ref": f"q{index:04d}",
+            "page": item["page"],
+            "clicks": item["clicks"],
+            "impressions": item["impressions"],
+            "ctr": item["ctr"],
+            "position": item["position"],
+        }
+        if include_query_text:
+            output_item["query"] = item["query"]
+        output_candidates.append(output_item)
 
     total_clicks = sum(int(item["clicks"]) for item in aggregated)
     total_impressions = sum(int(item["impressions"]) for item in aggregated)
@@ -334,8 +342,8 @@ def build_report(
             else 0.0,
             "has_page_dimension": has_page,
         },
-        "candidate_count": len(candidates),
-        "candidates": candidates,
+        "candidate_count": len(output_candidates),
+        "candidates": output_candidates,
         "page_summary": page_summary,
         "interpretation_boundary": (
             "Candidates identify aggregate Search Console rows worth private review. "
@@ -367,7 +375,7 @@ def render_markdown(report: dict[str, object]) -> str:
         "|---|---|---:|---:|---:|---:|",
     ]
     for item in report["candidates"]:
-        query = str(item.get("query") or item["query_fingerprint"])
+        query = str(item.get("query") or item["query_ref"])
         page = str(item.get("page") or "—")
         lines.append(
             f"| `{query}` | `{page}` | {item['impressions']} | {item['clicks']} | "
