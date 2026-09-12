@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-09-12",
+  "components": [
+    {
+      "component_id": "TNK-WEB-CMP-BOOK-HERO",
+      "status": "staged_parity_guard_not_active_include",
+      "purpose": "Localized book-page hero structure with responsive cover, edition CTAs, availability jump link, and cross-language link.",
+      "authority_rule": "This component is website presentation only. PUB-* identity, EDMETA-* fields, and distribution truth remain controlled by the private publishing asset system; public retailer/identifier values must not be promoted from this file into canonical metadata.",
+      "variants": [
+        {
+          "language": "EN",
+          "staged_include": "/includes/book-hero.html",
+          "current_consumer": "/book.html",
+          "publishing_asset_refs": [
+            "PUB-EN-COVER-FRONT-001"
+          ],
+          "edition_metadata_refs": [
+            "EDMETA-EN-PB-001",
+            "EDMETA-EN-KINDLE-001"
+          ]
+        },
+        {
+          "language": "ES",
+          "staged_include": "/includes_es/book-hero.html",
+          "current_consumer": "/es/book.html",
+          "publishing_asset_refs": [],
+          "unmapped_media_binding_refs": [
+            "TNK-WEB-BIND-COVER-ES-FRONT"
+          ],
+          "edition_metadata_refs": [
+            "EDMETA-ES-PB-001",
+            "EDMETA-ES-KINDLE-001"
+          ]
+        }
+      ],
+      "parity_guard": {
+        "test": "tests/test_book_hero_component.py",
+        "current_contract": [
+          "staged localized include is whitespace-normalized equivalent to the current page hero",
+          "one book-hero section and one H1",
+          "320/520/800 responsive cover variants",
+          "async decoding and high fetch priority",
+          "language-specific analytics event IDs",
+          "availability jump link",
+          "cross-language book link with hreflang/lang"
+        ]
+      },
+      "live_rendering_changed": false,
+      "next_step": "After the repository release suite passes with this staging guard, replace each current page hero block with its existing static-include marker form, rerun the full integrity/release checks, and verify the rendered hero remains unchanged before treating this component as active."
+    }
+  ]
+}
