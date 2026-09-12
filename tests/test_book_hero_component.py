@@ -33,7 +33,7 @@ class BookHeroComponentTests(unittest.TestCase):
                 self.assertIn('fetchpriority="high"', fragment)
                 self.assertIn('decoding="async"', fragment)
                 for width in (320, 520, 800):
-                    self.assertRegex(fragment, rf"book-cover-{language}-{width}\\.webp")
+                    self.assertRegex(fragment, rf"book-cover-{language}-{width}\.webp")
                 self.assertGreaterEqual(fragment.count('data-evt-loc="'), 3)
                 self.assertIn('href="#availability"', fragment)
 
