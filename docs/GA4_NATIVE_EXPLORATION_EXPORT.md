@@ -42,4 +42,4 @@ Coverage includes GA4 metadata comments, friendly headers, the malformed-width G
 
 ## Adoption state
 
-**Source-ready.** The bounded purpose is to remove the manual normalization step exposed by the first private GA4 live proof. A private native-export smoke should be run before treating the adapter itself as live-proven; no private GA4 rows belong in GitHub.
+**Private live-smoke proven.** On 2026-09-12 the adapter logic was exercised against the current private native GA4 Exploration export and reproduced the prior normalized reducer result without an intermediate cleaned CSV. Focused adapter parsing tests also passed. No private GA4 rows, values, or generated reports are committed to GitHub.
