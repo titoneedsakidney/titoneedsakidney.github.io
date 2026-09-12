@@ -12,10 +12,11 @@ change the site, or make an SEO decision. It accepts an aggregate CSV that was
 already exported through an approved private workflow.
 
 Raw Search Console query text is private evidence. By default the reducer does
-**not** echo it. Each query is represented by a stable 16-character SHA-256
-fingerprint so repeated aggregate candidates can be compared without copying
-private search text into a public Issue or PR. Use `--include-query-text` only
-for private local review, and keep that output outside this repository.
+**not** echo it. Each query is represented only by an opaque per-report
+reference such as `q0001`. The reference is deliberately not stable across
+reports, so a public output cannot be used as a dictionary-attack target for
+private search terms. Use `--include-query-text` only for private local review,
+and keep that output outside this repository.
 
 The tool rejects common visitor/session identifier columns. It also strips
 hosts, query strings, and fragments from an optional page dimension before
