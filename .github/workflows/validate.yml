@@ -1,0 +1,37 @@
+name: Validate site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run Python tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Regenerate and validate the static site
+        run: |
+          python3 scripts/expand_includes.py --apply
+          python3 scripts/update_static_metadata.py --apply
+          python3 scripts/update_structured_data.py --apply
+          python3 scripts/generate_sitemap.py
+          python3 scripts/check_site_integrity.py
+          git diff --exit-code
+      - name: Run analytics tests
+        run: |
+          node tests/test_analytics_loader.js
+          node tests/test_analytics.js
+          node --check scripts/analytics-loader.js
+          node --check scripts/analytics.js
