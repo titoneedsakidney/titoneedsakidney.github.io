@@ -447,6 +447,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/for-professionals.html" />
   </url>
   <url>
+    <loc>https://titoneedsakidney.com/es/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/privacy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/es/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/terms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/terms.html" />
+  </url>
+  <url>
     <loc>https://titoneedsakidney.com/for-professionals.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/for-professionals.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/para-profesionales.html" />
@@ -817,5 +829,17 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/igan-horizons-2026.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/igan-horizons-2026.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/privacy.html" />
+  </url>
+  <url>
+    <loc>https://titoneedsakidney.com/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://titoneedsakidney.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://titoneedsakidney.com/es/terms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://titoneedsakidney.com/terms.html" />
   </url>
 </urlset>
