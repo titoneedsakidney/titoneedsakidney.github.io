@@ -74,6 +74,7 @@
       <h2>Gmail reader</h2>
       <p>The Book Factory Gmail reader accesses only the Gmail accounts whose owners separately authorize it. It requests the Google Gmail <code>gmail.readonly</code> scope and is used for internal mailbox monitoring, reply review, and maintenance. It does not send email, create drafts, delete messages, or change labels.</p>
       <p>Gmail data obtained through this reader is not sold, used for advertising, or shared with third parties except as needed to operate the authorized internal workflow. Access can be revoked by the account owner through their Google Account permissions.</p>
+      <p>A separately authorized Gmail Action grant may use the Google <code>gmail.compose</code> scope to create unsent drafts. A draft is sent only after the account owner gives an exact approval in the internal review workflow; the system does not send unapproved drafts.</p>
     </section>
 
     <section>
