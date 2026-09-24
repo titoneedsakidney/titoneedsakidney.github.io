@@ -20,8 +20,18 @@ class EndKidneyDeathsActPageTests(unittest.TestCase):
                 content,
             )
             self.assertIn("https://www.endkidneydeathsact.org/", content)
+            self.assertIn("https://forms.gle/D7AryjMqRfonuiQ36", content)
             self.assertIn("https://www.waitlistzero.org/", content)
             self.assertIn("data-evt-loc=\"ekda_page\"", content)
+
+        english = (ROOT / "end-kidney-deaths-act.html").read_text(encoding="utf-8")
+        spanish = (ROOT / "es/end-kidney-deaths-act.html").read_text(encoding="utf-8")
+        self.assertIn("Official government source", english)
+        self.assertIn("External campaign and advocacy resources", english)
+        self.assertIn('data-evt="ekda_en_petition"', english)
+        self.assertIn("Fuente oficial del gobierno", spanish)
+        self.assertIn("Recursos externos de campaña y participación", spanish)
+        self.assertIn('data-evt="ekda_es_petition"', spanish)
 
     def test_bilingual_transplant_hubs_link_to_the_policy_resource(self):
         self.assertIn(
