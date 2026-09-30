@@ -1,0 +1,103 @@
+name: Deploy GitHub Pages
+
+on:
+  workflow_run:
+    workflows: ["Validate site"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.workflow_run.event == 'push' &&
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.conclusion == 'success'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Resolve accepted source SHA
+        id: source
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_SHA: ${{ github.event.workflow_run.head_sha }}
+          DISPATCH_SHA: ${{ github.sha }}
+          DISPATCH_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = workflow_dispatch ]; then
+            test "$DISPATCH_REF" = refs/heads/main || {
+              echo 'Manual Pages deployment is allowed only from main.' >&2
+              exit 2
+            }
+            sha="$DISPATCH_SHA"
+          else
+            sha="$WORKFLOW_SHA"
+          fi
+          test "${#sha}" -eq 40
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ steps.source.outputs.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Re-run release validation on the exact deployment SHA
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/expand_includes.py --apply
+          python3 scripts/update_static_metadata.py --apply
+          python3 scripts/update_structured_data.py --apply
+          python3 scripts/generate_sitemap.py
+          python3 scripts/check_site_integrity.py
+          node tests/test_analytics_loader.js
+          node tests/test_analytics.js
+          node --check scripts/analytics-loader.js
+          node --check scripts/analytics.js
+          git diff --exit-code
+
+      - name: Build deployable-only Pages artifact
+        run: python3 scripts/build_pages_artifact.py --output _site
+
+      - name: Configure Pages artifact metadata
+        uses: actions/configure-pages@v5
+
+      - name: Upload immutable Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy accepted artifact to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
