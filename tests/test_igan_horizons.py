@@ -48,12 +48,10 @@ class IganResourceMigrationTests(unittest.TestCase):
                 self.assertNotIn("igan-horizons-2026.html", content)
                 self.assertIn("igan-foundation.html", content)
 
-    def test_patient_navigator_directory_has_durable_entry_points(self):
+    def test_patient_navigator_directory_lives_in_the_resource_hub(self):
         url = "https://patient-navigator-hub.replit.app/"
         cases = {
-            "index.html": "resource_en_patient_navigator",
             "hub/index.html": "resource_en_patient_navigator",
-            "es/index.html": "resource_es_patient_navigator",
             "es/hub/index.html": "resource_es_patient_navigator",
         }
 
@@ -63,12 +61,13 @@ class IganResourceMigrationTests(unittest.TestCase):
                 self.assertIn(url, content)
                 self.assertIn(f'data-evt="{event_id}"', content)
 
-    def test_agent_kidney_has_durable_entry_points(self):
+        self.assertNotIn(url, (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertNotIn(url, (ROOT / "es/index.html").read_text(encoding="utf-8"))
+
+    def test_agent_kidney_lives_in_the_resource_hub(self):
         url = "https://agent-kidney.replit.app/"
         cases = {
-            "index.html": "resource_en_agent_kidney",
             "hub/index.html": "resource_en_agent_kidney",
-            "es/index.html": "resource_es_agent_kidney",
             "es/hub/index.html": "resource_es_agent_kidney",
         }
 
@@ -78,6 +77,8 @@ class IganResourceMigrationTests(unittest.TestCase):
                 self.assertIn(url, content)
                 self.assertIn(f'data-evt="{event_id}"', content)
 
+        self.assertNotIn(url, (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertNotIn(url, (ROOT / "es/index.html").read_text(encoding="utf-8"))
         self.assertIn(
             "AI can make mistakes",
             (ROOT / "hub/index.html").read_text(encoding="utf-8"),
@@ -86,6 +87,14 @@ class IganResourceMigrationTests(unittest.TestCase):
             "La IA puede equivocarse",
             (ROOT / "es/hub/index.html").read_text(encoding="utf-8"),
         )
+
+    def test_homepages_send_readers_to_the_full_resource_hub(self):
+        english = (ROOT / "index.html").read_text(encoding="utf-8")
+        spanish = (ROOT / "es/index.html").read_text(encoding="utf-8")
+        self.assertIn('href="/hub/"', english)
+        self.assertIn('data-evt="help_en_all_resources"', english)
+        self.assertIn('href="/es/hub/"', spanish)
+        self.assertIn('data-evt="help_es_all_resources"', spanish)
 
 
 if __name__ == "__main__":

@@ -69,10 +69,12 @@ class ConversionAnalyticsTests(unittest.TestCase):
             ("index.html", "/hub/dialysis/", "help_en_dialysis", "homepage_resources"),
             ("index.html", "/hub/transplant/", "help_en_transplant", "homepage_resources"),
             ("index.html", "/hub/donation/", "help_en_donation", "homepage_resources"),
+            ("index.html", "/hub/", "help_en_all_resources", "homepage_resources"),
             ("es/index.html", "/es/book.html", "book_es_hero", "homepage_hero"),
             ("es/index.html", "/es/hub/dialysis/", "help_es_dialysis", "homepage_resources"),
             ("es/index.html", "/es/hub/transplant/", "help_es_transplant", "homepage_resources"),
             ("es/index.html", "/es/hub/donation/", "help_es_donation", "homepage_resources"),
+            ("es/index.html", "/es/hub/", "help_es_all_resources", "homepage_resources"),
         ]
         for rel, href, cta_id, location in cases:
             with self.subTest(rel=rel, href=href):
