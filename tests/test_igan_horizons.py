@@ -63,6 +63,30 @@ class IganResourceMigrationTests(unittest.TestCase):
                 self.assertIn(url, content)
                 self.assertIn(f'data-evt="{event_id}"', content)
 
+    def test_agent_kidney_has_durable_entry_points(self):
+        url = "https://agent-kidney.replit.app/"
+        cases = {
+            "index.html": "resource_en_agent_kidney",
+            "hub/index.html": "resource_en_agent_kidney",
+            "es/index.html": "resource_es_agent_kidney",
+            "es/hub/index.html": "resource_es_agent_kidney",
+        }
+
+        for rel, event_id in cases.items():
+            with self.subTest(rel=rel):
+                content = (ROOT / rel).read_text(encoding="utf-8")
+                self.assertIn(url, content)
+                self.assertIn(f'data-evt="{event_id}"', content)
+
+        self.assertIn(
+            "AI can make mistakes",
+            (ROOT / "hub/index.html").read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "La IA puede equivocarse",
+            (ROOT / "es/hub/index.html").read_text(encoding="utf-8"),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
