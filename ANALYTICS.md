@@ -12,6 +12,7 @@ repository.
 | Every standalone HTML page | Queues the standard GA4 configuration and default `page_view` | The production-only loader decides whether the Google tag may load |
 | `scripts/analytics-loader.js` | Loads Google Analytics only on `https://titoneedsakidney.com` | Localhost, IP previews, copied hosts, and explicit audit sessions are suppressed |
 | `scripts/analytics.js` | Emits `cta_click` and approved purpose events from stable link metadata | No visible link text, destination URL, visitor identifier, or form value |
+| `scripts/analytics.js` (human signal) | Emits one parameterless `human_interaction` event per tab session on the first trusted pointer press, key press, touch, or wheel turn | No parameter, identifier, or content. A reader who only looks sends none, so its absence is not proof of a scanner; its presence is proof that a person acted |
 | Private Research workflow | Reads aggregate GA4 and Search Console reports weekly | No write access to Analytics and no visitor-level export |
 
 Book availability entry links emit `browse_book_availability` with the language and the
@@ -34,7 +35,7 @@ switch used by the loader:
 | Local `file:` preview or a copied/preview hostname | Could load the production tag where the browser allowed it | Suppressed by the canonical-origin allowlist |
 | Static Python checks, Node tests, GitHub Pages builds, or `curl` | Do not execute page JavaScript and do not send GA events | No additional suppression needed |
 | JavaScript-capable browser, Lighthouse, or WebDriver audit of production | Can send ordinary production traffic | Start the tab with `?analytics_test=1` |
-| Link preview, safety scanner, or unrecognized automation | May execute JavaScript and may resemble a visit | Do not guess from user agent; retain hostname/source diagnostics |
+| Link preview, safety scanner, or unrecognized automation | May execute JavaScript and may resemble a visit | Do not guess from user agent; retain hostname/source diagnostics. The `human_interaction` event marks sessions where a person acted; the private Research analysis also separates visits whose browser reported only a shortened version number (no clicks or book actions in 539 sessions on 2026-11-08) |
 | Browser privacy protection or an analytics blocker | Can prevent measurement and cause undercounting | Treat GA4 as directional, not a census |
 
 GA4 automatically excludes known bots and spiders, but that does not establish
