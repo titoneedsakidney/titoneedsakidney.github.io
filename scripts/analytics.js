@@ -124,3 +124,34 @@ document.addEventListener('click', (e) => {
     ...attributes
   });
 });
+
+// A visit that does something only a person does. Mail-security software opens every link in a message
+// in a real browser; those visits load the page but never press, type, touch or use the wheel.
+// The first trusted pointer press, key press, touch or wheel turn in a tab session sends one
+// `human_interaction` event, so reports can count sessions where a person acted. It carries no
+// parameter, no identifier and no content, and it fires once per tab session.
+(() => {
+  const SIGNAL_KEY = 'tnk_human_signal';
+  const SIGNALS = ['pointerdown', 'keydown', 'touchstart', 'wheel'];
+
+  try {
+    if (window.sessionStorage && window.sessionStorage.getItem(SIGNAL_KEY) === '1') return;
+  } catch (_) {
+    // Storage may be blocked; the listeners below still send at most one event per page load.
+  }
+
+  function onSignal(e) {
+    if (!e || e.isTrusted !== true) return;
+    for (const type of SIGNALS) document.removeEventListener(type, onSignal, true);
+    try {
+      if (window.sessionStorage) window.sessionStorage.setItem(SIGNAL_KEY, '1');
+    } catch (_) {
+      // Ignored: see above.
+    }
+    if (window.gtag) gtag('event', 'human_interaction');
+  }
+
+  for (const type of SIGNALS) {
+    document.addEventListener(type, onSignal, { capture: true, passive: true });
+  }
+})();
