@@ -13,5 +13,11 @@ window.TNK_ATTRIBUTION = window.TNK_ATTRIBUTION || {
     "B0DT1N3FFG": "https://www.amazon.com/dp/B0DT1N3FFG?maas=maas_adg_F84F7AA7029B37E01872692A1C13BAF8_afap_abs&ref_=aa_maas&tag=maas",
     "B0GCTHKNBR": "https://www.amazon.com/dp/B0GCTHKNBR?maas=maas_adg_C81B577C27DE62FDA70BE04FE14A72E7_afap_abs&ref_=aa_maas&tag=maas",
     "B0GCVN3YJW": "https://www.amazon.com/dp/B0GCVN3YJW?maas=maas_adg_22A87DEEF321AC007B1F3891842B0117_afap_abs&ref_=aa_maas&tag=maas"
+  },
+  "cmp-03": {
+    "B0DT1N3FFG": "https://www.amazon.com/dp/B0DT1N3FFG?maas=maas_adg_E9D824F32361AA7854A2825A8433A9C0_afap_abs&ref_=aa_maas&tag=maas",
+    "B0GCVN3YJW": "https://www.amazon.com/dp/B0GCVN3YJW?maas=maas_adg_17F21E1B2A45105DC8F66288ED8712C2_afap_abs&ref_=aa_maas&tag=maas",
+    "B0GCTHKNBR": "https://www.amazon.com/dp/B0GCTHKNBR?maas=maas_adg_EA3FA35AB1F23AF855E349430FC689D1_afap_abs&ref_=aa_maas&tag=maas",
+    "B0DSXVL84P": "https://www.amazon.com/dp/B0DSXVL84P?maas=maas_adg_722D582EE35D5D3DFE5CCCA37DE9E505_afap_abs&ref_=aa_maas&tag=maas"
   }
 };
