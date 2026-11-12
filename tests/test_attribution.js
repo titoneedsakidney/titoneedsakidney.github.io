@@ -40,3 +40,16 @@ d = doc('https://www.amazon.com/dp/B0DSXVL84P', 'https://example.org/other', 'ht
 run({ TNK_ATTRIBUTION: { 'site-default': { B0DSXVL84P: 'https://evil.example/x?maas=1&B0DSXVL84P' } }, location: { search: '' }, sessionStorage: store() }, d);
 assert.equal(d.list[0].href, 'https://www.amazon.com/dp/B0DSXVL84P');
 console.log('attribution tests ok');
+
+// the shipped tag table: every address is a real Amazon Attribution tag for its own book, and campaign keys are cmp-NN or site-default
+global.window = {};
+require('../scripts/attribution-tags.js');
+for (const [campaign, table] of Object.entries(global.window.TNK_ATTRIBUTION)) {
+  assert.ok(/^cmp-\d{2}$/.test(campaign) || campaign === 'site-default', `campaign key ${campaign}`);
+  for (const [asin, url] of Object.entries(table)) {
+    assert.ok(/^[A-Z0-9]{10}$/.test(asin), `asin ${asin}`);
+    assert.ok(validTag(url, asin), `${campaign} ${asin} tag`);
+    assert.ok(url.startsWith(`https://www.amazon.com/dp/${asin}?maas=`), `${campaign} ${asin} form`);
+  }
+}
+console.log('shipped tag table ok');
