@@ -1,0 +1,218 @@
+{
+  "schema": "platform-work-items-v1",
+  "items": [
+    {
+      "id": "site-kidney-directory",
+      "title": "Deliver an evidence-backed bilingual kidney Help & Support directory",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 100,
+      "kind": "enable",
+      "depends_on": [
+        "site-kidney-directory-s5"
+      ],
+      "goal": "Publish accessible verified EN/ES help pages with discoverable links from existing Kidney Hub",
+      "check": {
+        "steps_done": true
+      },
+      "acceptance": "All implementation children s1-s5 have merge receipts, source-checked public destinations, passing EN/ES internal/link/metadata tests, and explicit owner permission for public content publication; publish status recorded accurately.",
+      "next_step": "Use existing website Issue #17 as scope and source record; execute child tasks in dependency order, without parallel copy of this work list.",
+      "notes": [
+        "2026-11-23: Website Issue #17 https://github.com/titoneedsakidney/titoneedsakidney.github.io/issues/17; research seed Issue #18, 17 placements/8 organizations checked 2026-09-02; these facts need recheck.",
+        "2026-11-23: Existing Book Factory cross-reference: Research platform/work-items.json resource-page-live. Website owns implementation; Book Factory owns outreach-to-public-resource promise. Portfolio queue is automationpc-platform tools/backlog.py next --portfolio.",
+        "Public publication is separately owner gated. The book is a memoir and is not medical advice. Never claim a listed organization endorses the book, nor publish correspondence or contact-level analytics.",
+        "Not part of Issue #17: already published advocacy and IgAN foundation pages (see Issues #38/#39 and merged PRs); do not recreate them.",
+        "Website navigation redesign Issue #19 is not required to make this directory discoverable; choose smallest existing-Hub path."
+      ]
+    },
+    {
+      "id": "site-kidney-directory-s1",
+      "parent": "site-kidney-directory",
+      "title": "Verify and normalize EN/ES kidney help placements",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 99,
+      "kind": "enable",
+      "depends_on": [],
+      "goal": "Record dated official website links and language/need/location for verified directory placements, excluding unsupported candidates",
+      "check": {
+        "test": "python3 -m unittest discover -s tests -p 'test_resource_seed.py'"
+      },
+      "acceptance": "Public data file separates organization identities from need-specific placements; includes direct official source URLs, destination language, geography, checked date, verification result and inclusion disposition for all September seed paths plus November additions; no private correspondence.",
+      "files_to_read": [
+        "docs/KIDNEY_KNOWLEDGE_HUB_RESOURCE_FINDER_VISION.md",
+        "hub/index.html",
+        "es/hub/index.html"
+      ],
+      "allowed_paths": [
+        "data/kidney-resource-placements.json",
+        "tests/test_resource_seed.py"
+      ],
+      "tests_to_run": [
+        "python3 -m unittest discover -s tests -p 'test_resource_seed.py'"
+      ],
+      "role": "researcher",
+      "worker_kind": "source-verification",
+      "headless_safe": false,
+      "next_step": "Read and recheck Issue #18 source data; reconcile Nov 23 Issue #17 comment #7100365565, then write only substantiated public placements.",
+      "notes": [
+        "Sources: https://github.com/titoneedsakidney/titoneedsakidney.github.io/issues/18 and https://github.com/titoneedsakidney/titoneedsakidney.github.io/issues/17#issuecomment-7100365565. The September 17 placements were checked 2026-09-02 and cannot be labeled fresh without new verification.",
+        "Specific November additions: KidneyTexas homepage https://www.kidneytexas.org/; PKD-Free Alliance homepage https://www.pkdfree.org/; NKF Serving Texas office link https://www.kidney.org/offices/nkf-serving-texas is independent candidate; do not imply book endorsement, partnership, or website listing already live.",
+        "2026-11-23 excluded irrelevant DeafBlind outreach candidate remains in private CRM; no public listing, no direct email copied to GitHub.",
+        "Store unknown or stale as excluded with reason and provenance, never as verified. Same organization may have multiple resource placements; ES link only when destination actually supports ES. Prefer direct useful program routes to homepage where evidence supports them."
+      ],
+      "headless_why": "Official source and privately confirmed preferred destination checks require an interactive investigator; do not invent support or publication evidence."
+    },
+    {
+      "id": "site-kidney-directory-s2",
+      "parent": "site-kidney-directory",
+      "title": "Build a deterministic resource inventory validator",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 98,
+      "kind": "enable",
+      "depends_on": [],
+      "goal": "Reject unverified resource placements, missing provenance and EN/ES language mislabeling before static generation",
+      "check": {
+        "test": "python3 -m unittest discover -s tests -p 'test_resource_data_validator.py'"
+      },
+      "acceptance": "A stdlib-only validator with fixture tests refuses duplicate placement IDs, missing checked date/source/official URL, invalid language/geography, private data fields, and false partnership claims; valid 1-org-many-placements records pass.",
+      "files_to_read": [
+        "scripts/check_site_integrity.py",
+        "docs/KIDNEY_KNOWLEDGE_HUB_RESOURCE_FINDER_VISION.md"
+      ],
+      "allowed_paths": [
+        "scripts/check_resource_data.py",
+        "tests/test_resource_data_validator.py"
+      ],
+      "tests_to_run": [
+        "python3 -m unittest discover -s tests -p 'test_resource_data_validator.py'"
+      ],
+      "role": "builder",
+      "worker_kind": "additive-function",
+      "headless_safe": true,
+      "next_step": "Implement a pure validator and synthetic tests first, no network calls or claim that any source was rechecked.",
+      "notes": [
+        "Schema fields: organization_id/name/official_url; placement_id/organization_id/need/destination_url/destination_language/geography/verified_at/source_url/status. Separate partner/endorsement from linking permission; no private personal data. Keep code small (<150 lines where reasonable).",
+        "Check conflict with existing data or validators on current main before adding this new helper. Do not invent contact or resource facts."
+      ]
+    },
+    {
+      "id": "site-kidney-directory-s3",
+      "parent": "site-kidney-directory",
+      "title": "Generate accessible English and Spanish help pages from one dataset",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 97,
+      "kind": "enable",
+      "depends_on": [
+        "site-kidney-directory-s1",
+        "site-kidney-directory-s2"
+      ],
+      "goal": "Render useful categorized kidney assistance paths in static EN/ES pages without JavaScript dependence",
+      "check": {
+        "test": "python3 -m unittest discover -s tests -p 'test_resource_directory_pages.py'"
+      },
+      "acceptance": "Generator emits two semantic accessible standalone pages with correct lang, headings, focused links, plain descriptions, explicit destination languages, no unsupported medical/partner claims; synthetic HTML tests pass.",
+      "files_to_read": [
+        "hub/index.html",
+        "es/hub/index.html",
+        "scripts/expand_includes.py"
+      ],
+      "allowed_paths": [
+        "scripts/build_resource_directory.py",
+        "hub/help/index.html",
+        "es/hub/help/index.html",
+        "tests/test_resource_directory_pages.py"
+      ],
+      "tests_to_run": [
+        "python3 -m unittest discover -s tests -p 'test_resource_directory_pages.py'"
+      ],
+      "role": "builder",
+      "worker_kind": "additive-function",
+      "headless_safe": true,
+      "next_step": "Follow site existing static metadata/include conventions, with a plain HTML fallback and categories by patient need; do not implement the future search-bar redesign.",
+      "notes": [
+        "Ensure generator deterministic, output excludes nonverified placements, no required JS, contrast and keyboard focus, EN/ES label clarity, no language flag emoji.",
+        "Follow Issue #17 and static-site README; use provisional hub/help/ path only if consistent with current URL scheme; adjust paths on this work item with evidence before changing them.",
+        "After s1 merges, consume data/kidney-resource-placements.json; it is not yet present on main and therefore is deliberately not in files_to_read."
+      ]
+    },
+    {
+      "id": "site-kidney-directory-s4",
+      "parent": "site-kidney-directory",
+      "title": "Connect help pages from both homepages and Kidney Hubs",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 96,
+      "kind": "enable",
+      "depends_on": [
+        "site-kidney-directory-s3"
+      ],
+      "goal": "Make EN/ES directory reachable via existing public site navigation without a new navigation redesign",
+      "check": {
+        "test": "python3 scripts/check_site_integrity.py"
+      },
+      "acceptance": "Both homepage and both Hub entry pages have a clear, same-language link to new directory; sitemap/metadata link integrity checks pass and no old advocacy/event pages are duplicated.",
+      "files_to_read": [
+        "index.html",
+        "es/index.html",
+        "hub/index.html",
+        "es/hub/index.html"
+      ],
+      "allowed_paths": [
+        "index.html",
+        "es/index.html",
+        "hub/index.html",
+        "es/hub/index.html"
+      ],
+      "tests_to_run": [
+        "python3 scripts/check_site_integrity.py"
+      ],
+      "role": "builder",
+      "worker_kind": "page-integration",
+      "headless_safe": true,
+      "next_step": "Update only existing EN/ES homepage + Kidney Hub entry links; use contextual label Help & Support / Ayuda y apoyo. Do not reopen Issue #19 global nav redesign.",
+      "notes": [
+        "Before editing, inspect generated includes and current homepage link patterns; regeneration is part of existing release lane, not an unauthorized extra scope."
+      ]
+    },
+    {
+      "id": "site-kidney-directory-s5",
+      "parent": "site-kidney-directory",
+      "title": "Validate the bilingual resource release and supply evidence",
+      "status": "todo",
+      "owner": "agent",
+      "priority": 95,
+      "kind": "enable",
+      "depends_on": [
+        "site-kidney-directory-s4"
+      ],
+      "goal": "Check source freshness, page accessibility and full static-site integrity; publish only after separate owner approval",
+      "check": {
+        "test": "python3 scripts/check_site_integrity.py"
+      },
+      "acceptance": "Review records exact merged commit, passing unit/integrity/metadata/sitemap/analytics tests and content permission; after approved publication, verifies two live public URLs and link path; report withheld deployment accurately.",
+      "files_to_read": [
+        "CONTRIBUTING.md",
+        "scripts/check_site_integrity.py",
+        "README.md"
+      ],
+      "allowed_paths": [
+        "tests/test_resource_directory_pages.py"
+      ],
+      "tests_to_run": [
+        "python3 scripts/check_site_integrity.py"
+      ],
+      "role": "reviewer",
+      "worker_kind": "release-verification",
+      "headless_safe": false,
+      "next_step": "Read current protected release and public-content boundaries; verify comprehensive CONTRIBUTING checks, independent link sources and dual-language parity.",
+      "notes": [
+        "Public site publication is an owner-gated external action: do not deploy or approve on Tito's behalf based on task-creation authorization.",
+        "Evidence should distinguish checks passed, PR merged, deployment attempted, deployed, and live accepted. A checked resource placement is not an organizational endorsement."
+      ],
+      "headless_why": "Official source and privately confirmed preferred destination checks require an interactive investigator; do not invent support or publication evidence."
+    }
+  ]
+}

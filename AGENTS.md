@@ -12,6 +12,12 @@ This repository is operated by a small human-and-AI team. The goal is useful wor
 - Prefer the smallest end-to-end change that can be used and evaluated. A simple working version beats a speculative framework.
 - Use one branch and one PR per coherent task. Do not create process-only Issues, duplicate checkpoints, or a chain of handoffs for a single outcome.
 
+## Canonical website work list
+
+The website repository's single machine-readable queue is `platform/work-items.json`. Use the platform kit's `platform/kit/work_items.py next` and `platform/kit/claim.py` after the platform kit is adopted; the platform's `tools/backlog.py next --portfolio` is the unified cross-repo view. Every code PR must identify the exact website work item ID. Before the kit is synced, work directly from the canonical JSON on main rather than inventing another task list or an untracked claim.
+
+GitHub Issue #17 is the evidence, scope, discussion and content review record for the kidney directory, **not a parallel task queue**. Research's `resource-page-live` represents the Book Factory's external-promise outcome, **not a second website implementation list**. Split or revise work only in this file using the platform `expand-vague-items` playbook: one test command, bounded paths, source facts, explicit dependencies and headless boundaries.
+
 ## Review and deployment
 
 Normal path for routine, reversible work:
