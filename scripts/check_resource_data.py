@@ -24,8 +24,8 @@ PRIVATE_FIELDS = {
     "recipient", "crm_id", "gmail_id", "person_id", "private_notes", "correspondence",
     "endorsement", "partner", "partnership", "approved_by",
 }
-FORBIDDEN_CLAIMS = re.compile(r"\\b(endorse[sd]?|official partner|partnered with|"
-                              r"affiliated with|sponsor(?:ed|ship)?|recommended by)\\b", re.I)
+FORBIDDEN_CLAIMS = re.compile(r"\b(endorse[sd]?|official partner|partnered with|"
+                              r"affiliated with|sponsor(?:ed|ship)?|recommended by)\b", re.I)
 
 
 def _url(value: object) -> bool:
@@ -40,7 +40,7 @@ def _url(value: object) -> bool:
 
 
 def _date(value: object) -> bool:
-    if not isinstance(value, str) or not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", value):
+    if not isinstance(value, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
         return False
     try:
         return date.fromisoformat(value) <= date.today()
