@@ -8,7 +8,9 @@
       "owner": "agent",
       "priority": 100,
       "kind": "enable",
-      "depends_on": [],
+      "depends_on": [
+        "site-kidney-directory-s5"
+      ],
       "goal": "Publish accessible verified EN/ES help pages with discoverable links from existing Kidney Hub",
       "check": {
         "steps_done": true
