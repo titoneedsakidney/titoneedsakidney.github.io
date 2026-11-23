@@ -1,0 +1,332 @@
+{
+  "schema": "kidney-resource-placements-v1",
+  "organizations": [
+    {
+      "organization_id": "nkf",
+      "name": "National Kidney Foundation",
+      "official_url": "https://www.kidney.org/"
+    },
+    {
+      "organization_id": "akf",
+      "name": "American Kidney Fund",
+      "official_url": "https://www.kidneyfund.org/"
+    },
+    {
+      "organization_id": "igan",
+      "name": "IgA Nephropathy Foundation",
+      "official_url": "https://igan.org/"
+    },
+    {
+      "organization_id": "hrsa",
+      "name": "Health Resources and Services Administration",
+      "official_url": "https://www.hrsa.gov/"
+    },
+    {
+      "organization_id": "rsn",
+      "name": "Renal Support Network",
+      "official_url": "https://www.rsnhope.org/"
+    },
+    {
+      "organization_id": "kidney-solutions",
+      "name": "Kidney Solutions",
+      "official_url": "https://kidneysolutions.org/"
+    },
+    {
+      "organization_id": "united-way",
+      "name": "United Way 211",
+      "official_url": "https://www.211.org/"
+    },
+    {
+      "organization_id": "waitlist-zero",
+      "name": "Waitlist Zero / End Kidney Deaths Act",
+      "official_url": "https://www.endkidneydeathsact.org/"
+    },
+    {
+      "organization_id": "kidneytexas",
+      "name": "KidneyTexas",
+      "official_url": "https://www.kidneytexas.org/"
+    },
+    {
+      "organization_id": "pkdfree",
+      "name": "PKD-Free Alliance",
+      "official_url": "https://www.pkdfree.org/"
+    }
+  ],
+  "placements": [
+    {
+      "placement_id": "nkf-cares",
+      "organization_id": "nkf",
+      "need": "general_questions",
+      "destination_url": "https://www.kidney.org/treatment-support/cares",
+      "destination_language": "en",
+      "geography": "US online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/treatment-support/cares",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-peers-en",
+      "organization_id": "nkf",
+      "need": "peer_support",
+      "destination_url": "https://www.kidney.org/treatment-support/peers",
+      "destination_language": "en",
+      "geography": "US and Puerto Rico",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.kidney.org/treatment-support/peers",
+      "status": "verified"
+    },
+    {
+      "placement_id": "nkf-peers-es",
+      "organization_id": "nkf",
+      "need": "peer_support",
+      "destination_url": "https://www.kidney.org/es/tratamiento-apoyo/peers",
+      "destination_language": "es",
+      "geography": "US and Puerto Rico",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/es/tratamiento-apoyo/peers",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-dialysis-en",
+      "organization_id": "nkf",
+      "need": "dialysis_education",
+      "destination_url": "https://www.kidney.org/treatment-support/dialysis",
+      "destination_language": "en",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/treatment-support/dialysis",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-dialysis-es",
+      "organization_id": "nkf",
+      "need": "dialysis_education",
+      "destination_url": "https://www.kidney.org/es/tratamiento-apoyo/dialisis",
+      "destination_language": "es",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/es/tratamiento-apoyo/dialisis",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-caregivers-en",
+      "organization_id": "nkf",
+      "need": "caregiver_resources",
+      "destination_url": "https://www.kidney.org/kidney-topics/family-and-caregiver-resources",
+      "destination_language": "en",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/kidney-topics/family-and-caregiver-resources",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-caregivers-es",
+      "organization_id": "nkf",
+      "need": "caregiver_resources",
+      "destination_url": "https://www.kidney.org/es/temas-del-rinon/recursos-para-familias-y-cuidadores",
+      "destination_language": "es",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidney.org/es/temas-del-rinon/recursos-para-familias-y-cuidadores",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "akf-hipp",
+      "organization_id": "akf",
+      "need": "insurance_premiums",
+      "destination_url": "https://www.kidneyfund.org/get-assistance/health-insurance-premium-program",
+      "destination_language": "en",
+      "geography": "US eligibility applies",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.kidneyfund.org/get-assistance/health-insurance-premium-program",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "akf-safety-net",
+      "organization_id": "akf",
+      "need": "treatment_expenses",
+      "destination_url": "https://www.kidneyfund.org/get-assistance/safety-net-grants",
+      "destination_language": "en",
+      "geography": "most US states and territories eligibility applies",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.kidneyfund.org/get-assistance/safety-net-grants",
+      "status": "verified"
+    },
+    {
+      "placement_id": "akf-community-finder",
+      "organization_id": "akf",
+      "need": "local_practical_help",
+      "destination_url": "https://www.kidneyfund.org/get-assistance/community-resource-finder",
+      "destination_language": "en",
+      "geography": "US local",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.kidneyfund.org/get-assistance/community-resource-finder",
+      "status": "verified"
+    },
+    {
+      "placement_id": "igan-guide",
+      "organization_id": "igan",
+      "need": "igan_education",
+      "destination_url": "https://igan.org/iga-nephropathy-guide/",
+      "destination_language": "en",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://igan.org/iga-nephropathy-guide/",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "igan-support",
+      "organization_id": "igan",
+      "need": "igan_peer_support",
+      "destination_url": "https://igan.org/support-options/",
+      "destination_language": "en",
+      "geography": "online",
+      "verified_at": "2026-11-23",
+      "source_url": "https://igan.org/support-options/",
+      "status": "verified"
+    },
+    {
+      "placement_id": "hrsa-process",
+      "organization_id": "hrsa",
+      "need": "transplant_process",
+      "destination_url": "https://www.hrsa.gov/optn/patients/organ-transplants/transplant-process",
+      "destination_language": "en",
+      "geography": "US",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.hrsa.gov/optn/patients/organ-transplants/transplant-process",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "hrsa-team",
+      "organization_id": "hrsa",
+      "need": "transplant_team",
+      "destination_url": "https://www.hrsa.gov/optn/patients/organ-transplants/transplant-team",
+      "destination_language": "en",
+      "geography": "US",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.hrsa.gov/optn/patients/organ-transplants/transplant-team",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "hrsa-living-en",
+      "organization_id": "hrsa",
+      "need": "living_donation",
+      "destination_url": "https://www.hrsa.gov/optn/patients/organ-donation/living-donation",
+      "destination_language": "en",
+      "geography": "US",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.hrsa.gov/optn/patients/organ-donation/living-donation",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "hrsa-living-es",
+      "organization_id": "hrsa",
+      "need": "living_donation",
+      "destination_url": "https://www.hrsa.gov/sites/default/files/hrsa/optn/donacio-n-en-vida.pdf",
+      "destination_language": "es",
+      "geography": "US",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.hrsa.gov/sites/default/files/hrsa/optn/donacio-n-en-vida.pdf",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "hrsa-kidney",
+      "organization_id": "hrsa",
+      "need": "transplant_patient_resources",
+      "destination_url": "https://www.hrsa.gov/optn/patients/resources/kidney",
+      "destination_language": "en",
+      "geography": "US",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.hrsa.gov/optn/patients/resources/kidney",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "rsn-groups",
+      "organization_id": "rsn",
+      "need": "kidney_support_groups",
+      "destination_url": "https://www.rsnhope.org/rsn-events/rsn-zoom-room-meetings/",
+      "destination_language": "en",
+      "geography": "online",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.rsnhope.org/rsn-events/rsn-zoom-room-meetings/",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "kidney-solutions-groups",
+      "organization_id": "kidney-solutions",
+      "need": "transplant_support_groups",
+      "destination_url": "https://kidneysolutions.org/supportgroup/",
+      "destination_language": "en",
+      "geography": "US registration required",
+      "verified_at": "2026-09-02",
+      "source_url": "https://kidneysolutions.org/supportgroup/",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "united-way-211-en",
+      "organization_id": "united-way",
+      "need": "local_practical_help",
+      "destination_url": "https://www.211.org/about-us/your-local-211",
+      "destination_language": "en",
+      "geography": "US local",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.211.org/about-us/your-local-211",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "united-way-211-es",
+      "organization_id": "united-way",
+      "need": "local_practical_help",
+      "destination_url": "https://www.es.211.org/about-us/your-local-211",
+      "destination_language": "es",
+      "geography": "US local",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.es.211.org/about-us/your-local-211",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "waitlist-zero-ekda",
+      "organization_id": "waitlist-zero",
+      "need": "advocacy_information",
+      "destination_url": "https://www.endkidneydeathsact.org/end-kidney-deaths-act-summary",
+      "destination_language": "en",
+      "geography": "US federal",
+      "verified_at": "2026-09-02",
+      "source_url": "https://www.endkidneydeathsact.org/end-kidney-deaths-act-summary",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "kidneytexas-candidate",
+      "organization_id": "kidneytexas",
+      "need": "kidney_support_candidate",
+      "destination_url": "https://www.kidneytexas.org/",
+      "destination_language": "en",
+      "geography": "Texas",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.kidneytexas.org/",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "pkdfree-candidate",
+      "organization_id": "pkdfree",
+      "need": "pkd_support_candidate",
+      "destination_url": "https://www.pkdfree.org/",
+      "destination_language": "en",
+      "geography": "not established",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.pkdfree.org/",
+      "status": "excluded"
+    },
+    {
+      "placement_id": "nkf-serving-texas",
+      "organization_id": "nkf",
+      "need": "regional_kidney_support_candidate",
+      "destination_url": "https://www.kidney.org/offices/nkf-serving-texas",
+      "destination_language": "en",
+      "geography": "Texas",
+      "verified_at": "2026-11-23",
+      "source_url": "https://www.kidney.org/offices/nkf-serving-texas",
+      "status": "excluded"
+    }
+  ]
+}
