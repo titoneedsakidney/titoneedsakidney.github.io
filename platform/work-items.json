@@ -67,7 +67,7 @@
       "id": "site-kidney-directory-s2",
       "parent": "site-kidney-directory",
       "title": "Build a deterministic resource inventory validator",
-      "status": "todo",
+      "status": "done",
       "owner": "agent",
       "priority": 98,
       "kind": "enable",
@@ -94,7 +94,13 @@
       "next_step": "Implement a pure validator and synthetic tests first, no network calls or claim that any source was rechecked.",
       "notes": [
         "Schema fields: organization_id/name/official_url; placement_id/organization_id/need/destination_url/destination_language/geography/verified_at/source_url/status. Separate partner/endorsement from linking permission; no private personal data. Keep code small (<150 lines where reasonable).",
-        "Check conflict with existing data or validators on current main before adding this new helper. Do not invent contact or resource facts."
+        "Check conflict with existing data or validators on current main before adding this new helper. Do not invent contact or resource facts.",
+        "2026-11-23: Offline structural gate merged. It does NOT establish URL liveness or official program eligibility; s1 must verify source data before s3 consumes it."
+      ],
+      "evidence": [
+        "https://github.com/titoneedsakidney/titoneedsakidney.github.io/pull/65",
+        "merge:230aaf759391df9659325f37b6b87a2847b48d80",
+        "CI Validate site run 45210814948 success 2026-11-23; Python tests and static-site checks passed"
       ]
     },
     {
