@@ -23,9 +23,11 @@ class ResourceSeedTests(unittest.TestCase):
         self.assertTrue({"kidneytexas-candidate", "pkdfree-candidate", "nkf-serving-texas"} <= ids)
 
     def test_only_current_official_source_checked_entries_released(self):
-        expected = {"nkf-peers-en", "akf-safety-net", "akf-community-finder", "igan-support"}
+        expected = {"nkf-peers-en", "akf-safety-net", "akf-community-finder", "igan-support",
+                    "nkf-cares", "nkf-peers-es", "nkf-dialysis-en", "nkf-dialysis-es",
+                    "nkf-caregivers-en", "nkf-caregivers-es"}
         self.assertEqual(expected, {p["placement_id"] for p in publishable(self.data)})
-        self.assertTrue(all(p["verified_at"] == "2026-11-23" for p in publishable(self.data)))
+        self.assertTrue(all(p["verified_at"] in {"2026-11-23", "2026-11-24"} for p in publishable(self.data)))
 
     def test_historical_and_candidate_entries_fail_closed(self):
         self.assertTrue(all(p["status"] == "excluded" for p in self.data["placements"]

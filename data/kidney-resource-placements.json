@@ -60,9 +60,9 @@
       "destination_url": "https://www.kidney.org/treatment-support/cares",
       "destination_language": "en",
       "geography": "US online",
-      "verified_at": "2026-09-02",
+      "verified_at": "2026-11-24",
       "source_url": "https://www.kidney.org/treatment-support/cares",
-      "status": "excluded"
+      "status": "verified"
     },
     {
       "placement_id": "nkf-peers-en",
@@ -79,12 +79,12 @@
       "placement_id": "nkf-peers-es",
       "organization_id": "nkf",
       "need": "peer_support",
-      "destination_url": "https://www.kidney.org/es/tratamiento-apoyo/peers",
+      "destination_url": "https://www.kidney.org/es/apoyo-terap%C3%A9utico/Peers",
       "destination_language": "es",
       "geography": "US and Puerto Rico",
-      "verified_at": "2026-09-02",
-      "source_url": "https://www.kidney.org/es/tratamiento-apoyo/peers",
-      "status": "excluded"
+      "verified_at": "2026-11-24",
+      "source_url": "https://www.kidney.org/es/apoyo-terap%C3%A9utico/Peers",
+      "status": "verified"
     },
     {
       "placement_id": "nkf-dialysis-en",
@@ -93,9 +93,9 @@
       "destination_url": "https://www.kidney.org/treatment-support/dialysis",
       "destination_language": "en",
       "geography": "online",
-      "verified_at": "2026-09-02",
+      "verified_at": "2026-11-24",
       "source_url": "https://www.kidney.org/treatment-support/dialysis",
-      "status": "excluded"
+      "status": "verified"
     },
     {
       "placement_id": "nkf-dialysis-es",
@@ -104,9 +104,9 @@
       "destination_url": "https://www.kidney.org/es/tratamiento-apoyo/dialisis",
       "destination_language": "es",
       "geography": "online",
-      "verified_at": "2026-09-02",
+      "verified_at": "2026-11-24",
       "source_url": "https://www.kidney.org/es/tratamiento-apoyo/dialisis",
-      "status": "excluded"
+      "status": "verified"
     },
     {
       "placement_id": "nkf-caregivers-en",
@@ -115,9 +115,9 @@
       "destination_url": "https://www.kidney.org/kidney-topics/family-and-caregiver-resources",
       "destination_language": "en",
       "geography": "online",
-      "verified_at": "2026-09-02",
+      "verified_at": "2026-11-24",
       "source_url": "https://www.kidney.org/kidney-topics/family-and-caregiver-resources",
-      "status": "excluded"
+      "status": "verified"
     },
     {
       "placement_id": "nkf-caregivers-es",
@@ -126,9 +126,9 @@
       "destination_url": "https://www.kidney.org/es/temas-del-rinon/recursos-para-familias-y-cuidadores",
       "destination_language": "es",
       "geography": "online",
-      "verified_at": "2026-09-02",
+      "verified_at": "2026-11-24",
       "source_url": "https://www.kidney.org/es/temas-del-rinon/recursos-para-familias-y-cuidadores",
-      "status": "excluded"
+      "status": "verified"
     },
     {
       "placement_id": "akf-hipp",
