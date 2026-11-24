@@ -1,0 +1,17 @@
+{
+  "schema": "claude-hook-fact-phrases-v1",
+  "note": "Phrases for kit/hook_fact_capture.py, as data. Each is a case-insensitive regex that marks a prompt where Tito may be stating a standing fact or correcting a repeat (audit cluster stated-fact-did-not-stick). Deliberately NOT here: bare 'again', 'always' and 'never', which are in ordinary prompts. A false positive costs one extra line of context; a miss costs a repeated complaint.",
+  "patterns": [
+    "\\bi(?:'ve| have)? (?:said|told you|stated|mentioned)\\b",
+    "\\b(?:multiple|many|several) times\\b",
+    "\\bhow many times\\b",
+    "\\bremember (?:this|that)\\b",
+    "\\bfrom now on\\b",
+    "\\b(?:do not|don'?t|never|stop) (?:include|including|count|counting|mention|mentioning|say|saying|use|using|show|showing)\\b",
+    "\\bthat(?:'s| is) not part of\\b",
+    "\\bi keep (?:telling|saying|asking)\\b",
+    "\\b(?:said|told|asked).{0,24}\\b(?:already|before|yesterday)\\b",
+    "\\b(?:supposed to|we (?:already )?decided)\\b"
+  ],
+  "nudge": "Tito may have just stated a standing fact or corrected a repeat (matched: {phrase!r}). If it changes how a figure, link or message is produced, add or update docs/standing-facts.json in the platform repo in this same turn (record-decision skill), name the code or config that enforces it, and fix any older note that says otherwise, before you answer."
+}

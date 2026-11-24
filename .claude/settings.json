@@ -1,0 +1,73 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tools/ship_pr.sh *)",
+      "Bash(/home/rferblug/automationpc-platform/tools/ship_pr.sh *)",
+      "Bash(python3 platform/kit/claim.py *)",
+      "Bash(python3 platform/kit/work_items.py *)",
+      "Bash(python3 platform/kit/boundary.py *)",
+      "Bash(python3 platform/kit/reason.py *)",
+      "Bash(python3 -m unittest *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git fetch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push -u origin *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr list *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/platform/kit/hook_session_start.py",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/platform/kit/hook_pre_tool_guard.py",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/platform/kit/hook_stop_wording_lint.py",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/platform/kit/hook_fact_capture.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

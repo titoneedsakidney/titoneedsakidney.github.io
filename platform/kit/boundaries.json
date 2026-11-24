@@ -1,0 +1,114 @@
+{
+ "schema": "platform-boundaries-v1",
+ "purpose": "THE list of real boundaries. A worker stops and asks the owner when a rule here matches, and only then. Nothing else is a boundary: if it is not on this list, decide and proceed. No one reasons about what counts; add a rule here (one platform PR) when a new boundary is found. A repo may add its own rules in platform/boundaries.json (same format); it can add, never remove.",
+ "on_match": "Stop that change. Put an ask on the work item (question, recommended action, due date, what happens if he does nothing, link) and work on something else.",
+ "rules": [
+  {
+   "id": "external-action",
+   "what": "Anything that leaves the system toward a person or a company: sending an email or message, submitting a form, creating or changing an account or listing, buying, enrolling, publishing, uploading a manuscript.",
+   "capabilities": [
+    "email.send",
+    "message.send",
+    "form.submit",
+    "account.create",
+    "account.change",
+    "purchase",
+    "enroll",
+    "publish",
+    "upload.public"
+   ],
+   "added_lines": [
+    "smtplib\\.SMTP",
+    "\\.send_message\\(",
+    "users\\.messages\\.send",
+    "/gmail/v1/users/[^\\s\"']+/messages/send",
+    "/drafts/send"
+   ]
+  },
+  {
+   "id": "data-destroy",
+   "what": "Deleting data that cannot be rebuilt from git: a database, a table, a bucket, a volume, backups, the audit log, a recorder or Grist store.",
+   "added_lines": [
+    "\\bDROP\\s+(TABLE|DATABASE|SCHEMA)\\b",
+    "\\bTRUNCATE\\s+TABLE\\b",
+    "docker\\s+volume\\s+(rm|prune)",
+    "influx\\s+(bucket\\s+delete|delete)\\b",
+    "\\brm\\s+-[a-zA-Z]*r[a-zA-Z]*f?\\s+(/srv/data|/var/lib|~/backups|/home/[^\\s]+/backups)",
+    "\\bmkfs\\b",
+    "\\bdd\\s+if=.*\\bof=/dev/"
+   ],
+   "paths": [
+    "backups/*",
+    "*/backups/*",
+    "audit/executor/*"
+   ]
+  },
+  {
+   "id": "credentials",
+   "what": "Creating, revealing, changing or widening a credential, token, key or password of any account, or committing one.",
+   "added_lines": [
+    "-----BEGIN [A-Z ]*PRIVATE KEY-----",
+    "\\bgh[pousr]_[A-Za-z0-9]{30,}",
+    "\\bsk-[A-Za-z0-9_-]{30,}",
+    "\\bxox[baprs]-[A-Za-z0-9-]{20,}",
+    "AKIA[0-9A-Z]{16}"
+   ],
+   "paths": [
+    "*.pem",
+    "*.key",
+    "*secrets.yaml",
+    "*/.env",
+    ".env",
+    "*/credentials/*",
+    "*service-account*.json",
+    "*token*.json"
+   ]
+  },
+  {
+   "id": "permissions",
+   "what": "Who may do what as root or on GitHub: sudoers, users and groups, SSH keys, the executor installer, repository or App permissions.",
+   "added_lines": [
+    "\\busermod\\b",
+    "\\bgpasswd\\b",
+    "\\bvisudo\\b",
+    "NOPASSWD",
+    "authorized_keys"
+   ],
+   "paths": [
+    "executor/bootstrap/*",
+    "*sudoers*",
+    "*/authorized_keys"
+   ]
+  },
+  {
+   "id": "network-dns",
+   "what": "Firewall rules, router or DHCP settings, DNS upstreams, exposing a port or service beyond the LAN, Pi-hole allowlisting or removing a hand-made block.",
+   "added_lines": [
+    "\\b(ufw|iptables|nft)\\s+(allow|delete|-A|-D|add|flush)",
+    "tailscale\\s+(funnel|serve)",
+    "pihole\\s+(allow|-w\\b|--white)",
+    "0\\.0\\.0\\.0:\\d+"
+   ],
+   "paths": []
+  },
+  {
+   "id": "protection-off",
+   "what": "Turning off the things that watch the system: the watchdog, the audit copy, FREEZE handling, the AI review, required checks, this boundary list.",
+   "added_lines": [
+    "systemctl\\s+(--user\\s+)?(disable|mask|stop)\\s+\\S*(watchdog|audit-offhost|pr-reviewer|deploy-verifier)",
+    "continue-on-error:\\s*true"
+   ],
+   "paths": [
+    "kit/boundaries.json",
+    "platform/kit/boundaries.json",
+    "governance/destructive-actions.json"
+   ]
+  },
+  {
+   "id": "live-control",
+   "what": "Changing behaviour that acts on people, property or equipment while live (heating, locks, power, medication or health actions). Each repo lists its own paths in platform/boundaries.json.",
+   "added_lines": [],
+   "paths": []
+  }
+ ]
+}

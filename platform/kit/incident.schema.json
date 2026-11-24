@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "platform incident replay case v1",
+  "description": "One file per incident in a repo's platform/incidents/ folder, named INC-YYYY-MM-DD-slug.json. An incident is something a person noticed before the system did. It is a replay case: the repo's detector (anomaly, learning or verification job) must flag it inside its window, and until it does the incident stays open on a roadmap item. Check: python3 platform/kit/incidents.py check",
+  "required": ["id", "date", "what", "signals", "window", "should_flag", "expected_kind", "detector_status"],
+  "properties": {
+    "id": "INC-YYYY-MM-DD-slug, equal to the file name without .json",
+    "date": "YYYY-MM-DD the incident happened",
+    "what": "one or two plain sentences",
+    "signals": "list of entity ids, files, jobs or pages where the evidence lives",
+    "window": "{start, end} ISO timestamps (Z); the detector must flag inside it",
+    "found_by": "owner | agent | job",
+    "should_flag": "true for a case the detector must catch; false for a known-normal replay (a false-positive guard)",
+    "expected_kind": ["context_surprise", "command_not_followed", "service_failure", "radio", "energy", "other"],
+    "detector_status": ["none", "seatbelt_only", "caught_after_the_fact", "caught_in_time"],
+    "detector": "optional: which job flags it, and when",
+    "seatbelt": "required while detector_status is none or seatbelt_only: the guard shipped so it cannot recur meanwhile (a labelled stop-gap, not the fix)",
+    "item": "required unless detector_status is caught_in_time: the work item id (in this repo's list) the detector work is tracked on"
+  }
+}

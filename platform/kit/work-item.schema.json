@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "platform work items v1",
+  "description": "The common work-item format. A repo's file platform/work-items.json is {\"schema\": \"platform-work-items-v1\", \"items\": [ ... ]}. Same field names as the platform's own backlog so one reader works everywhere.",
+  "item": {
+    "required": [
+      "id",
+      "title",
+      "status",
+      "owner",
+      "priority",
+      "acceptance"
+    ],
+    "properties": {
+      "id": "lowercase letters, digits and hyphens, 3 to 60 characters, unique in the file",
+      "title": "one sentence, at most 200 characters",
+      "status": [
+        "todo",
+        "active",
+        "done",
+        "dropped"
+      ],
+      "owner": [
+        "agent",
+        "tito"
+      ],
+      "priority": "integer 0 to 100; higher is more urgent",
+      "acceptance": "how anyone can check it is done; at least 10 characters",
+      "depends_on": "list of item ids that must be done first",
+      "waiting_on": [
+        "owner",
+        "item",
+        "time",
+        "install",
+        "session"
+      ],
+      "waits_for": "optional: what the item waits for, a string `card:<id>`, `owner:<what>`, `item:<id>`, `time:<date>` or `session:<name>` followed by what it waits for. The hub shows and counts it; a `card:` wait on an unanswered card must never stop dev work, so split the dev part off or list the item in inventory/foyer-allowed.json card_blocks.",
+      "next_step": "one or two sentences, at most 220 characters; required while the item is open and waiting",
+      "evidence": "list of strings: PR numbers, files, receipts",
+      "kind": "free label such as fix, enable, measure",
+      "ask": "optional; when the item needs the owner (owner tito or waiting_on owner): {question, recommended, due (YYYY-MM-DD), default (what the agent assumes after due; null = needs his call), link (http(s) URL or null), steps (optional list of plain step-by-step instructions, at most 12, shown under the row)}. Rendered per product on the hub's owner board.",
+      "allowed_paths": "optional list of globs: the only paths a worker may change for this item (worker rule 4; the builder job rejects a diff outside them)",
+      "files_to_read": "optional list of repo paths a builder should read first (at most 30)",
+      "tests_to_run": "optional list of commands that must pass before the pull request (each a string, run from the repo root)",
+      "rung_hint": [
+        "python",
+        "agent"
+      ],
+      "role": "optional: the worker kind, set by a lead or the planner (shared: builder, investigator, researcher, reviewer, repairer, planner; or one from this repo's platform/roles.json). Without it Python resolves it from `kind` through kit/work-types.json (python3 platform/kit/roles.py resolve ITEM_JSON); a kind that does not say what the hand-back is goes to the planner to be labelled. The model never picks its own role.",
+      "tested_live": {
+        "type": "object",
+        "required": [
+          "date",
+          "receipt"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "receipt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "additionalProperties": false,
+        "description": "The change ran on the real machine: when, and the receipt or observation that proves it. Set on a done item."
+      },
+      "owner_accepted": {
+        "type": "object",
+        "required": [
+          "date",
+          "said"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "said": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "additionalProperties": false,
+        "description": "The owner saw the result and accepted it: when, and what he said (short quote). Set on a done item."
+      }
+    }
+  }
+}

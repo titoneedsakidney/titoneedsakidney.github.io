@@ -1,0 +1,44 @@
+{
+  "schema": "claude-hook-guards-v1",
+  "note": "Rules for kit/hook_pre_tool_guard.py as data. Each rule names the complaint audit cluster it answers (docs/architecture/complaint-audit-2026-10-24.json). A rule only denies; it never changes a command. Add a rule with a test in tools/tests/test_claude_hook_guards.py.",
+  "timezone": "America/New_York",
+  "ha_night": {
+    "cluster": "night-disturbance",
+    "decision": "docs/decisions/2026-10-24-no-ha-restart-while-asleep.json",
+    "hold_from": "22:00",
+    "hold_until": "07:00",
+    "ha_path_prefixes": [
+      "homeassistant/"
+    ],
+    "ship_commands": [
+      "ship_pr.sh",
+      "gh pr merge"
+    ],
+    "reason": "No Home Assistant change is merged between 22:00 and 07:00 America/New_York: every ha_yaml unit restarts HA (2026-10-24 00:02 the lights came on and Tito woke). Hold it and ship after 07:00, or ship with `nomerge` so the PR waits. Override only if Tito said to in this conversation: put CLAUDE_GUARD_ALLOW=ha-night in the command."
+  },
+  "agent_spawn": {
+    "cluster": "spend-and-subagents",
+    "tools": [
+      "Agent",
+      "Task"
+    ],
+    "asked_words": [
+      "subagent",
+      "sub-agent",
+      "sub agent",
+      "use an agent",
+      "use agents",
+      "spawn",
+      "fan out",
+      "fan-out",
+      "in parallel",
+      "workflow",
+      "delegate"
+    ],
+    "reason": "Subagent fan-out burns the usage window (Tito, 2026-10-06). Do the item yourself, serially, or ask Tito first. This guard allows it only when his latest message asks for agents, parallel work or a workflow."
+  },
+  "pkill_f": {
+    "cluster": "self-kill",
+    "reason": "`pkill -f` and `pgrep -f` inside a Bash call match their own command line and kill your own shell. Take a pid from `ps` and kill that, or use the [x] trick in the pattern (for example `pgrep -f '[b]acklog_worker'`)."
+  }
+}
