@@ -1,0 +1,76 @@
+{
+ "schema": "platform-roles-v1",
+ "purpose": "Role cards: what each kind of worker reads, may change, must hand back and when it stops. Python picks the card from the item (its `role`, default builder) and gives it to the model with the item; nobody works out which rules apply. Shared roles live here, once, for every repo. A product adds its own roles in platform/roles.json (same shape); it may add, never redefine a shared id. Not a closed list: a role exists only when it has a different hand-back from the others and real work waiting for it (see justified_by on each card). The releaser card was removed 2026-10-22: releasing is the executor's lane and uses no model, so it is not a worker role. item_role says whether a work item may name this role: only roles that can actually take an item from the work list (builder, investigator; researcher once it has a tool). The others are system roles called by their own consumers.",
+ "roles": [
+  {
+   "id": "builder",
+   "does": "Makes the change one work item describes.",
+   "reads": "the item, its files_to_read, the worker rules",
+   "may_change": "only the item's allowed_paths",
+   "hands_back": "one pull request ending with the item line, tests passing, a short what-and-why",
+   "stops_when": "the acceptance is met, a boundary rule matches, or two attempts failed (then it releases the claim with a reason)",
+   "uses_model": "now",
+   "justified_by": "Most of the work: 368 open agent items resolve to it by kind (enable 174, feature 96, fix 64, build 32, standard 8, adopt 5, replace 2, test 2); 10 more name the role; the headless worker has done 46 CFO PRs (45 merged, 0 reverted). Task types inside it (tests only, new code with tests, a fix with a test that fails on the old code, docs) are judged by the verifier from the files, never chosen by the model.",
+   "item_role": true
+  },
+  {
+   "id": "investigator",
+   "does": "Finds out why something is the way it is and writes the findings down.",
+   "reads": "the item, the files and logs it names, read-only host facts",
+   "may_change": "only its findings file under the item's allowed_paths (default docs/ or the repo's analysis folder)",
+   "hands_back": "findings as data: what was checked, evidence with sources, what is still unknown, proposed work items",
+   "stops_when": "the question in the item is answered or it has listed exactly what evidence is missing",
+   "uses_model": "now",
+   "justified_by": "23 open items name it (ESP stability, BLE heap check, drift and flapping questions); kinds investigation, observe, experiment. The output is different from a builder's (findings as data, no code change), which is why it is not a task type of builder.",
+   "item_role": true
+  },
+  {
+   "id": "researcher",
+   "does": "Gathers facts from outside the system, with sources.",
+   "reads": "public sources, the item's question",
+   "may_change": "only its findings file",
+   "hands_back": "facts with source and date checked, each marked verified, inferred or unknown",
+   "stops_when": "the question is answered or the remaining sources need an account, payment or contact (a boundary)",
+   "uses_model": "later",
+   "justified_by": "5 items name it, 1 more has kind research (facts from outside the system, e.g. UPS sizing sources). Needs a web tool decision before it can use the model; until then a person or the investigator marks the facts it could not get as unknown.",
+   "item_role": false,
+   "item_role_note": "becomes true when the researcher has a web tool"
+  },
+  {
+   "id": "reviewer",
+   "does": "Second eye on a change someone else made.",
+   "reads": "the diff, the item, the worker rules, the boundary list",
+   "may_change": "nothing",
+   "hands_back": "pass or fail, risk, findings with file and reason",
+   "stops_when": "it has a verdict; it never fixes what it reviews",
+   "uses_model": "now",
+   "justified_by": "The verifier's second-model review is a reviewer: a different model than the author, a repo checklist, a pass or fail per rule (replayed on 47 CFO PRs). It hands back a verdict and changes nothing.",
+   "item_role": false,
+   "item_role_note": "a system role: called by the verifier, the scheduler or the planner run, never the answer to 'who works this item'"
+  },
+  {
+   "id": "repairer",
+   "does": "Fixes a failed run or check, or rolls back.",
+   "reads": "the failure's reason code and log, the item that caused it",
+   "may_change": "only the failing piece, inside the original item's allowed_paths",
+   "hands_back": "a pull request that makes the check green, or a rollback with its receipt, and the cause in one sentence",
+   "stops_when": "green again, or the cause is outside its paths (then a new item)",
+   "uses_model": "sometimes",
+   "justified_by": "A red main after a merged worker PR (auto-revert) and a task that failed with a reason code (park it, ask for a hint) are the same job: react to a failure. Mostly Python (git revert, state changes); the model is optional, only to propose a hint or a rewritten acceptance.",
+   "item_role": false,
+   "item_role_note": "a system role: called by the verifier, the scheduler or the planner run, never the answer to 'who works this item'"
+  },
+  {
+   "id": "planner",
+   "does": "Turns the work list into work a worker can take: gives an item its role, splits a coarse item into small test-checkable ones, rewrites an acceptance so it names a test.",
+   "reads": "the work list, the item, its files_to_read, the role cards and work-types.json, the near-miss reasons the worker filter prints",
+   "may_change": "only the work list (platform/work-items.json) through a pull request a lead can read: role, files_to_read, allowed_paths, acceptance, new small items; never source code",
+   "hands_back": "a work-list pull request: each change says why (the filter reason it fixes); items it could not label are listed, not guessed",
+   "stops_when": "every item it was given is labelled, split or listed as needing a person",
+   "uses_model": "now",
+   "justified_by": "100 open agent items cannot be routed by kind alone (carried-from-ledger, measure, no kind) and name no role; 47 home-ops items fail the worker filter only because the acceptance does not say what a test checks; the CFO list has items too coarse for one attempt. Doing this once, as data, is what lets Python repeat the routing 100 times.",
+   "item_role": false,
+   "item_role_note": "a system role: called by the verifier, the scheduler or the planner run, never the answer to 'who works this item'"
+  }
+ ]
+}

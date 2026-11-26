@@ -1,0 +1,18 @@
+{
+  "schema": "platform-ci-reason-codes-v1",
+  "note": "One vocabulary for CI and release output in every repo. The executor has its own, larger catalog (automationpc-platform executor/contract/reason_codes.json); these are the ones a repo's own CI and scripts emit.",
+  "codes": [
+    {"code": "TESTS_FAILED", "result": "failed", "retry": false, "owner_needed": false, "next_action": "agent: read the failing test names in the log, fix the code or the test, push; do not retry the run"},
+    {"code": "VALIDATION_FAILED", "result": "failed", "retry": false, "owner_needed": false, "next_action": "agent: a data file failed its schema or invariant check; the detail names the file; fix the file"},
+    {"code": "GUARD_HOSTED_RUNNER", "result": "refused", "retry": false, "owner_needed": false, "next_action": "agent: a workflow would use a billed hosted runner; use the self-hosted runner label or remove the job"},
+    {"code": "GUARD_SECRET_IN_CHANGE", "result": "refused", "retry": false, "owner_needed": false, "next_action": "agent: a secret-shaped string is in the change; remove it, rotate it if it was ever pushed, never paste it in chat"},
+    {"code": "GUARD_PROTECTED_PATH", "result": "refused", "retry": false, "owner_needed": true, "next_action": "owner: the change touches a protected path; open the PR with the needs-owner-approval label and the owner approves it on GitHub"},
+    {"code": "WORK_ITEM_INVALID", "result": "failed", "retry": false, "owner_needed": false, "next_action": "agent: platform/work-items.json does not match work-item.schema.json; run work_items.py check and fix the named item"},
+    {"code": "CLAIM_HELD", "result": "refused", "retry": true, "owner_needed": false, "next_action": "agent: another worker holds this item; pick a different one with work_items.py next"},
+    {"code": "CHECKS_PENDING", "result": "deferred", "retry": true, "owner_needed": false, "next_action": "wait: required checks have not finished for this commit; retry when they complete"},
+    {"code": "RELEASE_REFUSED", "result": "refused", "retry": false, "owner_needed": false, "next_action": "agent: the release lane refused this commit; its reason code and detail are in the release log; fix the cause"},
+    {"code": "RELEASE_ROLLED_BACK", "result": "rolled_back", "retry": false, "owner_needed": false, "next_action": "agent: the release failed and the previous version was restored; fix the change and release again"},
+    {"code": "OWNER_REVIEW_MISSING", "result": "refused", "retry": true, "owner_needed": true, "next_action": "owner: approve the pull request on GitHub (signed in as the owner); the next run proceeds"},
+    {"code": "UNKNOWN", "result": "failed", "retry": false, "owner_needed": false, "next_action": "agent: an unclassified failure; read the log and add a specific code to the kit if it will happen again"}
+  ]
+}

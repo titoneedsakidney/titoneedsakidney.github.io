@@ -1,0 +1,28 @@
+{
+ "schema": "platform-work-types-v1",
+ "purpose": "How Python finds out which kind of worker an item needs, once, from data. Order: the item's own `role` (set by a lead or the planner) wins; else the item's `kind` through this table; else the item goes to the planner to be labelled. The model never decides its own role and never invents one; a planner's label is a work-list change a lead reads.",
+ "kinds": {
+  "fix": "builder",
+  "feature": "builder",
+  "build": "builder",
+  "enable": "builder",
+  "standard": "builder",
+  "adopt": "builder",
+  "replace": "builder",
+  "test": "builder",
+  "investigation": "investigator",
+  "observe": "investigator",
+  "experiment": "investigator",
+  "investigate": "investigator"
+ },
+ "person_work": [
+  "decision",
+  "decide",
+  "hardware",
+  "delete",
+  "consolidate"
+ ],
+ "person_work_why": "a decision is the owner's, hardware is physical, deletes and consolidations are cautious human calls (a worker may investigate or propose, never do them)",
+ "needs_label": "every other kind (research and review too: the researcher has no tool yet and the reviewer is a system role, so neither can take an item by kind), a missing kind and an unknown kind: measure, carried-from-ledger, tracking, trial, follow-up, platform... The word does not say what the hand-back is, so the planner proposes a role as a work-list change.",
+ "evidence": "open agent items on 2026-10-22: enable 174, feature 96, carried-from-ledger 74, fix 64, build 32, measure 31, none 17, standard 8, decision 6, adopt 5, consolidate 4, hardware 3, delete 3, replace 2, test 2, others 1 each; roles named on items: investigator 23, builder 15, email-watcher 9 (Book Factory's own), researcher 5"
+}

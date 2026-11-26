@@ -1,0 +1,87 @@
+{
+ "forbidden_users": [
+  "rferblug",
+  "home-ops-release",
+  "signal-release",
+  "wardrobe-release",
+  "football-ops-release",
+  "personal-cfo-release",
+  "research-release",
+  "automationpc-platform-release",
+  "gha-runner",
+  "codex",
+  "rferblug"
+ ],
+ "namespaces": {
+  "automationpc-platform": {
+   "root_units": [],
+   "service_users": [
+    "automationpc-platform-svc"
+   ]
+  },
+  "football-ops": {
+   "root_units": [],
+   "service_users": [
+    "football-ops"
+   ]
+  },
+  "home-ops": {
+   "root_units": [
+    "home-ops-wifi-monitor.service"
+   ],
+   "service_users": [
+    "home-ops-svc"
+   ]
+  },
+  "personal-cfo": {
+   "root_units": [],
+   "service_users": [
+    "personal-cfo-svc"
+   ]
+  },
+  "signal-ops": {
+   "root_units": [],
+   "service_users": [
+    "signal-service"
+   ]
+  },
+  "tnk": {
+   "root_units": [],
+   "service_users": []
+  },
+  "wardrobe-ops": {
+   "root_units": [],
+   "service_users": [
+    "wardrobe-ops-svc"
+   ]
+  }
+ },
+ "protected_groups": [
+  "sudo",
+  "docker",
+  "root",
+  "breakglass-admin",
+  "platform-executor-clients"
+ ],
+ "protected_paths": [
+  "/etc/sudoers",
+  "/etc/sudoers.d/*",
+  "/etc/platform-executor/*",
+  "/usr/local/sbin/platform-executor-helper",
+  "/usr/local/lib/platform-executor/*",
+  "/etc/systemd/system/platform-executor*",
+  "/etc/systemd/system/actions.runner.*.service.d/*",
+  "/usr/local/bin/docker",
+  "/usr/local/bin/hostctl",
+  "/etc/pam.d/*",
+  "/etc/ssh/*",
+  "/etc/passwd",
+  "/etc/shadow",
+  "/etc/group",
+  "/etc/gshadow",
+  "/boot/*",
+  "/etc/default/grub",
+  "/var/lib/owner-recovery/*"
+ ],
+ "schema": "platform-unit-lint-rules-v1"
+}

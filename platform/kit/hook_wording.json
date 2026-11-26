@@ -1,0 +1,12 @@
+{
+  "schema": "claude-hook-wording-v1",
+  "note": "Flags for kit/hook_stop_wording_lint.py, as data. WARN-ONLY: the hook logs and never blocks. Promotion to blocking is a separate step that needs the measured false-positive rate (python3 kit/hook_stop_wording_lint.py report (platform/kit/ in a product repo)). Each flag answers a rule Tito set; cluster 'wording' in docs/architecture/complaint-audit-2026-10-24.json.",
+  "flags": {
+    "owner_for_tito": {"rule": "Say Tito, not owner (decision 2026-10-24-tito-is-tito-owner-is-reserved).", "pattern": "\\b(the owner|the owner's|owner approval|owner needs|ask the owner|owner decides)\\b(?! of\\b)"},
+    "command_for_tito": {"rule": "Never hand Tito a gh or ssh command (credential separation).", "pattern": "(?m)^\\s*(\\$\\s*)?(gh\\s|ssh\\s|git\\s+clone\\s+git@|git\\s+push\\s+git@)"},
+    "utc_time": {"rule": "Times in America/New_York with weekday and AM/PM; UTC stays in files.", "pattern": "\\b\\d{1,2}:\\d{2}(:\\d{2})?\\s?(Z|UTC)\\b|\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}"},
+    "tailscale": {"rule": "Do not default to Tailscale; the LAN address works at home (decision 2026-10-23-private-pages-on-the-lan).", "pattern": "(?i)\\btailscale\\b|\\.ts\\.net"}
+  },
+  "length": {"rule": "Short chat; detail in structured files.", "max_prose_lines": 45, "max_chars": 3500},
+  "snippet_chars": 60
+}
