@@ -1,8 +1,8 @@
 {
  "files": {
   "LEAD_BRIEF_TEMPLATE.md": "2505d03a2e82215ea76bbfd9c5e5437a0131290dbea43552f70cdac9d89f76bf",
-  "README.md": "006ad0858ff491ffde499ce237297194dd0d7d3a0a9ccf5833dfeb93f48d7c46",
-  "WORKER_RULES.md": "d2122ef240257b152c53353fe53e59ac61b3de0f9a68374b4568609ec80b625b",
+  "README.md": "1d94280ce5543b6404aa7fbf74144fa6c74bc8167cacf15f3954e23449b9716d",
+  "WORKER_RULES.md": "8e600a6291686c9520cf30751f8cdc3c9d2faf520a361de14061cef78b6da630",
   "boundaries.json": "6143b991970cb637fd1bfbba479f07c6e0bfb81df3060e06e5d5b1e675453cd4",
   "boundary.py": "1250554a602bd1577593b5ea7adba6a8a541467d0bc7d0742312f27a693399ee",
   "check_pr.py": "7574547c080382268b78783b042b3edf16b3c248411076a2f786753daeb29da9",
@@ -13,6 +13,7 @@
   "hook_fact_phrases.json": "8fed7748a8d729907c1aad2c6aefb03a7ed1f147068458b7c6a41c8923e407d0",
   "hook_guards.json": "d4d5317c7e3ee9ccfb95a1c1bf38e266e4cf62a5c0d69eac41f4ba427766c690",
   "hook_pre_tool_guard.py": "4259023101ab7078096208de5ba0e0e1fe59296bdb06768a4853ed7a71e62bca",
+  "hook_question_ledger.py": "d1e0869017a0b0cbcfdd06362bf11cc2f5160e0a29ff703eb48353d5c0fbab5a",
   "hook_session_start.py": "589ce2d04e6307c4df990c7d2d76eb7ef8e247220a02a455657555bf04aa90f9",
   "hook_stop_wording_lint.py": "94204aa176d8c1735e93884ef5bc906e6ef99f1b6420117d28db8b82183b4b06",
   "hook_wording.json": "8e2bf00fab066a2e2b9db6886281fc49088ad37ef8eaa1f8c8ed669184e7148b",
@@ -33,7 +34,7 @@
   "work-types.json": "b135ab6e1a712a9823d26369524456ce692a7ff9d06ec8693867748151d20908",
   "work_items.py": "da3b050138aa52be1e924718450f8246e6b5f6fd508161f158c349c63c80a965"
  },
- "kit_version": "27449fe5eb28",
+ "kit_version": "3c5da2030d83",
  "schema": "platform-kit-manifest-v1",
  "source": "titoneedsakidney/automationpc-platform"
 }
